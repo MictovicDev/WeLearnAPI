@@ -49,7 +49,12 @@ class TutorProfile(models.Model):
     bio = models.TextField()
     banner = models.ImageField(upload_to='tutor_banners/', blank=True, null=True)
     profile_image = models.ImageField(upload_to='tutor_profiles/', blank=True, null=True)
-    subjects = models.ManyToManyField('Subject', blank=True, related_name='tutors')
+    location = models.CharField(max_length=255, blank=True, help_text='City or area for onsite sessions')
+    language = models.CharField(max_length=50, blank=True, help_text='Primary language of instruction')
+    phone_number = models.CharField(max_length=20, blank=True, help_text='Contact number for students')
+    professional_title = models.CharField(max_length=100, blank=True, help_text='e.g. Math Tutor, Physics Instructor')
+    skills = models.JSONField(blank=True, null=True, help_text='List of skills or expertise areas')
+    subjects = models.JSONField(blank=True, null=True, help_text='List of all Subjects')
     hourly_rate = models.DecimalField(max_digits=10, decimal_places=2)
     session_status = models.CharField(
         max_length=20, choices=TeachingMode.choices, default=TeachingMode.ONLINE

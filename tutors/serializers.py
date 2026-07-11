@@ -99,8 +99,20 @@ class TutorProfileWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = TutorProfile
         fields = [
-            'bio', 'subjects', 'session_status', 'experience', 'education',
-            'payment_info', 'hourly_rate'
+            'bio', 
+            'subjects', 
+            'session_status', 
+            'experience', 
+            'education',
+            'location',
+            'profile_image',
+            'banner',
+            'language',
+            'phone_number', 
+            'professional_title',
+            'payment_info',
+            'hourly_rate',
+            'skills',
         ]
 
     def create(self, validated_data):
