@@ -103,7 +103,7 @@ class TutorProfileViewSet(
     mixins.RetrieveModelMixin,
     viewsets.GenericViewSet,
 ):
-    queryset = TutorProfile.objects.filter(is_verified=True).select_related('user').prefetch_related('subjects')
+    queryset = TutorProfile.objects.filter(is_verified=True).select_related('user')
     filterset_class = TutorProfileFilter
     search_fields = ['user__first_name', 'user__last_name', 'bio']
     ordering_fields = ['hourly_rate', 'average_rating', 'total_sessions', 'years_of_experience']

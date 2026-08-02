@@ -83,7 +83,14 @@ class TutorProfileDetailSerializer(serializers.ModelSerializer):
             'id', 'full_name', 'email', 'bio', 'subjects', 'session_status',
             'experience', 'education', 'payment_info',
             'hourly_rate', 'average_rating', 'total_sessions',
-            'is_verified', 'verification_status',
+            'is_verified', 'verification_status', 'location',
+            'profile_image',
+            'banner',
+            'language',
+            'phone_number', 
+            'professional_title',
+            'skills',
+            'language'
         ]
         read_only_fields = ['is_verified', 'verification_status', 'average_rating', 'total_sessions']
 
