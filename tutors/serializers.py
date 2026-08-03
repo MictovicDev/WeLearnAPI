@@ -105,22 +105,7 @@ class TutorProfileWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TutorProfile
-        fields = [
-            'bio', 
-            'subjects', 
-            'session_status', 
-            'experience', 
-            'education',
-            'location',
-            'profile_image',
-            'banner',
-            'language',
-            'phone_number', 
-            'professional_title',
-            'payment_info',
-            'hourly_rate',
-            'skills',
-        ]
+        fields = '__all__'
 
     def create(self, validated_data):
         payment_data = validated_data.pop('payment_info', None)
