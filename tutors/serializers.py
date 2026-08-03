@@ -61,10 +61,7 @@ class TutorProfileListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TutorProfile
-        fields = [
-            'id', 'full_name', 'bio', 'subjects', 'session_status',
-            'hourly_rate', 'average_rating', 'total_sessions'
-        ]
+        fields = '__all__'
 
     @extend_schema_field(serializers.CharField())
     def get_full_name(self, obj):
