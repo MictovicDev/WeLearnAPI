@@ -8,34 +8,11 @@ class BookingCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = [
-            'id', 'tutor_profile', 'subject', 'session_type',
-            'scheduled_date', 'start_time', 'end_time', 'notes',
-            'location_address',
+            'id', 'tutor_profile', 'subject', 'title', 'notes',
         ]
 
-    def validate(self, attrs):
-        if attrs.get('start_time') and attrs.get('end_time'):
-            if attrs['start_time'] >= attrs['end_time']:
-                raise serializers.ValidationError('start_time must be before end_time.')
-        tutor_profile = attrs.get('tutor_profile')
-        session_type = attrs.get('session_type')
-        if tutor_profile and session_type:
-            mode = tutor_profile.teaching_mode
-            if session_type == Booking.SessionType.ONLINE and mode == 'onsite':
-                raise serializers.ValidationError('This tutor only offers onsite sessions.')
-            if session_type == Booking.SessionType.ONSITE and mode == 'online':
-                raise serializers.ValidationError('This tutor only offers online sessions.')
-        return attrs
-
     def create(self, validated_data):
-        student = self.context['request'].user
-        tutor = validated_data['tutor_profile']
-        # Compute amount based on duration and hourly rate
-        start = validated_data['start_time']
-        end = validated_data['end_time']
-        duration_hours = (end.hour * 60 + end.minute - start.hour * 60 - start.minute) / 60
-        validated_data['total_amount'] = tutor.hourly_rate * duration_hours
-        validated_data['student'] = student
+        validated_data['student'] = self.context['request'].user
         return super().create(validated_data)
 
 
