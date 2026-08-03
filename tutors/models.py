@@ -55,7 +55,7 @@ class TutorProfile(models.Model):
     professional_title = models.CharField(max_length=100, blank=True, help_text='e.g. Math Tutor, Physics Instructor')
     skills = models.JSONField(blank=True, null=True, help_text='List of skills or expertise areas')
     subjects = models.JSONField(blank=True, null=True, help_text='List of all Subjects')
-    hourly_rate = models.DecimalField(max_digits=10, decimal_places=2)
+    hourly_rate = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, help_text='Hourly rate in USD')
     session_status = models.CharField(
         max_length=20, choices=TeachingMode.choices, default=TeachingMode.ONLINE
     )
