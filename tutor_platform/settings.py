@@ -97,8 +97,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "weleardb",
-        "USER": "postgres",          # Change if your PostgreSQL username is different
-        "PASSWORD": os.environ.get("DB_PASSWORD", ""),  # Keep password in environment variable
+        "USER": "mike",          # Change if your PostgreSQL username is different
+        "PASSWORD": os.environ.get("DB_PASSWORD", "hellopass123"),  # Keep password in environment variable
         "HOST": "localhost",
         "PORT": "5432",
     }
