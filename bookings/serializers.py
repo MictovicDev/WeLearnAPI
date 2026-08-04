@@ -2,18 +2,63 @@ from rest_framework import serializers
 from .models import Booking
 from tutors.serializers import TutorProfileListSerializer, SubjectSerializer
 from users.serializers import UserSerializer
+from datetime import date, datetime
+from decimal import Decimal
+
+
 
 
 class BookingCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = [
-            'id', 'tutor_profile', 'subject', 'title', 'notes',
-        ]
+        fields = ['tutor_profile', 'subject', 'session_type', 'scheduled_date', 'start_time', 'end_time', 'notes']
+
+    def validate(self, attrs):
+        tutor_profile = attrs['tutor_profile']
+        scheduled_date = attrs['scheduled_date']
+        start_time = attrs['start_time']
+        end_time = attrs['end_time']
+
+        if start_time >= end_time:
+            raise serializers.ValidationError('end_time must be after start_time.')
+
+        day_of_week = scheduled_date.weekday()  # Monday=0, matches Availability.DayOfWeek
+
+        slot = tutor_profile.availability_slots.filter(
+            day_of_week=day_of_week,
+            is_blocked=False,
+            start_time__lte=start_time,
+            end_time__gte=end_time,
+        ).first()
+
+        if not slot:
+            raise serializers.ValidationError(
+                'Tutor is not available at the requested day and time.'
+            )
+
+        session_type = attrs.get('session_type')
+        if session_type and tutor_profile.teaching_mode not in ('both', session_type):
+            raise serializers.ValidationError(
+                f"Tutor only supports {tutor_profile.teaching_mode} sessions."
+            )
+
+        attrs['total_amount'] = self._compute_amount(tutor_profile, start_time, end_time)
+        return attrs
+
+    def _compute_amount(self, tutor_profile, start_time, end_time):
+        duration_hours = (
+            datetime.combine(date.min, end_time) - datetime.combine(date.min, start_time)
+        ).total_seconds() / 3600
+        return round(tutor_profile.hourly_rate * Decimal(str(duration_hours)), 2)
 
     def create(self, validated_data):
         validated_data['student'] = self.context['request'].user
         return super().create(validated_data)
+
+
+
+
+
 
 
 class BookingListSerializer(serializers.ModelSerializer):
