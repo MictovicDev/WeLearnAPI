@@ -104,17 +104,17 @@ class TutorVerificationDocument(models.Model):
 
 
 class Availability(models.Model):
-    class DayOfWeek(models.IntegerChoices):
-        MONDAY = 0, 'Monday'
-        TUESDAY = 1, 'Tuesday'
-        WEDNESDAY = 2, 'Wednesday'
-        THURSDAY = 3, 'Thursday'
-        FRIDAY = 4, 'Friday'
-        SATURDAY = 5, 'Saturday'
-        SUNDAY = 6, 'Sunday'
-
+    class DayOfWeek(models.TextChoices):
+        MONDAY = 'Monday', 'Monday'
+        TUESDAY = 'Tuesday', 'Tuesday'
+        WEDNESDAY = 'Wednesday', 'Wednesday'
+        THURSDAY = 'Thursday', 'Thursday'
+        FRIDAY = 'Friday', 'Friday'
+        SATURDAY = 'Saturday', 'Saturday'
+        SUNDAY = 'Sunday', 'Sunday'
+        
     tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, related_name='availability_slots')
-    day_of_week = models.IntegerField(choices=DayOfWeek.choices)
+    day_of_week = models.CharField(max_length=9, choices=DayOfWeek.choices)
     start_time = models.TimeField()
     end_time = models.TimeField()
     is_booked = models.BooleanField(default=False, help_text='Block this slot as unavailable')
