@@ -33,17 +33,30 @@ class TutorVerificationActionSerializer(serializers.Serializer):
 
 
 
-class AvailabilitySerializer(serializers.ModelSerializer):
-    day_display = serializers.CharField(source='get_day_of_week_display', read_only=True)
+class AvailabilityListSerializer(serializers.ListSerializer):
+    def validate(self, data):
+        seen = set()
+        for item in data:
+            key = (item['day_of_week'], item['start_time'])
+            if key in seen:
+                raise serializers.ValidationError(
+                    f"Duplicate slot for day {item['day_of_week']} at {item['start_time']} in payload."
+                )
+            seen.add(key)
+        return data
 
+
+class AvailabilitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Availability
-        fields = ['id', 'day_of_week', 'day_display', 'start_time', 'end_time', 'is_blocked']
+        fields = ['id', 'day_of_week', 'start_time', 'end_time', 'is_booked']
+        list_serializer_class = AvailabilityListSerializer
 
     def validate(self, attrs):
-        if attrs.get('start_time') and attrs.get('end_time'):
-            if attrs['start_time'] >= attrs['end_time']:
-                raise serializers.ValidationError('start_time must be before end_time.')
+        start = attrs.get('start_time', getattr(self.instance, 'start_time', None))
+        end = attrs.get('end_time', getattr(self.instance, 'end_time', None))
+        if start and end and start >= end:
+            raise serializers.ValidationError('end_time must be after start_time.')
         return attrs
 
 

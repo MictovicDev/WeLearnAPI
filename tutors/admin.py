@@ -2,6 +2,9 @@ from django.contrib import admin
 from .models import Subject, TutorProfile, TutorCertification, TutorVerificationDocument, Availability
 
 
+
+admin.site.register(Availability)
+
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
     list_display = ['name', 'created_at']

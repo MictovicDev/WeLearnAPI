@@ -117,7 +117,7 @@ class Availability(models.Model):
     day_of_week = models.IntegerField(choices=DayOfWeek.choices)
     start_time = models.TimeField()
     end_time = models.TimeField()
-    is_blocked = models.BooleanField(default=False, help_text='Block this slot as unavailable')
+    is_booked = models.BooleanField(default=False, help_text='Block this slot as unavailable')
 
     class Meta:
         ordering = ['day_of_week', 'start_time']

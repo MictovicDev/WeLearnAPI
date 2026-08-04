@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiParameter
-
+from django.db import transaction
 from .models import Subject, TutorProfile, TutorCertification, TutorVerificationDocument, Availability
 from .serializers import (
     SubjectSerializer,
@@ -97,6 +97,15 @@ class SubjectViewSet(
         request=TutorVerificationActionSerializer,
         responses={200: TutorProfileDetailSerializer},
     ),
+    availability_bulk=extend_schema(
+    summary='Replace all availability slots',
+    description=(
+        'Tutor only. Replaces the tutor\'s entire availability schedule in one request. '
+        'Existing slots not present in the payload are deleted, all submitted slots are recreated.'
+    ),
+    request=AvailabilitySerializer(many=True),
+    responses={200: AvailabilitySerializer(many=True)},
+),
 )
 class TutorProfileViewSet(
     mixins.ListModelMixin,
@@ -118,7 +127,11 @@ class TutorProfileViewSet(
 
     def get_permissions(self):
         public_actions = ['list', 'retrieve']
-        tutor_actions = ['create_my_profile', 'my_profile', 'upload_verification', 'upload_certification']
+        tutor_actions = [
+            'create_my_profile', 'my_profile', 'upload_verification',
+            'upload_certification', 'availability', 'availability_detail',
+            'availability_bulk',
+        ]
         admin_actions = ['verify']
         if self.action in public_actions:
             return [AllowAny()]
@@ -181,6 +194,54 @@ class TutorProfileViewSet(
             profile.is_verified = False
         profile.save(update_fields=['verification_status', 'is_verified'])
         return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
+
+
+    @action(methods=['GET', 'POST'], detail=False, url_path='my-profile/availability')
+    def availability(self, request):
+        profile = request.user.tutor_profile
+        if request.method == 'GET':
+            slots = profile.availability_slots.all()
+            return Response(AvailabilitySerializer(slots, many=True).data)
+        serializer = AvailabilitySerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(tutor=profile)
+        return Response(serializer.data, status=201)
+
+    @action(methods=['PATCH', 'DELETE'], detail=False, url_path='my-profile/availability/(?P<slot_id>[^/.]+)')
+    def availability_detail(self, request, slot_id=None):
+        profile = request.user.tutor_profile
+        try:
+            slot = profile.availability_slots.get(pk=slot_id)
+        except Availability.DoesNotExist:
+            return Response({'detail': 'Availability slot not found.'}, status=404)
+
+        if request.method == 'DELETE':
+            slot.delete()
+            return Response(status=204)
+
+        serializer = AvailabilitySerializer(slot, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+    @action(methods=['PUT'], detail=False, url_path='my-profile/availability/bulk')
+    def availability_bulk(self, request):
+        profile = request.user.tutor_profile
+        serializer = AvailabilitySerializer(data=request.data, many=True)
+        serializer.is_valid(raise_exception=True)
+
+        with transaction.atomic():
+            profile.availability_slots.all().delete()
+            slots = [
+                Availability(tutor=profile, **item)
+                for item in serializer.validated_data
+            ]
+            Availability.objects.bulk_create(slots)
+
+        return Response(
+            AvailabilitySerializer(profile.availability_slots.all(), many=True).data,
+            status=200,
+        )
 
 
 @extend_schema(tags=['Tutors'])

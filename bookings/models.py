@@ -30,7 +30,7 @@ class Booking(models.Model):
         null=True,
         related_name='bookings'
     )
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, blank=True, null=True, help_text='Optional title for the session')
     session_type = models.CharField(max_length=20, choices=SessionType.choices, blank=True)
     scheduled_date = models.DateField(null=True, blank=True)
     start_time = models.TimeField(null=True, blank=True)
