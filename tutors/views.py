@@ -18,7 +18,9 @@ from .serializers import (
 from .filters import TutorProfileFilter
 from .permissions import IsTutor, IsTutorOwner
 from users.permissions import IsAdmin
+import logging
 
+logger = logging.getLogger('tutor_platform')
 
 @extend_schema(tags=['Tutors'])
 @extend_schema_view(
@@ -234,7 +236,7 @@ class TutorProfileViewSet(
 
         if request.method == 'GET':
             return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
-        print(request.data)
+        logger.info(request.data)
         availability_data = request.data.pop('availability', None) if hasattr(request.data, 'pop') else None
 
         serializer = TutorProfileWriteSerializer(profile, data=request.data, partial=True, context={'request': request})

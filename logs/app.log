@@ -1,0 +1,3 @@
+2026-08-04 19:32:49,260 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:32:55,877 [INFO] tutor_platform: {'availability': [{'day_of_week': 'Monday', 'start_time': '09:00:00', 'end_time': '11:00:00', 'is_booked': False}, {'day_of_week': 'Tuesday', 'start_time': '13:00:00', 'end_time': '16:00:00', 'is_booked': False}, {'day_of_week': 'Monday', 'start_time': '08:00:00', 'end_time': '11:00:00', 'is_booked': False}]}
+2026-08-04 19:32:55,922 [INFO] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 200 728
