@@ -118,7 +118,7 @@ class TutorProfileWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TutorProfile
-        fields = '__all__'
+        exclude = ['user']
 
     def create(self, validated_data):
         payment_data = validated_data.pop('payment_info', None)

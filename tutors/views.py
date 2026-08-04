@@ -224,24 +224,40 @@ class TutorProfileViewSet(
         serializer.save()
         return Response(serializer.data)
 
-    @action(methods=['PUT'], detail=False, url_path='my-profile/availability/bulk')
-    def availability_bulk(self, request):
-        profile = request.user.tutor_profile
-        serializer = AvailabilitySerializer(data=request.data, many=True)
+
+    @action(methods=['GET', 'PATCH'], detail=False, url_path='my-profile')
+    def my_profile(self, request):
+        try:
+            profile = request.user.tutor_profile
+        except TutorProfile.DoesNotExist:
+            return Response({'detail': 'Profile not found. Create one first.'}, status=404)
+
+        if request.method == 'GET':
+            return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
+
+        availability_data = request.data.pop('availability', None) if hasattr(request.data, 'pop') else None
+
+        serializer = TutorProfileWriteSerializer(profile, data=request.data, partial=True, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
-        with transaction.atomic():
-            profile.availability_slots.all().delete()
-            slots = [
-                Availability(tutor=profile, **item)
-                for item in serializer.validated_data
-            ]
-            Availability.objects.bulk_create(slots)
+        availability_serializer = None
+        if availability_data is not None:
+            availability_serializer = AvailabilitySerializer(data=availability_data, many=True)
+            availability_serializer.is_valid(raise_exception=True)
 
-        return Response(
-            AvailabilitySerializer(profile.availability_slots.all(), many=True).data,
-            status=200,
-        )
+        with transaction.atomic():
+            serializer.save()
+            if availability_serializer is not None:
+                profile.availability_slots.all().delete()
+                slots = [
+                    Availability(tutor=profile, **item)
+                    for item in availability_serializer.validated_data
+                ]
+                Availability.objects.bulk_create(slots)
+
+        return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
+
+
 
 
 @extend_schema(tags=['Tutors'])
