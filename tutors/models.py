@@ -21,7 +21,12 @@ class PayMentInfo(models.Model):
         BANK_TRANSFER = 'bank_transfer', 'Bank Transfer'
         PAYPAL = 'paypal', 'PayPal'
         STRIPE = 'stripe', 'Stripe'
-
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='payment_info',
+        blank=True, null=True
+    )
     method = models.CharField(max_length=20, choices=PaymentMethod.choices)
     bank_name = models.CharField(max_length=100, blank=True, null=True)
     account_number = models.CharField(max_length=50, blank=True, null=True)
@@ -112,7 +117,7 @@ class Availability(models.Model):
         FRIDAY = 'Friday', 'Friday'
         SATURDAY = 'Saturday', 'Saturday'
         SUNDAY = 'Sunday', 'Sunday'
-        
+
     tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, related_name='availability_slots')
     day_of_week = models.CharField(max_length=9, choices=DayOfWeek.choices)
     start_time = models.TimeField()

@@ -1,3 +1,19 @@
 2026-08-04 19:32:49,260 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2026-08-04 19:32:55,877 [INFO] tutor_platform: {'availability': [{'day_of_week': 'Monday', 'start_time': '09:00:00', 'end_time': '11:00:00', 'is_booked': False}, {'day_of_week': 'Tuesday', 'start_time': '13:00:00', 'end_time': '16:00:00', 'is_booked': False}, {'day_of_week': 'Monday', 'start_time': '08:00:00', 'end_time': '11:00:00', 'is_booked': False}]}
 2026-08-04 19:32:55,922 [INFO] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 200 728
+2026-08-04 19:35:36,548 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:35:46,261 [WARNING] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 400 77
+2026-08-04 19:36:42,274 [ERROR] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 500 145192
+2026-08-04 19:37:57,446 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\serializers.py changed, reloading.
+2026-08-04 19:38:00,097 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:38:04,848 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-04 19:38:06,336 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:38:08,099 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-04 19:38:09,520 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:39:20,134 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:39:30,061 [INFO] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 200 1104
+2026-08-04 19:45:54,549 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\views.py changed, reloading.
+2026-08-04 19:45:56,182 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:45:59,810 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\views.py changed, reloading.
+2026-08-04 19:46:01,024 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 19:46:10,723 [INFO] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 200 1104

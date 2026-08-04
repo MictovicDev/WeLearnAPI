@@ -1,0 +1,42 @@
+2026-08-04 19:36:42,266 [ERROR] django.request: Internal Server Error: /api/v1/tutors/my-profile/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\views.py", line 251, in my_profile
+    serializer.save()
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 205, in save
+    self.instance = self.update(self.instance, validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\serializers.py", line 145, in update
+    payment_obj = PayMentInfo.objects.create(user=instance.user, **payment_data)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 658, in create
+    obj = self.model(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: PayMentInfo() got unexpected keyword arguments: 'user'
+2026-08-04 19:36:42,274 [ERROR] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 500 145192

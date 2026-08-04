@@ -237,7 +237,8 @@ class TutorProfileViewSet(
         if request.method == 'GET':
             return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
         logger.info(request.data)
-        availability_data = request.data.pop('availability', None) if hasattr(request.data, 'pop') else None
+        data = request.data.copy()  # Make a mutable copy of the request data
+        availability_data = data.pop('availability', None) if hasattr(request.data, 'pop') else None
 
         serializer = TutorProfileWriteSerializer(profile, data=request.data, partial=True, context={'request': request})
         serializer.is_valid(raise_exception=True)
