@@ -93,6 +93,7 @@ class BookingViewSet(
 
     def get_permissions(self):
         if self.action == 'create':
+            print(IsStudent())
             return [IsAuthenticated(), IsStudent()]
         if self.action == 'respond':
             return [IsAuthenticated(), IsTutor()]

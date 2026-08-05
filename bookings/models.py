@@ -24,16 +24,17 @@ class Booking(models.Model):
         on_delete=models.CASCADE,
         related_name='bookings'
     )
-    subject = models.ForeignKey(
-        'tutors.Subject',
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name='bookings'
-    )
+    subject = models.CharField(max_length=100, help_text='Subject for the tutoring session', blank=True, null=True)
     title = models.CharField(max_length=255, blank=True, null=True, help_text='Optional title for the session')
     session_type = models.CharField(max_length=20, choices=SessionType.choices, blank=True)
-    scheduled_date = models.DateField(null=True, blank=True)
+    scheduled_date = models.DateField(auto_now_add=True, null=True, blank=True)
     start_time = models.TimeField(null=True, blank=True)
+    availability_slot = models.ForeignKey(
+        'tutors.Availability',
+        on_delete=models.SET_NULL,
+        related_name='bookings',
+        null=True, blank=True
+    )
     end_time = models.TimeField(null=True, blank=True)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
     notes = models.TextField(blank=True, help_text='Student notes or special requests')

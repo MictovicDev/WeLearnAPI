@@ -40,3 +40,405 @@ Traceback (most recent call last):
     raise TypeError(
 TypeError: PayMentInfo() got unexpected keyword arguments: 'user'
 2026-08-04 19:36:42,274 [ERROR] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 500 145192
+2026-08-05 20:11:55,779 [ERROR] django.request: Internal Server Error: /api/v1/bookings
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\utils\deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/bookings/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2026-08-05 20:11:55,794 [ERROR] django.server: "POST /api/v1/bookings HTTP/1.1" 500 84641
+2026-08-05 20:23:00,322 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 106, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 459, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py", line 26, in validate
+    if slot.tutor_profile_id != tutor_profile.id:
+       ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Availability' object has no attribute 'tutor_profile_id'
+2026-08-05 20:23:00,345 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 127269
+2026-08-05 20:33:32,069 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 106, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 459, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py", line 24, in validate
+    scheduled_date = attrs['scheduled_date']
+                     ~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'scheduled_date'
+2026-08-05 20:33:32,074 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 126335
+2026-08-05 20:34:25,153 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 106, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 459, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py", line 25, in validate
+    if slot.tutor_profile.id != tutor_profile.id:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Availability' object has no attribute 'tutor_profile'
+2026-08-05 20:34:25,183 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 126591
+2026-08-05 20:35:47,463 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 106, in create
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 459, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py", line 33, in validate
+    if session_type and tutor_profile.teaching_mode not in ('both', session_type):
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TutorProfile' object has no attribute 'teaching_mode'. Did you mean: 'TeachingMode'?
+2026-08-05 20:35:47,470 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 126889
+2026-08-05 20:38:44,105 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 107, in create
+    booking = serializer.save()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py", line 45, in create
+    booking = Booking.objects.create(availability_slot=slot, **validated_data)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 658, in create
+    obj = self.model(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\base.py", line 567, in __init__
+    raise TypeError(
+TypeError: Booking() got unexpected keyword arguments: 'availability_slot'
+2026-08-05 20:38:44,134 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 136827
+2026-08-05 20:42:47,341 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "student_id" of relation "bookings_booking" violates not-null constraint
+DETAIL:  Failing row contains (1, online, 2026-08-05, 08:00:00, 11:00:00, pending, First session, need help with calculus, , , , null, 2026-08-05 19:42:46.251627+00, 2026-08-05 19:42:46.251627+00, null, Mathematics, 1, null, 34).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 107, in create
+    booking = serializer.save()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py", line 45, in create
+    booking = Booking.objects.create(availability_slot=slot, **validated_data)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 660, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 1810, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "student_id" of relation "bookings_booking" violates not-null constraint
+DETAIL:  Failing row contains (1, online, 2026-08-05, 08:00:00, 11:00:00, pending, First session, need help with calculus, , , , null, 2026-08-05 19:42:46.251627+00, 2026-08-05 19:42:46.251627+00, null, Mathematics, 1, null, 34).
+
+2026-08-05 20:42:47,404 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 213617
+2026-08-05 20:43:58,685 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\fields.py", line 104, in get_attribute
+    instance = getattr(instance, attr)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 108, in create
+    return Response(BookingDetailSerializer(booking, context={'request': request}).data, status=201)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 585, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 552, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 539, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `name` on serializer `SubjectSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `str` instance.
+Original exception text was: 'str' object has no attribute 'name'.
+2026-08-05 20:43:58,712 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 158279
+2026-08-05 20:48:12,359 [ERROR] django.request: Internal Server Error: /api/v1/bookings/
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py", line 108, in create
+    return Response(BookingDetailSerializer(booking, context={'request': request}).data, status=201)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 585, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 537, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 398, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 387, in fields
+    fields[key] = value
+    ~~~~~~^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\utils\serializer_helpers.py", line 165, in __setitem__
+    field.bind(field_name=key, parent=self.serializer)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\fields.py", line 358, in bind
+    assert self.source != field_name, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: It is redundant to specify `source='subject'` on field 'CharField' in serializer 'BookingDetailSerializer', because it is the same as the field name. Remove the `source` keyword argument.
+2026-08-05 20:48:12,383 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 151941

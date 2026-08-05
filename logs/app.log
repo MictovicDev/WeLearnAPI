@@ -31,3 +31,170 @@
 2026-08-05 15:40:12,741 [WARNING] django.server: "GET /api/v1/tutors/ HTTP/1.1" 401 176
 2026-08-05 15:40:35,292 [INFO] django.server: "GET /api/v1/tutors/ HTTP/1.1" 200 746
 2026-08-05 15:40:48,609 [INFO] django.server: "GET /api/v1/tutors/1/ HTTP/1.1" 200 1104
+2026-08-05 15:44:12,835 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 15:44:21,696 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 15:45:10,898 [WARNING] django.server: "GET /api/v1/tutors/book/ HTTP/1.1" 404 23
+2026-08-05 15:45:22,198 [WARNING] django.server: "GET /api/v1/tutors/bookings/ HTTP/1.1" 404 23
+2026-08-05 15:45:37,154 [INFO] django.server: "GET /api/v1/bookings/ HTTP/1.1" 200 52
+2026-08-05 15:45:46,902 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-05 15:46:44,350 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 707
+2026-08-05 15:46:53,207 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 401 176
+2026-08-05 19:48:29,800 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 19:55:43,516 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:06:49,162 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\serializers.py changed, reloading.
+2026-08-05 20:06:54,552 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:07:04,878 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:07:07,383 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:07:16,720 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:07:20,141 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:07:23,860 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:07:26,990 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:10:50,142 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 709
+2026-08-05 20:11:55,794 [ERROR] django.server: "POST /api/v1/bookings HTTP/1.1" 500 84641
+2026-08-05 20:12:05,936 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-05 20:12:29,557 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 707
+2026-08-05 20:12:48,776 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-05 20:13:23,393 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-05 20:13:54,300 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-05 20:13:58,458 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:14:26,607 [INFO] django.server: "GET /admin/ HTTP/1.1" 302 0
+2026-08-05 20:14:28,303 [INFO] django.server: "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4178
+2026-08-05 20:14:29,228 [INFO] django.server: "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+2026-08-05 20:14:29,254 [INFO] django.server: "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+2026-08-05 20:14:29,401 [INFO] django.server: "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+2026-08-05 20:14:29,558 [INFO] django.server: "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+2026-08-05 20:14:29,576 [INFO] django.server: "GET /static/admin/css/login.css HTTP/1.1" 200 958
+2026-08-05 20:14:29,583 [INFO] django.server: "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+2026-08-05 20:14:29,673 [INFO] django.server: "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+2026-08-05 20:14:29,913 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3015
+2026-08-05 20:14:44,407 [INFO] django.server: "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+2026-08-05 20:14:46,673 [INFO] django.server: "GET /admin/ HTTP/1.1" 200 11866
+2026-08-05 20:14:46,777 [INFO] django.server: "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+2026-08-05 20:14:46,812 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2026-08-05 20:14:46,851 [INFO] django.server: "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+2026-08-05 20:15:02,711 [INFO] django.server: "GET /admin/users/user/ HTTP/1.1" 200 16012
+2026-08-05 20:15:02,875 [INFO] django.server: "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+2026-08-05 20:15:02,999 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+2026-08-05 20:15:03,066 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+2026-08-05 20:15:03,101 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+2026-08-05 20:15:03,117 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+2026-08-05 20:15:03,134 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+2026-08-05 20:15:03,164 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+2026-08-05 20:15:03,164 [INFO] django.server: "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+2026-08-05 20:15:03,189 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2026-08-05 20:15:03,317 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+2026-08-05 20:15:03,389 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+2026-08-05 20:15:03,466 [INFO] django.server: "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+2026-08-05 20:15:05,137 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:15:05,380 [INFO] django.server: "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+2026-08-05 20:15:05,406 [INFO] django.server: "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+2026-08-05 20:15:13,893 [INFO] django.server: "GET /admin/users/user/3/change/ HTTP/1.1" 200 25863
+2026-08-05 20:15:13,960 [INFO] django.server: "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+2026-08-05 20:15:13,978 [INFO] django.server: "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+2026-08-05 20:15:13,984 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+2026-08-05 20:15:14,050 [INFO] django.server: "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+2026-08-05 20:15:14,058 [INFO] django.server: "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+2026-08-05 20:15:14,071 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+2026-08-05 20:15:16,172 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:15:16,569 [INFO] django.server: "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+2026-08-05 20:15:16,570 [INFO] django.server: "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+2026-08-05 20:15:16,579 [INFO] django.server: "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+2026-08-05 20:15:25,245 [INFO] django.server: "POST /admin/users/user/3/change/ HTTP/1.1" 302 0
+2026-08-05 20:15:27,517 [INFO] django.server: "GET /admin/users/user/ HTTP/1.1" 200 16242
+2026-08-05 20:15:29,870 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:15:36,613 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 400 130
+2026-08-05 20:15:47,197 [INFO] django.server: "GET /admin/tutors/availability/ HTTP/1.1" 200 12803
+2026-08-05 20:15:49,497 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:15:53,662 [INFO] django.server: "GET /admin/tutors/availability/34/change/ HTTP/1.1" 200 16144
+2026-08-05 20:15:53,769 [INFO] django.server: "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+2026-08-05 20:15:53,826 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+2026-08-05 20:15:53,833 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+2026-08-05 20:15:55,956 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:15:56,097 [INFO] django.server: "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+2026-08-05 20:16:37,492 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-05 20:16:42,058 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:16:46,418 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-05 20:16:50,001 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:20:28,445 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:23:00,345 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 127269
+2026-08-05 20:23:48,295 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-05 20:23:51,623 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:31:16,521 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:33:32,074 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 126335
+2026-08-05 20:33:58,767 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:34:01,317 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:34:07,796 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:34:09,858 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:34:25,183 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 126591
+2026-08-05 20:35:32,972 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:35:36,187 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:35:47,470 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 126889
+2026-08-05 20:36:59,111 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-05 20:37:02,203 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:37:05,918 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-05 20:37:08,152 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:37:15,139 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-05 20:37:17,707 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:37:40,185 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:37:42,190 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:37:47,007 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:37:49,194 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:38:11,502 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:38:14,452 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:38:20,842 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:38:23,508 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:38:29,387 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:38:31,591 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:38:44,134 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 136827
+2026-08-05 20:39:19,111 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:39:21,523 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:39:36,506 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:39:39,245 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:39:42,781 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:39:45,778 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:39:53,788 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-05 20:39:56,445 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:39:59,204 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-05 20:40:01,944 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:40:43,118 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:42:47,404 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 213617
+2026-08-05 20:43:10,405 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:43:13,222 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:43:30,129 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:43:33,275 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:43:58,712 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 158279
+2026-08-05 20:45:05,900 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:45:08,523 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:45:23,000 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 400 68
+2026-08-05 20:46:11,144 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:46:13,971 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:46:35,530 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:46:38,514 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:46:41,587 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:46:44,292 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:46:46,795 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:46:48,795 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:46:51,989 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:46:54,842 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:46:59,666 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:47:02,267 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:47:10,963 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 400 59
+2026-08-05 20:47:57,438 [INFO] django.server: "GET /admin/tutors/availability/ HTTP/1.1" 200 12803
+2026-08-05 20:48:01,697 [INFO] django.server: "GET /admin/tutors/availability/36/change/ HTTP/1.1" 200 16147
+2026-08-05 20:48:03,967 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:48:12,383 [ERROR] django.server: "POST /api/v1/bookings/ HTTP/1.1" 500 151941
+2026-08-05 20:48:46,062 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-05 20:48:49,729 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 20:48:56,155 [INFO] django.server: "GET /admin/bookings/booking/ HTTP/1.1" 200 15977
+2026-08-05 20:48:58,538 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:49:11,219 [INFO] django.server: "POST /admin/bookings/booking/ HTTP/1.1" 200 10942
+2026-08-05 20:49:12,725 [INFO] django.server: "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+2026-08-05 20:49:15,071 [INFO] django.server: "POST /admin/bookings/booking/ HTTP/1.1" 302 0
+2026-08-05 20:49:17,389 [INFO] django.server: "GET /admin/bookings/booking/ HTTP/1.1" 200 15593
+2026-08-05 20:49:19,726 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:49:28,488 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 400 59
+2026-08-05 20:49:43,350 [INFO] django.server: "GET /admin/tutors/availability/ HTTP/1.1" 200 12803
+2026-08-05 20:49:45,611 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:49:52,603 [INFO] django.server: "GET /admin/tutors/availability/35/change/ HTTP/1.1" 200 16144
+2026-08-05 20:49:54,790 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-05 20:50:01,295 [INFO] django.server: "POST /api/v1/bookings/ HTTP/1.1" 201 1364
