@@ -17,3 +17,17 @@
 2026-08-04 19:45:59,810 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\views.py changed, reloading.
 2026-08-04 19:46:01,024 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2026-08-04 19:46:10,723 [INFO] django.server: "PATCH /api/v1/tutors/my-profile/ HTTP/1.1" 200 1104
+2026-08-04 22:49:57,402 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 22:53:53,735 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\views.py changed, reloading.
+2026-08-04 22:53:57,174 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-04 22:54:26,303 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\views.py changed, reloading.
+2026-08-04 22:54:29,382 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 15:37:29,757 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 15:38:10,388 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-05 15:38:23,206 [WARNING] django.server: "GET /api/auth/login/ HTTP/1.1" 404 3027
+2026-08-05 15:39:21,390 [WARNING] django.server: "GET /api/v1/auth/login/ HTTP/1.1" 405 40
+2026-08-05 15:39:28,874 [WARNING] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 401 63
+2026-08-05 15:39:43,376 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 709
+2026-08-05 15:40:12,741 [WARNING] django.server: "GET /api/v1/tutors/ HTTP/1.1" 401 176
+2026-08-05 15:40:35,292 [INFO] django.server: "GET /api/v1/tutors/ HTTP/1.1" 200 746
+2026-08-05 15:40:48,609 [INFO] django.server: "GET /api/v1/tutors/1/ HTTP/1.1" 200 1104
