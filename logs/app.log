@@ -483,3 +483,54 @@
 2026-08-06 09:13:45,453 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\views.py changed, reloading.
 2026-08-06 09:13:52,834 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2026-08-06 09:14:02,625 [INFO] django.server: "GET /api/v1/tutors/my-bookings/ HTTP/1.1" 200 964
+2026-08-06 22:43:10,574 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:44:43,791 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:44:58,561 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:45:04,895 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:45:32,514 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:45:35,558 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:45:40,405 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:45:44,243 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:45:51,370 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:45:54,393 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:45:58,079 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:46:00,442 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:46:05,520 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:46:08,542 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:46:19,530 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:46:23,450 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:46:27,612 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:46:31,025 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:46:34,561 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:46:39,191 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:46:49,627 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:46:52,371 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:47:07,888 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:47:11,738 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:47:55,296 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:47:57,706 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:48:09,162 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:48:11,990 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:49:43,759 [WARNING] django.server: "GET /api/v1/auth/login/ HTTP/1.1" 405 40
+2026-08-06 22:50:56,575 [WARNING] django.server: "GET /api/v1/auth/login/ HTTP/1.1" 405 40
+2026-08-06 22:50:57,582 [WARNING] django.server: "GET /api/v1/auth/login/ HTTP/1.1" 405 40
+2026-08-06 22:50:57,940 [WARNING] django.server: "GET /api/v1/auth/login/ HTTP/1.1" 405 40
+2026-08-06 22:51:15,301 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 709
+2026-08-06 22:52:04,592 [WARNING] django.server: "GET /api/v1/users/bookings/ HTTP/1.1" 404 15821
+2026-08-06 22:53:09,996 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:53:12,286 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:53:18,228 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:53:21,018 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:53:30,553 [WARNING] django.server: "GET /api/v1/users/bookings/ HTTP/1.1" 404 15821
+2026-08-06 22:53:32,797 [WARNING] django.server: "GET /api/v1/users/bookings/ HTTP/1.1" 404 15821
+2026-08-06 22:53:42,690 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:53:45,302 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:53:51,866 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:53:54,338 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:54:02,184 [ERROR] django.server: "GET /api/v1/users/bookings/ HTTP/1.1" 500 107167
+2026-08-06 22:54:57,215 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-06 22:54:59,090 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:57:25,940 [INFO] django.server: "GET /api/v1/users/bookings/ HTTP/1.1" 200 2
+2026-08-06 22:59:30,249 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-06 22:59:32,370 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 22:59:37,548 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.

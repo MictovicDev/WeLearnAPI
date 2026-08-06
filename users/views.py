@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework_simplejwt.tokens import RefreshToken
 from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiResponse
-
+from bookings.serializers import BookingListSerializer
 from .serializers import (
     RegisterSerializer, UserSerializer, UserUpdateSerializer,
     CustomTokenObtainPairSerializer
@@ -91,6 +91,12 @@ class UserViewSet(viewsets.GenericViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(UserSerializer(request.user, context={'request': request}).data)
+
+
+    @action(methods=['GET'], detail=False, url_path='bookings')
+    def bookings(self, request):
+        booking= request.user.bookings_as_student.all()
+        return Response(BookingListSerializer(booking, many=True).data)
 
     @action(methods=['POST'], detail=False, url_path='logout')
     def logout(self, request):
