@@ -534,3 +534,7 @@
 2026-08-06 22:59:30,249 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
 2026-08-06 22:59:32,370 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2026-08-06 22:59:37,548 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-06 23:23:23,752 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-06 23:23:57,287 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 707
+2026-08-06 23:25:32,315 [ERROR] django.server: "GET /api/v1/tutors/my-bookings/ HTTP/1.1" 500 112234
+2026-08-06 23:26:06,563 [INFO] django.server: "GET /api/v1/tutors/my-bookings/ HTTP/1.1" 200 1932
