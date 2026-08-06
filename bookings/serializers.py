@@ -52,7 +52,12 @@ class BookingCreateSerializer(serializers.ModelSerializer):
         # your existing rate calculation logic goes here
         pass
 
+class MyBookingsSerializer(serializers.ModelSerializer):
+    student = UserSerializer(read_only=True)
 
+    class Meta:
+        model = Booking
+        fields = ['id', 'student', 'subject', 'session_type', 'scheduled_date','status']
 
 
 
@@ -85,7 +90,7 @@ class BookingStatusUpdateSerializer(serializers.ModelSerializer):
     """Tutor uses this to accept/decline a booking."""
     class Meta:
         model = Booking
-        fields = ['status', 'tutor_response_note', 'session_link']
+        fields = ['status', 'tutor_response_note']
 
     def validate_status(self, value):
         allowed = [Booking.Status.ACCEPTED, Booking.Status.DECLINED]

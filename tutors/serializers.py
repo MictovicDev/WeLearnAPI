@@ -71,6 +71,7 @@ class TutorProfileDetailSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(source='user.email', read_only=True)
     payment_info = PaymentInfoSerializer(read_only=True)
     availability_slots = AvailabilitySerializer(many=True)
+    bookings = serializers.SerializerMethodField
 
     class Meta:
         model = TutorProfile
@@ -93,6 +94,11 @@ class TutorProfileDetailSerializer(serializers.ModelSerializer):
     @extend_schema_field(serializers.CharField())
     def get_full_name(self, obj):
         return obj.user.get_full_name()
+
+    def get_bookings(self, obj):
+        from bookings.serializers import BookingListSerializer
+        bookings = obj.bookings.all()
+        return BookingListSerializer(bookings, many=True).data
 
 
 

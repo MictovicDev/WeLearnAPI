@@ -16,6 +16,10 @@ from .serializers import (
 from users.permissions import IsStudent, IsAdmin, IsBookingParticipant
 from tutors.permissions import IsTutor
 
+import logging
+
+logger = logging.getLogger('tutor_platform')
+
 
 @extend_schema(tags=['Bookings'])
 @extend_schema_view(
@@ -75,10 +79,13 @@ class BookingViewSet(
             return Booking.objects.none()
         user = self.request.user
         if user.role == 'admin':
-            return Booking.objects.all().select_related('student', 'tutor_profile__user', 'subject')
+            return Booking.objects.all().select_related('student', 'tutor_profile__user')
         if user.role == 'tutor':
-            return Booking.objects.filter(tutor_profile__user=user).select_related('student', 'tutor_profile__user', 'subject')
-        return Booking.objects.filter(student=user).select_related('student', 'tutor_profile__user', 'subject')
+            print(True)
+            print(user)
+            print(Booking.objects.filter(tutor_profile__user=user))
+            return Booking.objects.filter(tutor_profile__user=user)
+        return Booking.objects.filter(student=user).select_related('student', 'tutor_profile__user')
 
     def get_serializer_class(self):
         if self.action == 'create':
@@ -109,15 +116,21 @@ class BookingViewSet(
 
     @action(methods=['PATCH'], detail=True, url_path='respond')
     def respond(self, request, pk=None):
-        booking = self.get_object()
+        booking = Booking.objects.get(id=pk)
         if booking.tutor_profile.user != request.user:
             return Response({'detail': 'Not your booking.'}, status=403)
         if booking.status != Booking.Status.PENDING:
             return Response({'detail': 'Only pending bookings can be responded to.'}, status=400)
+
         serializer = BookingStatusUpdateSerializer(booking, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response(BookingDetailSerializer(booking, context={'request': request}).data)
+        return Response(
+                {
+                    "detail": f"Booking {booking.status.lower()} successfully."
+                },
+                status=status.HTTP_200_OK
+            )
 
     @action(methods=['PATCH'], detail=True, url_path='cancel')
     def cancel(self, request, pk=None):

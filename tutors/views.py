@@ -18,6 +18,7 @@ from .serializers import (
 from .filters import TutorProfileFilter
 from .permissions import IsTutor, IsTutorOwner
 from users.permissions import IsAdmin
+from bookings.serializers import MyBookingsSerializer
 import logging
 
 logger = logging.getLogger('tutor_platform')
@@ -164,6 +165,12 @@ class TutorProfileViewSet(
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
+
+    @action(methods=['GET'], detail=False, url_path='my-bookings')
+    def bookings(self, request):
+        profile = request.user.tutor_profile
+        bookings = profile.bookings.all()
+        return Response(MyBookingsSerializer(bookings, many=True).data)
 
     @action(methods=['POST'], detail=False, url_path='my-profile/upload-verification')
     def upload_verification(self, request):
