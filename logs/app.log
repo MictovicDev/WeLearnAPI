@@ -581,3 +581,208 @@
 2026-08-07 08:54:43,282 [INFO] django.server: "GET /api/docs/ HTTP/1.1" 200 4659
 2026-08-07 08:54:44,581 [INFO] django.server: "GET /api/schema/ HTTP/1.1" 200 153707
 2026-08-07 08:56:59,120 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 10:06:18,140 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 19:46:03,995 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 19:48:50,098 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 709
+2026-08-07 19:56:11,141 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-07 19:57:16,417 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-07 19:57:58,538 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 707
+2026-08-07 19:58:45,925 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-07 19:59:22,764 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 401 172
+2026-08-07 19:59:29,071 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 401 172
+2026-08-07 19:59:50,751 [INFO] django.server: "GET /admin/ HTTP/1.1" 302 0
+2026-08-07 19:59:52,593 [INFO] django.server: "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4178
+2026-08-07 19:59:53,039 [INFO] django.server: "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+2026-08-07 19:59:53,045 [INFO] django.server: "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+2026-08-07 19:59:53,050 [INFO] django.server: "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+2026-08-07 19:59:53,055 [INFO] django.server: "GET /static/admin/css/login.css HTTP/1.1" 200 958
+2026-08-07 19:59:53,076 [INFO] django.server: "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+2026-08-07 19:59:53,178 [INFO] django.server: "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+2026-08-07 19:59:53,194 [INFO] django.server: "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+2026-08-07 19:59:53,482 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3015
+2026-08-07 19:59:58,488 [INFO] django.server: "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+2026-08-07 20:00:00,831 [INFO] django.server: "GET /admin/ HTTP/1.1" 200 13451
+2026-08-07 20:00:00,949 [INFO] django.server: "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+2026-08-07 20:00:00,966 [INFO] django.server: "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+2026-08-07 20:00:01,008 [INFO] django.server: "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+2026-08-07 20:00:01,008 [INFO] django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2026-08-07 20:00:10,902 [INFO] django.server: "GET /admin/tutors/tutorprofile/ HTTP/1.1" 200 15681
+2026-08-07 20:00:10,983 [INFO] django.server: "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+2026-08-07 20:00:10,988 [INFO] django.server: "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+2026-08-07 20:00:11,068 [INFO] django.server: "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+2026-08-07 20:00:11,076 [INFO] django.server: "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+2026-08-07 20:00:11,084 [INFO] django.server: "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+2026-08-07 20:00:11,096 [INFO] django.server: "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+2026-08-07 20:00:11,106 [INFO] django.server: "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+2026-08-07 20:00:11,112 [INFO] django.server: "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2026-08-07 20:00:11,121 [INFO] django.server: "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+2026-08-07 20:00:11,245 [INFO] django.server: "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+2026-08-07 20:00:11,308 [INFO] django.server: "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+2026-08-07 20:00:11,376 [INFO] django.server: "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+2026-08-07 20:00:13,166 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:00:13,279 [INFO] django.server: "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+2026-08-07 20:00:13,319 [INFO] django.server: "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+2026-08-07 20:00:22,342 [INFO] django.server: "GET /admin/users/user/ HTTP/1.1" 200 16012
+2026-08-07 20:00:24,668 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:00:31,802 [INFO] django.server: "GET /admin/users/user/3/change/ HTTP/1.1" 200 25863
+2026-08-07 20:00:31,872 [INFO] django.server: "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+2026-08-07 20:00:31,888 [INFO] django.server: "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+2026-08-07 20:00:31,949 [INFO] django.server: "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+2026-08-07 20:00:31,960 [INFO] django.server: "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+2026-08-07 20:00:31,982 [INFO] django.server: "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+2026-08-07 20:00:32,085 [INFO] django.server: "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+2026-08-07 20:00:34,084 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:00:34,375 [INFO] django.server: "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+2026-08-07 20:00:34,383 [INFO] django.server: "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+2026-08-07 20:00:34,390 [INFO] django.server: "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+2026-08-07 20:01:02,998 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 403 63
+2026-08-07 20:01:51,578 [INFO] django.server: "GET /admin/users/user/ HTTP/1.1" 200 16012
+2026-08-07 20:01:53,887 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:01:58,681 [INFO] django.server: "GET /admin/users/user/2/change/ HTTP/1.1" 200 25871
+2026-08-07 20:02:01,001 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:02:11,925 [INFO] django.server: "POST /admin/users/user/2/change/ HTTP/1.1" 302 0
+2026-08-07 20:02:14,141 [INFO] django.server: "GET /admin/users/user/ HTTP/1.1" 200 16244
+2026-08-07 20:02:16,427 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:02:42,000 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 711
+2026-08-07 20:03:00,439 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 400 67
+2026-08-07 20:03:23,100 [INFO] django.server: "GET /admin/tutors/availability/ HTTP/1.1" 200 12803
+2026-08-07 20:03:25,359 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:03:31,729 [INFO] django.server: "GET /admin/tutors/availability/35/change/ HTTP/1.1" 200 16152
+2026-08-07 20:03:31,996 [INFO] django.server: "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+2026-08-07 20:03:31,996 [INFO] django.server: "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+2026-08-07 20:03:32,044 [INFO] django.server: "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+2026-08-07 20:03:34,045 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:03:34,365 [INFO] django.server: "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+2026-08-07 20:03:42,782 [WARNING] django.server: "POST /api/v1/bookings/ HTTP/1.1" 400 59
+2026-08-07 20:03:58,123 [INFO] django.server: "POST /admin/tutors/availability/35/change/ HTTP/1.1" 302 0
+2026-08-07 20:04:00,399 [INFO] django.server: "GET /admin/tutors/availability/ HTTP/1.1" 200 13050
+2026-08-07 20:04:02,807 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:04:14,113 [INFO] django.server: "POST /api/v1/bookings/ HTTP/1.1" 201 1400
+2026-08-07 20:04:37,761 [ERROR] tutor_platform: Failed to send booking email for booking 6
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\tasks.py", line 37, in send_booking_notification_email
+    send_mail(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\__init__.py", line 87, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\message.py", line 299, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-08-07 20:06:01,256 [ERROR] tutor_platform: Failed to send booking email for booking 6
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\tasks.py", line 37, in send_booking_notification_email
+    send_mail(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\__init__.py", line 87, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\message.py", line 299, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-08-07 20:07:24,512 [ERROR] tutor_platform: Failed to send booking email for booking 6
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\tasks.py", line 37, in send_booking_notification_email
+    send_mail(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\__init__.py", line 87, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\message.py", line 299, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-08-07 20:08:47,781 [ERROR] tutor_platform: Failed to send booking email for booking 6
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\tasks.py", line 37, in send_booking_notification_email
+    send_mail(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\__init__.py", line 87, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\message.py", line 299, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-08-07 20:12:32,196 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-07 20:12:36,710 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 20:12:57,697 [INFO] django.server: "GET /admin/tutors/availability/35/change/ HTTP/1.1" 200 16152
+2026-08-07 20:12:59,968 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:13:11,777 [INFO] django.server: "POST /admin/tutors/availability/35/change/ HTTP/1.1" 302 0
+2026-08-07 20:13:14,033 [INFO] django.server: "GET /admin/tutors/availability/ HTTP/1.1" 200 13050
+2026-08-07 20:13:16,270 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+2026-08-07 20:13:25,639 [INFO] django.server: "POST /api/v1/bookings/ HTTP/1.1" 201 1400
