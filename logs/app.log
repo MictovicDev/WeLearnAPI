@@ -786,3 +786,10 @@ TimeoutError: [WinError 10060] A connection attempt failed because the connected
 2026-08-07 20:13:14,033 [INFO] django.server: "GET /admin/tutors/availability/ HTTP/1.1" 200 13050
 2026-08-07 20:13:16,270 [INFO] django.server: "GET /admin/jsi18n/ HTTP/1.1" 200 3343
 2026-08-07 20:13:25,639 [INFO] django.server: "POST /api/v1/bookings/ HTTP/1.1" 201 1400
+2026-08-07 21:21:44,572 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 21:22:14,330 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-07 21:22:17,167 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 21:22:22,771 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-07 21:22:25,700 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 21:22:31,736 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-07 21:22:35,003 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
