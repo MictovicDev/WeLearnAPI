@@ -580,3 +580,4 @@
 2026-08-07 08:54:39,516 [INFO] django.server: "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
 2026-08-07 08:54:43,282 [INFO] django.server: "GET /api/docs/ HTTP/1.1" 200 4659
 2026-08-07 08:54:44,581 [INFO] django.server: "GET /api/schema/ HTTP/1.1" 200 153707
+2026-08-07 08:56:59,120 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
