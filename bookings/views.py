@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema, extend_schema_view
-
+from .tasks import send_booking_notification_email
 from .models import Booking
 from .serializers import (
     BookingCreateSerializer,
@@ -112,6 +112,7 @@ class BookingViewSet(
         serializer = BookingCreateSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         booking = serializer.save()
+        send_booking_notification_email.delay(booking.id)
         return Response(BookingDetailSerializer(booking, context={'request': request}).data, status=201)
 
     @action(methods=['PATCH'], detail=True, url_path='respond')

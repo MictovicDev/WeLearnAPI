@@ -538,3 +538,45 @@
 2026-08-06 23:23:57,287 [INFO] django.server: "POST /api/v1/auth/login/ HTTP/1.1" 200 707
 2026-08-06 23:25:32,315 [ERROR] django.server: "GET /api/v1/tutors/my-bookings/ HTTP/1.1" 500 112234
 2026-08-06 23:26:06,563 [INFO] django.server: "GET /api/v1/tutors/my-bookings/ HTTP/1.1" 200 1932
+2026-08-07 00:28:06,689 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 00:31:06,424 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-07 00:31:08,166 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 00:31:11,632 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-07 00:31:13,278 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 00:31:30,149 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-07 00:31:32,987 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:47:47,230 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-07 08:47:56,492 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:48:05,652 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:52:03,688 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-07 08:52:03,995 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\models.py changed, reloading.
+2026-08-07 08:52:08,502 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:52:08,692 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:52:47,957 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\reviews\serializers.py changed, reloading.
+2026-08-07 08:52:48,851 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\reviews\serializers.py changed, reloading.
+2026-08-07 08:52:53,285 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:52:54,183 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:54:01,755 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\reviews\serializers.py changed, reloading.
+2026-08-07 08:54:01,852 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\reviews\serializers.py changed, reloading.
+2026-08-07 08:54:05,596 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:54:05,609 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-07 08:54:29,944 [WARNING] django.server: "GET /ryr HTTP/1.1" 404 2991
+2026-08-07 08:54:30,238 [WARNING] django.server: "GET /favicon.ico HTTP/1.1" 404 3015
+2026-08-07 08:54:36,091 [INFO] django.server: "GET /api/docs/ HTTP/1.1" 200 4659
+2026-08-07 08:54:38,419 [INFO] django.server: "GET /api/schema/ HTTP/1.1" 200 153707
+2026-08-07 08:54:38,428 [INFO] django.server: "GET /api/v1 HTTP/1.1" 301 0
+2026-08-07 08:54:38,525 [WARNING] django.server: "GET /api/v1/ HTTP/1.1" 401 5024
+2026-08-07 08:54:39,030 [INFO] django.server: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+2026-08-07 08:54:39,042 [INFO] django.server: "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+2026-08-07 08:54:39,054 [INFO] django.server: "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+2026-08-07 08:54:39,069 [INFO] django.server: "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+2026-08-07 08:54:39,083 [INFO] django.server: "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+2026-08-07 08:54:39,097 [INFO] django.server: "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+2026-08-07 08:54:39,112 [INFO] django.server: "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+2026-08-07 08:54:39,373 [INFO] django.server: "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+2026-08-07 08:54:39,389 [INFO] django.server: "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+2026-08-07 08:54:39,491 [INFO] django.server: "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+2026-08-07 08:54:39,494 [INFO] django.server: "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+2026-08-07 08:54:39,516 [INFO] django.server: "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+2026-08-07 08:54:43,282 [INFO] django.server: "GET /api/docs/ HTTP/1.1" 200 4659
+2026-08-07 08:54:44,581 [INFO] django.server: "GET /api/schema/ HTTP/1.1" 200 153707

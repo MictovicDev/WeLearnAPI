@@ -4,9 +4,16 @@ from users.serializers import UserSerializer
 
 
 class ReviewCreateSerializer(serializers.ModelSerializer):
+    stars = serializers.IntegerField(min_value=1, max_value=5, write_only=True)
+
     class Meta:
         model = Review
-        fields = ['id', 'booking', 'rating', 'comment']
+        fields = ['id', 'booking', 'stars', 'rating', 'comment']
+        read_only_fields = ['id', 'rating']
+
+    def validate(self, attrs):
+        attrs['rating'] = attrs.pop('stars')
+        return attrs
 
     def validate_booking(self, booking):
         student = self.context['request'].user
