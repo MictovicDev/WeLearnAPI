@@ -14,8 +14,7 @@ from django.shortcuts import get_object_or_404
 from .models import ChatThread, Message
 from .serializers import ChatThreadSerializer, MessageSerializer
 from django.conf import settings
-
-User = settings.AUTH_USER_MODEL
+from users.models import User
 
 class ChatThreadViewSet(
     mixins.ListModelMixin,
