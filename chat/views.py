@@ -46,7 +46,7 @@ class ChatThreadViewSet(
             return Response({'detail': 'Only student can start the conversation'}, status=400)
 
         if message:
-            Message.objects.create(thread=thread, sender=request.user, receiver=receiver, content=message)
+            Message.objects.create(thread=thread, sender=request.user, content=message)
             
         return Response(ChatThreadSerializer(thread, context={'request': request}).data)
 
