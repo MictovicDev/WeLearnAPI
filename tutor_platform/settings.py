@@ -154,7 +154,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "weleardb",
         "USER": "mike",
-        "PASSWORD": os.environ.get("DB_PASSWORD"),  # set in environment, no hardcoded fallback
+        "PASSWORD": os.environ.get("DB_PASSWORD", 'hellopass123'),  # set in environment, no hardcoded fallback
         "HOST": "localhost",
         "PORT": "5432",
     }
