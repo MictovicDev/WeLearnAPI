@@ -6,11 +6,11 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-only-for-local-dev')
+SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-only-for-local-dev')
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 
 
 # Logging
@@ -249,6 +249,6 @@ EMAIL_PORT = 465
 
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'support@welearnglobal.online')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # set in environment, no hardcoded fallback
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'support@welearnglobal.online')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # set in environment, no hardcoded fallback
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
