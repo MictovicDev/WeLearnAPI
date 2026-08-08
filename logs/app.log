@@ -1143,3 +1143,285 @@ redis.exceptions.TimeoutError: Timeout reading from localhost:6379
 2026-08-08 15:19:08,156 [INFO] django.channels.server: [mHTTP GET /api/v1/tutors/my-profile/wallet/ 200 [2.42, 127.0.0.1:50945][0m
 2026-08-08 15:19:50,063 [INFO] django.channels.server: [32mHTTP GET /api/v1/tutors/my-profile/transactions 301 [0.04, 127.0.0.1:50945][0m
 2026-08-08 15:19:52,304 [INFO] django.channels.server: [mHTTP GET /api/v1/tutors/my-profile/transactions/ 200 [2.20, 127.0.0.1:50945][0m
+2026-08-08 15:58:50,904 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 15:58:53,948 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 15:58:53,948 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 15:58:53,948 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 15:59:28,691 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:61831]
+2026-08-08 15:59:33,005 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:61831]
+2026-08-08 16:07:53,202 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-08 16:07:58,322 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:08:02,188 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:08:02,188 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:08:02,198 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:08:43,294 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-08 16:08:48,650 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:08:51,864 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:08:51,864 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:08:51,867 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:08:53,188 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-08 16:08:55,619 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:08:58,321 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:08:58,321 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:08:58,321 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:14:38,890 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:17:22,939 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:19:24,725 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:19:28,040 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:19:28,040 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:19:28,043 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:20:05,904 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-08 16:20:08,861 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:20:11,731 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:20:11,731 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:20:11,731 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:20:24,730 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:53886]
+2026-08-08 16:20:29,017 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:53886]
+2026-08-08 16:24:42,780 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:64363]
+2026-08-08 16:24:47,015 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:64363]
+2026-08-08 16:27:24,976 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:53663]
+2026-08-08 16:27:29,001 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:53663]
+2026-08-08 16:27:30,255 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:57278]
+2026-08-08 16:27:34,631 [INFO] django.channels.server: WebSocket CONNECT /ws/chat/2/ [127.0.0.1:57278]
+2026-08-08 16:27:35,390 [ERROR] daphne.server: Exception inside application: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\contrib\staticfiles\handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\security\websocket.py", line 37, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\middleware.py", line 30, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\routing.py", line 118, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\consumer.py", line 74, in dispatch
+    await handler(message)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\generic\websocket.py", line 204, in websocket_receive
+    await self.receive(text_data=message["text"])
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\consumers.py", line 41, in receive
+    data = json.loads(text_data)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2026-08-08 16:27:36,150 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:57278]
+2026-08-08 16:27:53,801 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:55938]
+2026-08-08 16:27:58,005 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:55938]
+2026-08-08 16:29:38,219 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\consumers.py changed, reloading.
+2026-08-08 16:29:42,925 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:29:53,119 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\consumers.py changed, reloading.
+2026-08-08 16:29:55,504 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:29:58,263 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:29:58,264 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:29:58,264 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:30:28,542 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:57653]
+2026-08-08 16:30:33,000 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:57653]
+2026-08-08 16:31:05,809 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:63249]
+2026-08-08 16:31:10,003 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:63249]
+2026-08-08 16:31:10,620 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:61271]
+2026-08-08 16:31:14,921 [INFO] django.channels.server: WebSocket CONNECT /ws/chat/2/ [127.0.0.1:61271]
+2026-08-08 16:31:45,447 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:61271]
+2026-08-08 16:31:47,777 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:49677]
+2026-08-08 16:31:52,002 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:49677]
+2026-08-08 16:34:00,095 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:64564]
+2026-08-08 16:34:00,120 [INFO] django.channels.server: WebSocket REJECT /ws/chat/2/ [127.0.0.1:64564]
+2026-08-08 16:34:00,123 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:64564]
+2026-08-08 16:35:07,719 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:50800]
+2026-08-08 16:35:12,011 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:50800]
+2026-08-08 16:35:45,512 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:50801]
+2026-08-08 16:35:49,842 [INFO] django.channels.server: WebSocket CONNECT /ws/chat/2/ [127.0.0.1:50801]
+2026-08-08 16:36:17,932 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:50801]
+2026-08-08 16:36:22,130 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:51983]
+2026-08-08 16:36:26,571 [INFO] django.channels.server: WebSocket CONNECT /ws/chat/2/ [127.0.0.1:51983]
+2026-08-08 16:37:56,804 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [3.99, 127.0.0.1:53063][0m
+2026-08-08 16:38:15,807 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:51956]
+2026-08-08 16:38:20,012 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:51956]
+2026-08-08 16:38:37,515 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:61751]
+2026-08-08 16:38:41,841 [INFO] django.channels.server: WebSocket REJECT /ws/chat/2/ [127.0.0.1:61751]
+2026-08-08 16:38:41,847 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:61751]
+2026-08-08 16:40:07,075 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\admin.py changed, reloading.
+2026-08-08 16:40:11,920 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:40:25,822 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:40:28,796 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:40:28,806 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:40:28,807 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:40:39,295 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.27, 127.0.0.1:53929][0m
+2026-08-08 16:41:03,110 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\admin.py changed, reloading.
+2026-08-08 16:41:08,211 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:41:11,395 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\admin.py changed, reloading.
+2026-08-08 16:41:13,868 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:41:17,924 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:41:17,924 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:41:18,432 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:41:20,905 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.30, 127.0.0.1:51366][0m
+2026-08-08 16:41:23,324 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.19, 127.0.0.1:51366][0m
+2026-08-08 16:41:30,217 [INFO] django.channels.server: [mHTTP GET /admin/chat/chatthread/ 200 [3.03, 127.0.0.1:51366][0m
+2026-08-08 16:41:32,815 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.54, 127.0.0.1:51366][0m
+2026-08-08 16:41:41,380 [INFO] django.channels.server: [mHTTP GET /admin/chat/chatthread/1/change/ 200 [2.45, 127.0.0.1:51366][0m
+2026-08-08 16:41:43,716 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.25, 127.0.0.1:51366][0m
+2026-08-08 16:41:48,008 [INFO] django.channels.server: [mHTTP GET /admin/chat/chatthread/ 200 [2.29, 127.0.0.1:51366][0m
+2026-08-08 16:41:51,591 [INFO] django.channels.server: [mHTTP GET /admin/chat/chatthread/2/change/ 200 [2.27, 127.0.0.1:51366][0m
+2026-08-08 16:41:53,845 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.21, 127.0.0.1:51366][0m
+2026-08-08 16:42:04,301 [INFO] django.channels.server: [32mHTTP POST /admin/chat/chatthread/2/change/ 302 [2.30, 127.0.0.1:51366][0m
+2026-08-08 16:42:06,617 [INFO] django.channels.server: [mHTTP GET /admin/chat/chatthread/ 200 [2.30, 127.0.0.1:51366][0m
+2026-08-08 16:42:08,843 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.18, 127.0.0.1:51366][0m
+2026-08-08 16:42:12,634 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:64519]
+2026-08-08 16:42:17,006 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:64519]
+2026-08-08 16:44:39,836 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:44:42,910 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:44:42,914 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:44:42,914 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:46:00,284 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [3.59, 127.0.0.1:50685][0m
+2026-08-08 16:46:52,743 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 16:46:55,631 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 16:46:55,631 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 16:46:55,631 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 16:47:37,867 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:65351]
+2026-08-08 16:47:42,004 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:65351]
+2026-08-08 16:47:55,996 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:54974]
+2026-08-08 16:48:00,014 [INFO] django.channels.server: WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:54974]
+2026-08-08 16:48:51,571 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:62313]
+2026-08-08 16:48:55,937 [INFO] django.channels.server: WebSocket CONNECT /ws/chat/2/ [127.0.0.1:62313]
+2026-08-08 16:49:24,859 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [3.13, 127.0.0.1:50412][0m
+2026-08-08 16:49:45,052 [INFO] django.channels.server: WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:55761]
+2026-08-08 16:49:49,389 [INFO] django.channels.server: WebSocket CONNECT /ws/chat/2/ [127.0.0.1:55761]
+2026-08-08 16:49:59,519 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.90, 127.0.0.1:52437][0m
+2026-08-08 17:17:31,921 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:17:37,498 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:17:40,918 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:17:40,919 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:17:40,920 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:19:28,591 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\models.py changed, reloading.
+2026-08-08 17:19:31,235 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:19:34,181 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\models.py changed, reloading.
+2026-08-08 17:19:36,490 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:22:49,348 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:22:52,014 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:22:52,014 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:22:52,016 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:22:57,489 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:22:59,772 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:23:02,701 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:23:02,702 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:23:02,704 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:23:03,988 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:23:05,791 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:23:10,040 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:23:13,735 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:23:21,205 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:23:23,006 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:23:25,843 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:23:25,843 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:23:25,847 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:23:32,314 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:23:34,753 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:23:38,967 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:23:41,370 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:23:44,258 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:23:44,259 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:23:44,259 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:23:45,775 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:23:47,897 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:01,487 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:03,553 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:06,785 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:08,808 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:11,930 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:13,808 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:22,235 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:24,186 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:31,301 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:34,185 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:36,326 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:38,241 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:40,878 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:24:40,878 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:24:40,878 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:24:46,120 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:48,525 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:50,344 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:53,979 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:24:56,471 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:24:59,048 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:25:03,085 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:25:05,727 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:25:10,874 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:25:12,963 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:25:15,881 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:25:18,139 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:25:21,187 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:25:21,202 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:25:21,204 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:25:23,410 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:25:25,397 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:25:28,180 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:25:28,182 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:25:28,182 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:25:48,829 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:25:51,278 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:25:54,068 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:25:54,069 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:25:54,070 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:26:04,982 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:26:08,351 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:26:11,874 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:26:11,874 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:26:11,890 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:26:15,192 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:26:18,853 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:27:00,986 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:27:04,764 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:27:09,010 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:27:11,020 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:27:14,021 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:27:14,021 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:27:14,025 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:27:16,327 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:27:18,082 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:27:20,806 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:27:20,806 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:27:20,808 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:27:22,186 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:27:24,315 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:27:35,958 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:27:38,881 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:27:41,506 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:27:41,506 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:27:41,506 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:31:11,904 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:31:16,607 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:31:19,690 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:31:19,692 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:31:19,693 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:31:27,733 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:31:33,135 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:31:36,334 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:31:36,334 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:31:36,334 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-08 17:31:41,835 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\views.py changed, reloading.
+2026-08-08 17:31:45,761 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-08 17:31:48,616 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-08 17:31:48,616 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-08 17:31:48,618 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000

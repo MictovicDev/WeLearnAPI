@@ -167,7 +167,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tutor_platform.wsgi.application'
+# WSGI_APPLICATION = 'tutor_platform.wsgi.application'
 
 ASGI_APPLICATION = 'tutor_platform.asgi.application'  # adjust to your project name
  
@@ -175,7 +175,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [os.getenv('REDIS_URL', default='redis://localhost:6379/0')],
+            'hosts': [os.getenv('REDIS_URL', default='redis://127.0.0.1:6379/0')],
         },
     },
 }

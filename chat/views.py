@@ -10,10 +10,12 @@ from rest_framework import viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
+from django.shortcuts import get_object_or_404
 from .models import ChatThread, Message
 from .serializers import ChatThreadSerializer, MessageSerializer
+from django.conf import settings
 
+User = settings.AUTH_USER_MODEL
 
 class ChatThreadViewSet(
     mixins.ListModelMixin,
@@ -32,7 +34,9 @@ class ChatThreadViewSet(
         """POST {"tutor_id": 5} (called by a student) or {"student_id": 9}
         (called by a tutor). Returns the existing thread if one already
         exists between the pair, otherwise creates it."""
-        other_id = request.data.get('tutor_id') or request.data.get('student_id')
+        other_id = request.data.get('tutor_id')
+        message = request.data.get('message')
+        receiver = get_object_or_404(User, id=int(other_id))
         if not other_id:
             return Response({'detail': 'tutor_id or student_id is required.'}, status=400)
 
@@ -40,9 +44,11 @@ class ChatThreadViewSet(
             student, tutor_id = request.user, other_id
             thread, _ = ChatThread.objects.get_or_create(student=student, tutor_id=tutor_id)
         else:
-            tutor, student_id = request.user, other_id
-            thread, _ = ChatThread.objects.get_or_create(student_id=student_id, tutor=tutor)
+            return Response({'detail': 'Only student can start the conversation'}, status=400)
 
+        if message:
+            Message.objects.create(thread=thread, sender=request.user, receiver=receiver, content=message)
+            
         return Response(ChatThreadSerializer(thread, context={'request': request}).data)
 
     @action(methods=['GET'], detail=True, url_path='messages')
