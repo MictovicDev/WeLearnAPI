@@ -34,6 +34,7 @@ class ChatThreadViewSet(
         (called by a tutor). Returns the existing thread if one already
         exists between the pair, otherwise creates it."""
         other_id = request.data.get('tutor_id')
+        
         message = request.data.get('message')
         if not other_id:
             return Response({'detail': 'tutor_id or student_id is required.'}, status=400)

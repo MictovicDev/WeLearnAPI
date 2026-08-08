@@ -21,8 +21,8 @@ class ChatThread(models.Model):
         ]
         ordering = ['-created_at']
 
-    def __str__(self):
-        return f'{self.student} <-> {self.tutor}'
+    # def __str__(self):
+    #     return f'{self.student} <-> {self.tutor}'
 
     def other_participant(self, user):
         return self.tutor if user == self.student else self.student

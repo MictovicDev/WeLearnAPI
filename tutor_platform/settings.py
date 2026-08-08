@@ -6,20 +6,12 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-change-this-in-production'
-
-
-
-
-# Replace the hardcoded SECRET_KEY with:
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-only-for-local-dev')
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
 
-
-import os
 
 # Logging
 LOGS_DIR = BASE_DIR / 'logs'
@@ -85,21 +77,6 @@ LOGGING = {
     },
 }
 
-# Whitenoise for static files
-
-
-# Database — reads DATABASE_URL if set, falls back to SQLite locally
-
-# DATABASE_URL = os.environ.get('DATABASE_URL')
-# if DATABASE_URL:
-#     DATABASES = {
-#         'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
-#     }
-
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -128,7 +105,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
@@ -138,18 +115,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
-STRIPE_APPLICATION_FEE_PERCENT=0.4
+STRIPE_APPLICATION_FEE_PERCENT = 0.4
 
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'tutor_platform.urls'
-
-
-
-
 
 TEMPLATES = [
     {
@@ -167,15 +138,13 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'tutor_platform.wsgi.application'
+ASGI_APPLICATION = 'tutor_platform.asgi.application'
 
-ASGI_APPLICATION = 'tutor_platform.asgi.application'  # adjust to your project name
- 
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [os.getenv('REDIS_URL', default='redis://127.0.0.1:6379/0')],
+            'hosts': [os.getenv('REDIS_URL', 'redis://127.0.0.1:6379/0')],
         },
     },
 }
@@ -184,8 +153,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "weleardb",
-        "USER": "mike",          # Change if your PostgreSQL username is different
-        "PASSWORD": os.environ.get("DB_PASSWORD", "hellopass123"),  # Keep password in environment variable
+        "USER": "mike",
+        "PASSWORD": os.environ.get("DB_PASSWORD"),  # set in environment, no hardcoded fallback
         "HOST": "localhost",
         "PORT": "5432",
     }
@@ -206,7 +175,8 @@ USE_TZ = True
 CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
+    'http://localhost:3000',
+    'https://api.welearnglobal.online',
 ]
 
 STATIC_URL = 'static/'
@@ -265,10 +235,9 @@ SPECTACULAR_SETTINGS = {
     ],
 }
 
-
 # Celery
-CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://127.0.0.1/:6379/0')
-CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://127.0.0.1/:6379/0')
+CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://127.0.0.1:6379/0')
+CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://127.0.0.1:6379/0')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Africa/Lagos'
@@ -280,6 +249,6 @@ EMAIL_PORT = 465
 
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'support@welearnglobal.online')  # e.g. bookings@yourdomain.com
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'AF32RiP5WDG)HNc')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'support@welearnglobal.online')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # set in environment, no hardcoded fallback
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
