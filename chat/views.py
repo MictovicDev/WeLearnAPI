@@ -15,6 +15,7 @@ from .models import ChatThread, Message
 from .serializers import ChatThreadSerializer, MessageSerializer
 from django.conf import settings
 from users.models import User
+from tutors.models import TutorProfile
 
 class ChatThreadViewSet(
     mixins.ListModelMixin,
@@ -26,7 +27,8 @@ class ChatThreadViewSet(
 
     def get_queryset(self):
         user = self.request.user
-        return ChatThread.objects.filter(Q(student=user) | Q(tutor=user))
+        tutor = TutorProfile.objects.get(user=user)
+        return ChatThread.objects.filter(Q(student=user) | Q(tutor=tutor))
 
     @action(methods=['POST'], detail=False, url_path='start')
     def start(self, request):
