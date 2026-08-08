@@ -20,6 +20,18 @@ from .permissions import IsTutor, IsTutorOwner
 from users.permissions import IsAdmin
 from bookings.serializers import MyBookingsSerializer
 import logging
+from django.db.models import Sum, Q
+from django.db.models.functions import TruncDate
+from django.utils import timezone
+from datetime import timedelta
+from payment.models import Transaction, PayoutMethod
+from payment.serializers import (
+    TransactionSerializer,
+    PayoutMethodSerializer,
+    WalletSummarySerializer,
+    DashboardStatsSerializer,
+    PerformanceChartPointSerializer,
+)
 
 logger = logging.getLogger('tutor_platform')
 
@@ -266,6 +278,126 @@ class TutorProfileViewSet(
                 Availability.objects.bulk_create(slots)
 
         return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
+
+
+    @action(methods=['GET'], detail=False, url_path='my-profile/dashboard-stats')
+    def dashboard_stats(self, request):
+        profile = request.user.tutor_profile
+        now = timezone.now()
+        week_start = now - timedelta(days=7)
+    
+        # adjust field/status names below to match your actual Booking model
+        upcoming_sessions = profile.bookings.filter(
+            status='confirmed', scheduled_date__gte=now,
+        ).count()
+    
+        pending_requests = profile.bookings.filter(status='pending').count()
+    
+        weekly_earnings = profile.transactions.filter(
+            transaction_type=Transaction.TransactionType.EARNING,
+            created_at__gte=week_start,
+        ).aggregate(total=Sum('amount'))['total'] or 0
+    
+        data = {
+            'upcoming_sessions': upcoming_sessions,
+            'pending_requests': pending_requests,
+            'weekly_earnings': weekly_earnings,
+            'average_rating': profile.average_rating or 0,
+        }
+        return Response(DashboardStatsSerializer(data).data)
+    
+    
+    @action(methods=['GET'], detail=False, url_path='my-profile/wallet')
+    def wallet_summary(self, request):
+        profile = request.user.tutor_profile
+        totals = profile.transactions.aggregate(
+            cleared=Sum('amount', filter=Q(
+                status=Transaction.Status.CLEARED,
+                transaction_type=Transaction.TransactionType.EARNING,
+            )),
+            pending=Sum('amount', filter=Q(
+                status=Transaction.Status.PENDING,
+                transaction_type=Transaction.TransactionType.EARNING,
+            )),
+            payouts=Sum('amount', filter=Q(
+                transaction_type=Transaction.TransactionType.PAYOUT,
+                status=Transaction.Status.COMPLETED,
+            )),
+            lifetime_earnings=Sum('amount', filter=Q(
+                transaction_type=Transaction.TransactionType.EARNING,
+            )),
+        )
+        cleared = totals['cleared'] or 0
+        payouts = totals['payouts'] or 0
+    
+        data = {
+            'available_balance': cleared - payouts,
+            'pending_clearance': totals['pending'] or 0,
+            'total_earned_lifetime': totals['lifetime_earnings'] or 0,
+        }
+        return Response(WalletSummarySerializer(data).data)
+    
+    
+    @action(methods=['GET'], detail=False, url_path='my-profile/transactions')
+    def transactions(self, request):
+        profile = request.user.tutor_profile
+        tx_type = request.query_params.get('type')  # 'earnings' or 'payouts'
+    
+        qs = profile.transactions.all()
+        if tx_type == 'earnings':
+            qs = qs.filter(transaction_type=Transaction.TransactionType.EARNING)
+        elif tx_type == 'payouts':
+            qs = qs.filter(transaction_type=Transaction.TransactionType.PAYOUT)
+    
+        page = self.paginate_queryset(qs)
+        serializer = TransactionSerializer(page if page is not None else qs, many=True)
+        if page is not None:
+            return self.get_paginated_response(serializer.data)
+        return Response(serializer.data)
+    
+    
+    @action(methods=['GET', 'POST'], detail=False, url_path='my-profile/payout-methods')
+    def payout_methods(self, request):
+        profile = request.user.tutor_profile
+        if request.method == 'GET':
+            methods = profile.payout_methods.all()
+            return Response(PayoutMethodSerializer(methods, many=True).data)
+    
+        serializer = PayoutMethodSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(tutor=profile)
+        return Response(serializer.data, status=201)
+    
+    
+    @action(methods=['GET'], detail=False, url_path='my-profile/performance-chart')
+    def performance_chart(self, request):
+        """Revenue grouped by day, defaults to the last 7 days.
+        Pass ?days=30 for a longer window."""
+        profile = request.user.tutor_profile
+        days = int(request.query_params.get('days', 7))
+        start_date = (timezone.now() - timedelta(days=days - 1)).date()
+    
+        earnings = (
+            profile.transactions.filter(
+                transaction_type=Transaction.TransactionType.EARNING,
+                created_at__date__gte=start_date,
+            )
+            .annotate(day=TruncDate('created_at'))
+            .values('day')
+            .annotate(revenue=Sum('amount'))
+        )
+        revenue_by_date = {row['day']: row['revenue'] for row in earnings}
+    
+        results = []
+        for i in range(days):
+            current_date = start_date + timedelta(days=i)
+            results.append({
+                'day': current_date.strftime('%a'),
+                'date': current_date,
+                'revenue': revenue_by_date.get(current_date, 0),
+            })
+        return Response(PerformanceChartPointSerializer(results, many=True).data)
+ 
 
 
 

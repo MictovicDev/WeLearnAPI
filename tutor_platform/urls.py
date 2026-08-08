@@ -9,7 +9,10 @@ from users.views import UserViewSet, AdminUserViewSet, CustomTokenObtainPairView
 from tutors.views import SubjectViewSet, TutorProfileViewSet, AvailabilityViewSet
 from bookings.views import BookingViewSet
 from reviews.views import ReviewViewSet
-from messaging.views import ConversationViewSet
+from chat.views import ChatThreadViewSet
+from payment.views import PaymentsViewSet
+from payment.webhooks import stripe_webhook
+
 
 router = DefaultRouter()
 
@@ -29,8 +32,10 @@ router.register(r'bookings', BookingViewSet, basename='bookings')
 # Reviews
 router.register(r'reviews', ReviewViewSet, basename='reviews')
 
+router.register('payment', PaymentsViewSet, basename='payment')
+
 # Messaging
-router.register(r'conversations', ConversationViewSet, basename='conversations')
+router.register(r'chat', ChatThreadViewSet, basename='chats')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,8 +44,13 @@ urlpatterns = [
     path('api/v1/auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/v1/auth/refresh/', CustomTokenRefreshView.as_view(), name='token_refresh'),
 
+    # Stripe webhook, kept outside the router since it's a plain view with
+    # its own auth handling, not a DRF viewset action.
+    path('api/v1/payment/webhook/', stripe_webhook, name='stripe-webhook'),
+
     # All routed viewsets
     path('api/v1/', include(router.urls)),
+    # path('api/v1/chat/', include('chat.urls')),
 
     # Schema & docs
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),

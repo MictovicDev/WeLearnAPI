@@ -106,6 +106,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
 
     # Third-party
@@ -120,7 +121,8 @@ INSTALLED_APPS = [
     'tutors',
     'bookings',
     'reviews',
-    'messaging',
+    'chat',
+    "payment",
     "corsheaders",
 ]
 
@@ -137,10 +139,16 @@ MIDDLEWARE = [
 ]
 
 
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_APPLICATION_FEE_PERCENT=0.4
+
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'tutor_platform.urls'
+
+
+
 
 
 TEMPLATES = [
@@ -160,6 +168,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'tutor_platform.wsgi.application'
+
+ASGI_APPLICATION = 'tutor_platform.asgi.application'  # adjust to your project name
+ 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [os.getenv('REDIS_URL', default='redis://localhost:6379/0')],
+        },
+    },
+}
 
 DATABASES = {
     "default": {
@@ -248,8 +267,8 @@ SPECTACULAR_SETTINGS = {
 
 
 # Celery
-CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379/0')
-CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')
+CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://127.0.0.1/:6379/0')
+CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://127.0.0.1/:6379/0')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Africa/Lagos'
