@@ -2,6 +2,7 @@
 
 from django.conf import settings
 from django.db import models
+from users.models import User
 
 
 class ChatThread(models.Model):
@@ -11,7 +12,7 @@ class ChatThread(models.Model):
         settings.AUTH_USER_MODEL, related_name='chat_threads_as_student', on_delete=models.CASCADE
     )
     tutor = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='chat_threads_as_tutor', on_delete=models.CASCADE
+        User, related_name='chat_threads_as_tutor', on_delete=models.CASCADE
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
