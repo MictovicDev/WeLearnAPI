@@ -27,8 +27,11 @@ class ChatThreadViewSet(
 
     def get_queryset(self):
         user = self.request.user
-        tutor = TutorProfile.objects.get(user=user)
-        return ChatThread.objects.filter(Q(student=user) | Q(tutor=tutor))
+        tutor = TutorProfile.objects.filter(user=user).first()
+
+        return ChatThread.objects.filter(
+            Q(student=user) | Q(tutor=tutor)
+        )
 
     @action(methods=['POST'], detail=False, url_path='start')
     def start(self, request):
