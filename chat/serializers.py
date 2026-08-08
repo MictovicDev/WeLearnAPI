@@ -29,7 +29,7 @@ class ChatThreadSerializer(serializers.ModelSerializer):
     def get_other_participant_name(self, obj):
         user = self.context['request'].user
         other = obj.other_participant(user)
-        return other.username
+        return other.user.first_name
 
     def get_last_message(self, obj):
         last = obj.messages.last()
