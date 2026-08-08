@@ -2,13 +2,18 @@ from pathlib import Path
 import dj_database_url
 from datetime import timedelta
 import os
+from dotenv import load_dotenv
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+load_dotenv(BASE_DIR / ".env")
+
 SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-only-for-local-dev')
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 
@@ -252,3 +257,14 @@ EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'support@welearnglobal.online')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # set in environment, no hardcoded fallback
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+print("=== ENVIRONMENT CHECK ===")
+print("DEBUG:", os.getenv("DEBUG"))
+print("ALLOWED_HOSTS:", os.getenv("ALLOWED_HOSTS"))
+print("CSRF_TRUSTED_ORIGINS:", os.getenv("CSRF_TRUSTED_ORIGINS"))
+print("DB_PASSWORD exists:", bool(os.getenv("DB_PASSWORD")))
+print("REDIS_URL exists:", bool(os.getenv("REDIS_URL")))
+print("EMAIL_HOST_PASSWORD exists:", bool(os.getenv("EMAIL_HOST_PASSWORD")))
+print("=========================")
