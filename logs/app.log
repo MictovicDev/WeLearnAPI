@@ -1939,3 +1939,24 @@ ValueError: Cannot query "Emeka Michael (awaemekamichael@gmail.com)": Must be "T
 2026-08-09 17:09:18,476 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
 2026-08-09 17:09:43,417 [INFO] django.channels.server: [mHTTP GET /api/v1/chat/ 200 [2.28, 127.0.0.1:56620][0m
 2026-08-09 17:10:09,437 [INFO] django.channels.server: [mHTTP GET /api/v1/chat/6/messages/ 200 [2.17, 127.0.0.1:56620][0m
+2026-08-09 17:23:20,255 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-09 17:23:23,294 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-09 17:23:23,294 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-09 17:23:23,302 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-09 17:23:26,737 [INFO] django.channels.server: [mHTTP GET /api/v1/chat/6/messages/ 200 [2.29, 127.0.0.1:63746][0m
+2026-08-09 17:31:11,735 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-09 17:31:17,345 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-09 17:31:20,462 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-09 17:31:20,462 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-09 17:31:20,463 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-09 17:31:47,063 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-08-09 17:31:50,327 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-09 17:31:53,328 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-09 17:31:53,328 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-09 17:31:53,329 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-09 17:33:05,168 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\serializers.py changed, reloading.
+2026-08-09 17:33:09,002 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-09 17:33:11,844 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-09 17:33:11,845 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-09 17:33:11,845 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-09 17:33:23,851 [INFO] django.channels.server: [mHTTP GET /api/v1/chat/6/messages/ 200 [2.30, 127.0.0.1:62977][0m

@@ -68,6 +68,8 @@ class UserViewSet(viewsets.GenericViewSet):
             return [AllowAny()]
         return [IsAuthenticated()]
 
+    
+
     def get_serializer_class(self):
         if self.action == 'register':
             return RegisterSerializer
