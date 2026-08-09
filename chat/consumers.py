@@ -7,6 +7,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.db.models import Q
 from .models import ChatThread, Message
 from .serializers import MessageSerializer
+from tutors.models import TutorProfile
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
@@ -68,8 +69,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     @database_sync_to_async
     def user_is_participant(self):
+        user = self.user
+        tutor = TutorProfile.objects.filter(user=user).first()
         return ChatThread.objects.filter(id=self.thread_id).filter(
-            Q(student=self.user) | Q(tutor=self.user)
+            Q(student=user) | Q(tutor=tutor)
         ).exists()
 
     @database_sync_to_async
