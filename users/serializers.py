@@ -34,6 +34,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField()
+    profile_image = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -46,6 +47,16 @@ class UserSerializer(serializers.ModelSerializer):
     @extend_schema_field(serializers.CharField())
     def get_full_name(self, obj):
         return obj.get_full_name()
+
+    @extend_schema_field(serializers.CharField())
+    def get_profile_image(self, obj):
+        if not obj.profile_image:
+            return None
+        request = self.context.get('request')
+        if request:
+            return request.build_absolute_uri(obj.profile_image.url)
+        from django.conf import settings
+        return f'{settings.SITE_URL}{obj.profile_image.url}'
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
