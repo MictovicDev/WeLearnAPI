@@ -5,14 +5,25 @@ from .models import ChatThread, Message
 from users.serializers import UserSerializer
 
 
+# class MessageSerializer(serializers.ModelSerializer):
+#     sender_name = serializers.CharField(source='sender.get_full_name', read_only=True)
+
+#     class Meta:
+#         model = Message
+#         fields = ['id', 'thread', 'sender', 'sender_name', 'content', 'created_at', 'read_at']
+#         read_only_fields = ['id', 'sender', 'sender_name', 'created_at', 'read_at']
+
+
+
+
 class MessageSerializer(serializers.ModelSerializer):
-    sender_name = serializers.CharField(source='sender.get_full_name', read_only=True)
+    sender = UserSerializer()    
+    receiver = UserSerializer()
 
     class Meta:
         model = Message
-        fields = ['id', 'thread', 'sender', 'sender_name', 'content', 'created_at', 'read_at']
-        read_only_fields = ['id', 'sender', 'sender_name', 'created_at', 'read_at']
-
+        fields = ['id', 'thread', 'sender', 'receiver', 'content', 'created_at']
+        
 
 class ChatThreadSerializer(serializers.ModelSerializer):
     other_participant_name = serializers.SerializerMethodField()
