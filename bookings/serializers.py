@@ -75,7 +75,7 @@ class BookingListSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'student', 'tutor_profile', 'subject', 'session_type',
             'session_type_display', 'scheduled_date', 'start_time', 'end_time',
-            'status', 'status_display', 'notes', 'total_amount', 'created_at',
+            'status', 'status_display', "duration", 'notes', 'total_amount', 'created_at',
         ]
 
 

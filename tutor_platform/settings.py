@@ -108,6 +108,7 @@ INSTALLED_APPS = [
     'chat',
     "payment",
     "corsheaders",
+    "wallets"
 ]
 
 MIDDLEWARE = [

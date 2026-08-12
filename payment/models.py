@@ -4,6 +4,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from tutors.models import TutorProfile  # adjust import path
+from django.conf import settings
 
 
 class PayoutMethod(models.Model):
@@ -71,6 +72,9 @@ class Transaction(models.Model):
     def __str__(self):
         return f'{self.transaction_type} - {self.amount} ({self.tutor})'
 
+
+
+
  
  
 class TutorStripeAccount(models.Model):
@@ -92,10 +96,6 @@ class TutorStripeAccount(models.Model):
     def __str__(self):
         return f'{self.tutor} - {self.stripe_account_id}'
 
-
-
-from django.conf import settings
-from django.db import models
 
 
 class Payment(models.Model):
