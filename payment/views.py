@@ -19,7 +19,7 @@ class PaymentViewSet(viewsets.ViewSet):
 
     @action(
         detail=False,
-        methods=["post"],
+        methods=["get"],
         url_path=r"initiate/(?P<booking_id>[^/.]+)/booking"
     )
     def initiate(self, request, booking_id=None):
@@ -41,6 +41,31 @@ class PaymentViewSet(viewsets.ViewSet):
             },
             status=status.HTTP_201_CREATED
         )
+
+    @action(
+            detail=False,
+            methods=["get"],
+            url_path=r"confirm/(?P<booking_id>[^/.]+)/"
+        )
+    def confirm(self, request, booking_id=None):
+        try:
+            booking = Booking.objects.get(
+                id=booking_id,
+                student=request.user
+            )
+            if booking.status == 'PAYMENT_CONFIRMED':
+                return Response({"confirmed" : True},
+                        status=status.HTTP_200_OK)
+            else:
+                return Response({"confirmed" : False},
+                        status=status.HTTP_200_OK)
+        except Booking.DoesNotExist:
+            return Response(
+                {"detail": "Booking not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        
 
 
 @method_decorator(csrf_exempt, name="dispatch")

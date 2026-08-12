@@ -31,7 +31,7 @@ class BookingCreateSerializer(serializers.ModelSerializer):
 
 
         session_type = attrs.get('session_type')
-        if session_type and tutor_profile.session_status not in ('online', 'onsite'):
+        if session_type and tutor_profile.session_status not in ('online', 'onsite', 'both'):
             raise serializers.ValidationError(
                 f"Tutor only supports {tutor_profile.session_status} sessions."
             )

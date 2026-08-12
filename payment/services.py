@@ -5,15 +5,24 @@ from payment.factory import PaymentGatewayFactory
 from payment.interfaces import PaymentIntentRequest
 from payment.models import Payment
 from payment.signals import payment_succeeded
-
+from rest_framework.exceptions import ValidationError
 
 class PaymentService:
     def __init__(self, gateway_name: str | None = None):
         self.gateway = PaymentGatewayFactory.get_gateway(gateway_name)
 
     def initiate_payment(self, booking: Booking) -> Payment:
-        if booking.status != Booking.Status.ACCEPTED:
-            raise ValueError("Booking must be accepted by the tutor before payment.")
+        if booking.status == Booking.Status.PAYMENT_CONFIRMED:
+            raise ValidationError("Booking has already been paid for")
+        if booking.status == Booking.Status.COMPLETED:
+            raise ValidationError("Booking completed.")
+        if booking.status == Booking.Status.CANCELLED:
+            raise ValidationError("Booking has been cancelled by Tutor.")
+        if booking.status == Booking.Status.DECLINED:
+            raise ValidationError("Booking has been declined by Tutor.")
+        if booking.status == Booking.Status.PENDING:
+            raise ValidationError("Booking is still pending, wait for approval, before payment")
+        
         request = PaymentIntentRequest(
             amount=int(booking.total_amount * 100),
             reference=str(booking.id),
