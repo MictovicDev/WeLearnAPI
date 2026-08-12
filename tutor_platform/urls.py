@@ -10,8 +10,8 @@ from tutors.views import SubjectViewSet, TutorProfileViewSet, AvailabilityViewSe
 from bookings.views import BookingViewSet
 from reviews.views import ReviewViewSet
 from chat.views import ChatThreadViewSet
-from payment.views import PaymentsViewSet
-from payment.webhooks import stripe_webhook
+from payment.views import PaymentViewSet
+
 
 
 router = DefaultRouter()
@@ -32,7 +32,7 @@ router.register(r'bookings', BookingViewSet, basename='bookings')
 # Reviews
 router.register(r'reviews', ReviewViewSet, basename='reviews')
 
-router.register('payment', PaymentsViewSet, basename='payment')
+router.register('payment', PaymentViewSet, basename='payment')
 
 # Messaging
 router.register(r'chat', ChatThreadViewSet, basename='chats')
@@ -46,7 +46,7 @@ urlpatterns = [
 
     # Stripe webhook, kept outside the router since it's a plain view with
     # its own auth handling, not a DRF viewset action.
-    path('api/v1/payment/webhook/', stripe_webhook, name='stripe-webhook'),
+    path('api/v1/webhooks/', include('payment.urls')),
 
     # All routed viewsets
     path('api/v1/', include(router.urls)),

@@ -16,7 +16,7 @@ class BookingCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Booking
-        fields = ['tutor_profile', 'availability_slot', 'subject', 'session_type', 'scheduled_date', 'notes']
+        fields = ['tutor_profile', 'duration','availability_slot', 'subject', 'session_type', 'scheduled_date', 'notes']
 
     def validate(self, attrs):
         tutor_profile = attrs['tutor_profile']

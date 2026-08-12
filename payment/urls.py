@@ -2,17 +2,16 @@
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import PaymentsViewSet
-from .webhooks import stripe_webhook
+from .views import PaymentViewSet, StripeWebhookView
 
 router = DefaultRouter()
-router.register('', PaymentsViewSet, basename='payments')
+router.register('payment', PaymentViewSet, basename='payments')
+
 
 urlpatterns = [
-    path('webhook/', stripe_webhook, name='stripe-webhook'),  # keep outside the router, no auth
+    path('stripe/', StripeWebhookView.as_view(), name='stripe-webhook'),
     path('', include(router.urls)),
 ]
-
 # Resulting endpoints (with the include below mounted at /api/payments/):
 #   POST /api/payments/onboard/
 #   GET  /api/payments/onboard/status/

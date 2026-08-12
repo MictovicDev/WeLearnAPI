@@ -2078,3 +2078,849 @@ ValueError: Cannot query "Emeka Michael (awaemekamichael@gmail.com)": Must be "T
 2026-08-10 22:29:36,976 [INFO] django.channels.server: [mHTTP PATCH /api/v1/tutors/my-profile/ 200 [2.19, 127.0.0.1:53650][0m
 2026-08-10 22:29:49,090 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.33, 127.0.0.1:51316][0m
 2026-08-10 22:29:51,352 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.21, 127.0.0.1:51316][0m
+2026-08-11 14:44:50,598 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-11 14:44:56,943 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-11 14:44:56,944 [INFO] daphne.server: Configuring endpoint tcp:port=3000:interface=127.0.0.1
+2026-08-11 14:44:56,946 [INFO] daphne.server: Listening on TCP address 127.0.0.1:3000
+2026-08-11 14:45:32,459 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [5.11, 127.0.0.1:58898][0m
+2026-08-11 14:46:38,467 [WARNING] django.channels.server: [31;1mHTTP GET /api/v1/tutors/my-profile/ 403 [2.40, 127.0.0.1:52136][0m
+2026-08-11 14:47:18,144 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [6.38, 127.0.0.1:52136][0m
+2026-08-11 14:47:42,515 [INFO] django.channels.server: [mHTTP GET /api/v1/tutors/my-profile/ 200 [2.29, 127.0.0.1:52136][0m
+2026-08-11 14:49:09,146 [INFO] django.channels.server: [32mHTTP GET /admin 301 [0.08, 127.0.0.1:61192][0m
+2026-08-11 14:49:11,695 [INFO] django.channels.server: [32mHTTP GET /admin/ 302 [2.53, 127.0.0.1:61192][0m
+2026-08-11 14:49:11,844 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/ 200 [0.14, 127.0.0.1:61192][0m
+2026-08-11 14:49:12,523 [INFO] django.channels.server: [mHTTP GET /static/admin/css/base.css 200 [0.48, 127.0.0.1:61192][0m
+2026-08-11 14:49:12,786 [INFO] django.channels.server: [mHTTP GET /static/admin/js/nav_sidebar.js 200 [0.25, 127.0.0.1:61192][0m
+2026-08-11 14:49:12,987 [INFO] django.channels.server: [mHTTP GET /static/admin/css/login.css 200 [0.60, 127.0.0.1:50425][0m
+2026-08-11 14:49:13,038 [INFO] django.channels.server: [mHTTP GET /static/admin/css/dark_mode.css 200 [0.66, 127.0.0.1:53405][0m
+2026-08-11 14:49:13,045 [INFO] django.channels.server: [mHTTP GET /static/admin/css/nav_sidebar.css 200 [0.66, 127.0.0.1:56498][0m
+2026-08-11 14:49:13,095 [INFO] django.channels.server: [mHTTP GET /static/admin/css/responsive.css 200 [0.71, 127.0.0.1:51423][0m
+2026-08-11 14:49:13,143 [INFO] django.channels.server: [mHTTP GET /static/admin/js/theme.js 200 [0.76, 127.0.0.1:52691][0m
+2026-08-11 14:49:13,353 [WARNING] django.channels.server: [33mHTTP GET /favicon.ico 404 [0.03, 127.0.0.1:52691][0m
+2026-08-11 14:49:28,589 [INFO] django.channels.server: [32mHTTP POST /admin/login/?next=/admin/ 302 [3.83, 127.0.0.1:52691][0m
+2026-08-11 14:49:30,983 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.38, 127.0.0.1:52691][0m
+2026-08-11 14:49:31,181 [INFO] django.channels.server: [mHTTP GET /static/admin/css/dashboard.css 200 [0.03, 127.0.0.1:52691][0m
+2026-08-11 14:49:31,292 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-addlink.svg 200 [0.08, 127.0.0.1:52691][0m
+2026-08-11 14:49:31,297 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-changelink.svg 200 [0.08, 127.0.0.1:51423][0m
+2026-08-11 14:49:31,297 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-deletelink.svg 200 [0.07, 127.0.0.1:56498][0m
+2026-08-11 14:52:28,666 [INFO] django.channels.server: [mHTTP GET /admin/users/user/ 200 [2.44, 127.0.0.1:54423][0m
+2026-08-11 14:52:28,858 [INFO] django.channels.server: [mHTTP GET /static/admin/css/changelists.css 200 [0.04, 127.0.0.1:54423][0m
+2026-08-11 14:52:29,216 [INFO] django.channels.server: [mHTTP GET /static/admin/js/core.js 200 [0.08, 127.0.0.1:62491][0m
+2026-08-11 14:52:29,352 [INFO] django.channels.server: [mHTTP GET /static/admin/js/jquery.init.js 200 [0.22, 127.0.0.1:57305][0m
+2026-08-11 14:52:29,415 [INFO] django.channels.server: [mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.28, 127.0.0.1:59905][0m
+2026-08-11 14:52:29,440 [INFO] django.channels.server: [mHTTP GET /static/admin/js/urlify.js 200 [0.21, 127.0.0.1:62491][0m
+2026-08-11 14:52:29,448 [INFO] django.channels.server: [mHTTP GET /static/admin/js/actions.js 200 [0.30, 127.0.0.1:63366][0m
+2026-08-11 14:52:29,467 [INFO] django.channels.server: [mHTTP GET /static/admin/js/prepopulate.js 200 [0.11, 127.0.0.1:57305][0m
+2026-08-11 14:52:29,477 [INFO] django.channels.server: [mHTTP GET /static/admin/img/search.svg 200 [0.03, 127.0.0.1:62491][0m
+2026-08-11 14:52:29,483 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-yes.svg 200 [0.02, 127.0.0.1:63366][0m
+2026-08-11 14:52:29,546 [INFO] django.channels.server: [mHTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.68, 127.0.0.1:54423][0m
+2026-08-11 14:52:29,867 [INFO] django.channels.server: [mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.44, 127.0.0.1:59905][0m
+2026-08-11 14:52:30,002 [INFO] django.channels.server: [mHTTP GET /static/admin/js/filters.js 200 [0.10, 127.0.0.1:59905][0m
+2026-08-11 14:52:31,124 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.30, 127.0.0.1:58604][0m
+2026-08-11 14:52:31,329 [INFO] django.channels.server: [mHTTP GET /static/admin/img/sorting-icons.svg 200 [0.02, 127.0.0.1:59905][0m
+2026-08-11 14:52:31,367 [INFO] django.channels.server: [mHTTP GET /static/admin/img/tooltag-add.svg 200 [0.06, 127.0.0.1:58604][0m
+2026-08-11 14:52:31,382 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-viewlink.svg 200 [0.07, 127.0.0.1:54423][0m
+2026-08-11 14:52:39,955 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/ 200 [2.30, 127.0.0.1:54423][0m
+2026-08-11 14:52:42,251 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.22, 127.0.0.1:54423][0m
+2026-08-11 14:52:47,900 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.71, 127.0.0.1:54423][0m
+2026-08-11 14:52:48,039 [INFO] django.channels.server: [mHTTP GET /static/admin/js/inlines.js 200 [0.04, 127.0.0.1:63366][0m
+2026-08-11 14:52:48,057 [INFO] django.channels.server: [mHTTP GET /static/admin/js/prepopulate_init.js 200 [0.05, 127.0.0.1:57305][0m
+2026-08-11 14:52:48,109 [INFO] django.channels.server: [mHTTP GET /static/admin/css/forms.css 200 [0.11, 127.0.0.1:54423][0m
+2026-08-11 14:52:48,171 [INFO] django.channels.server: [mHTTP GET /static/admin/js/calendar.js 200 [0.17, 127.0.0.1:58604][0m
+2026-08-11 14:52:48,185 [INFO] django.channels.server: [mHTTP GET /static/admin/css/widgets.css 200 [0.06, 127.0.0.1:54423][0m
+2026-08-11 14:52:48,194 [INFO] django.channels.server: [mHTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.19, 127.0.0.1:59905][0m
+2026-08-11 14:52:48,229 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-unknown.svg 200 [0.01, 127.0.0.1:59905][0m
+2026-08-11 14:52:48,255 [INFO] django.channels.server: [mHTTP GET /static/admin/js/change_form.js 200 [0.01, 127.0.0.1:59905][0m
+2026-08-11 14:52:50,258 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.25, 127.0.0.1:62491][0m
+2026-08-11 14:52:50,742 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-clock.svg 200 [0.06, 127.0.0.1:62491][0m
+2026-08-11 14:53:12,120 [INFO] tutor_platform: <QueryDict: {'banner': [<InMemoryUploadedFile: WhatsApp Image 2026-08-09 at 17.56.36 (1).jpeg (image/jpeg)>]}>
+2026-08-11 14:53:13,774 [INFO] django.channels.server: [mHTTP PATCH /api/v1/tutors/my-profile/ 200 [3.89, 127.0.0.1:57686][0m
+2026-08-11 14:53:22,256 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.43, 127.0.0.1:62491][0m
+2026-08-11 14:53:24,581 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.24, 127.0.0.1:62491][0m
+2026-08-11 14:53:34,945 [INFO] django.channels.server: [mHTTP GET /media/tutor_banners/WhatsApp_Image_2026-08-09_at_17.56.36_1.jpeg 200 [0.14, 127.0.0.1:62491][0m
+2026-08-11 14:53:39,783 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.47, 127.0.0.1:62491][0m
+2026-08-11 14:53:42,114 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/ 200 [2.24, 127.0.0.1:62491][0m
+2026-08-11 14:53:49,872 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.41, 127.0.0.1:62491][0m
+2026-08-11 14:53:52,198 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.24, 127.0.0.1:62491][0m
+2026-08-11 15:01:16,967 [WARNING] django.channels.server: [33mHTTP GET /api/v1/login/ 404 [0.06, 127.0.0.1:56097][0m
+2026-08-11 15:34:05,424 [INFO] django.channels.server: [32mHTTP GET /admin/tutors/tutorprofile/1/change/ 302 [2.74, 127.0.0.1:63957][0m
+2026-08-11 15:34:05,549 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/tutors/tutorprofile/1/change/ 200 [0.09, 127.0.0.1:63957][0m
+2026-08-11 16:05:33,055 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/tutors/tutorprofile/1/change/ 200 [2.72, 127.0.0.1:50105][0m
+2026-08-11 16:34:58,506 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/tutors/tutorprofile/1/change/ 200 [2.62, 127.0.0.1:52039][0m
+2026-08-11 16:53:13,108 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/tutors/tutorprofile/1/change/ 200 [3.03, 127.0.0.1:57923][0m
+2026-08-12 16:26:38,307 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 16:27:08,597 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-12 17:15:55,395 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:16:52,098 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:16:56,747 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:17:24,339 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:17:28,562 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:17:47,700 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:17:52,373 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:17:56,531 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:18:00,790 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:18:08,573 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:18:12,937 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:18:43,861 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:18:47,306 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:18:52,015 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:18:57,185 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:19:18,141 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:19:23,034 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:21:23,082 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:22:28,604 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-12 17:22:32,827 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:25:18,462 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\webhooks.py changed, reloading.
+2026-08-12 17:25:24,007 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:25:42,001 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:25:46,283 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:25:49,158 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:25:52,861 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:27:24,855 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:27:47,462 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:29:13,520 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:30:17,177 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-12 17:30:21,359 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:30:26,520 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-12 17:30:30,188 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:30:35,703 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:30:35,703 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:30:35,711 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:30:58,780 [INFO] django.channels.server: [32mHTTP GET /admin/ 302 [2.96, 127.0.0.1:56670][0m
+2026-08-12 17:31:00,911 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/ 200 [2.10, 127.0.0.1:56670][0m
+2026-08-12 17:31:01,470 [WARNING] django.channels.server: [33mHTTP GET /favicon.ico 404 [0.22, 127.0.0.1:56670][0m
+2026-08-12 17:31:10,589 [INFO] django.channels.server: [32mHTTP POST /admin/login/?next=/admin/ 302 [4.04, 127.0.0.1:56670][0m
+2026-08-12 17:31:13,053 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.45, 127.0.0.1:56670][0m
+2026-08-12 17:31:13,745 [INFO] django.channels.server: [mHTTP GET /static/admin/css/dashboard.css 200 [0.56, 127.0.0.1:56670][0m
+2026-08-12 17:31:37,184 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.65, 127.0.0.1:56670][0m
+2026-08-12 17:31:37,311 [INFO] django.channels.server: [mHTTP GET /static/admin/img/search.svg 200 [0.04, 127.0.0.1:55820][0m
+2026-08-12 17:31:39,756 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.50, 127.0.0.1:56670][0m
+2026-08-12 17:31:47,784 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/7/change/ 200 [2.83, 127.0.0.1:56670][0m
+2026-08-12 17:31:50,078 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.23, 127.0.0.1:56670][0m
+2026-08-12 17:32:03,621 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/7/change/ 302 [2.33, 127.0.0.1:56670][0m
+2026-08-12 17:32:06,001 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.36, 127.0.0.1:56670][0m
+2026-08-12 17:32:08,362 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.23, 127.0.0.1:56670][0m
+2026-08-12 17:34:11,627 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [2.88, 127.0.0.1:51688][0m
+2026-08-12 17:36:52,495 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 17:36:54,826 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:36:57,709 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:36:57,711 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:36:57,713 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:37:16,372 [WARNING] django.channels.server: [33mHTTP POST /api/v1/payments/initiate/7/booking/ 404 [0.03, 127.0.0.1:58502][0m
+2026-08-12 17:38:06,360 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking 500 [0.38, 127.0.0.1:58502][0m
+2026-08-12 17:38:25,646 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [4.43, 127.0.0.1:58502][0m
+2026-08-12 17:39:48,464 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:39:50,025 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:39:52,577 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:39:52,578 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:39:52,579 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:39:53,928 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:39:55,677 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:39:58,227 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:39:58,227 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:39:58,227 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:40:05,717 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\interfaces.py changed, reloading.
+2026-08-12 17:40:07,176 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:40:09,863 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:40:09,864 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:40:09,865 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:40:26,669 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [4.47, 127.0.0.1:53372][0m
+2026-08-12 17:40:57,186 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:40:59,563 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:41:02,392 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:41:02,393 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:41:02,393 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:41:08,493 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:41:10,147 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:41:12,743 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:41:12,743 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:41:12,745 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:41:13,649 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:41:15,496 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:41:17,693 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:41:19,462 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:41:21,871 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 17:41:23,428 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:41:26,115 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:41:26,115 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:41:26,117 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:57:09,864 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 17:57:13,205 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:57:16,128 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:57:16,128 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:57:16,128 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:57:19,821 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 17:57:22,144 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:57:24,602 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 17:57:26,610 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:57:29,442 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:57:29,443 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:57:29,444 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:57:33,849 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 17:57:35,537 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:57:38,173 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:57:38,173 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:57:38,173 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 17:57:52,861 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 17:57:54,575 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 17:57:57,148 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 17:57:57,148 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 17:57:57,148 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:06:01,383 [ERROR] django.channels.server: [35;1mHTTP GET /admin/bookings/booking/ 500 [5.03, 127.0.0.1:56719][0m
+2026-08-12 18:06:04,577 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.25, 127.0.0.1:56719][0m
+2026-08-12 18:06:43,361 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:06:45,929 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:06:45,929 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:06:45,929 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:07:36,431 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.39, 127.0.0.1:64308][0m
+2026-08-12 18:07:38,645 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.17, 127.0.0.1:64308][0m
+2026-08-12 18:07:45,178 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/add/ 200 [2.34, 127.0.0.1:64308][0m
+2026-08-12 18:07:47,432 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.21, 127.0.0.1:64308][0m
+2026-08-12 18:08:32,802 [ERROR] django.channels.server: [35;1mHTTP POST /admin/bookings/booking/add/ 500 [4.79, 127.0.0.1:64308][0m
+2026-08-12 18:09:24,063 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:09:26,752 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:09:28,528 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:09:29,879 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:09:32,556 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:09:32,556 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:09:32,557 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:09:34,138 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:09:36,534 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:09:39,331 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:09:41,840 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:10:28,787 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:10:31,348 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:10:31,348 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:10:31,348 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:10:36,528 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/add/ 200 [2.31, 127.0.0.1:63543][0m
+2026-08-12 18:10:38,752 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.18, 127.0.0.1:63543][0m
+2026-08-12 18:11:07,887 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/add/ 302 [2.19, 127.0.0.1:62538][0m
+2026-08-12 18:11:10,077 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.18, 127.0.0.1:62538][0m
+2026-08-12 18:11:12,316 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.19, 127.0.0.1:62538][0m
+2026-08-12 18:11:35,346 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/8/change/ 200 [2.32, 127.0.0.1:62538][0m
+2026-08-12 18:11:37,569 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.18, 127.0.0.1:62538][0m
+2026-08-12 18:12:35,020 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.20, 127.0.0.1:62538][0m
+2026-08-12 18:12:38,741 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/add/ 200 [2.24, 127.0.0.1:62538][0m
+2026-08-12 18:12:40,998 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.21, 127.0.0.1:62538][0m
+2026-08-12 18:13:10,388 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/add/ 302 [2.23, 127.0.0.1:62538][0m
+2026-08-12 18:13:12,599 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.21, 127.0.0.1:62538][0m
+2026-08-12 18:13:14,787 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.13, 127.0.0.1:62538][0m
+2026-08-12 18:13:21,862 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.27, 127.0.0.1:62538][0m
+2026-08-12 18:13:24,059 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.16, 127.0.0.1:62538][0m
+2026-08-12 18:15:02,744 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-12 18:15:04,952 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:15:07,277 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-12 18:15:08,789 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:15:11,345 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:15:11,345 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:15:11,345 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:15:16,705 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-12 18:15:18,673 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:15:21,377 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:15:21,378 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:15:21,378 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:15:35,338 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 18:15:36,860 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:15:39,471 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:15:39,471 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:15:39,472 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:15:49,000 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\interfaces.py changed, reloading.
+2026-08-12 18:15:50,703 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:15:53,285 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:15:53,285 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:15:53,286 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:16:01,797 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 18:16:03,891 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:16:05,654 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 18:16:07,142 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:18:05,458 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:18:08,030 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:18:08,030 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:18:08,032 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:18:17,301 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 18:18:18,937 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=400
+2026-08-12 18:18:18,949 [INFO] stripe: error_code=url_invalid error_message='Not a valid URL' error_param=cancel_url error_type=invalid_request_error message='Stripe v1 API error received'
+2026-08-12 18:18:21,198 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [6.17, 127.0.0.1:50805][0m
+2026-08-12 18:25:24,889 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 18:25:27,224 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=400
+2026-08-12 18:25:27,228 [INFO] stripe: error_code=url_invalid error_message='Not a valid URL' error_param=cancel_url error_type=invalid_request_error message='Stripe v1 API error received'
+2026-08-12 18:25:27,469 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [4.83, 127.0.0.1:58582][0m
+2026-08-12 18:26:34,345 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 18:26:36,011 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=400
+2026-08-12 18:26:36,011 [INFO] stripe: error_code=url_invalid error_message='Not a valid URL' error_param=cancel_url error_type=invalid_request_error message='Stripe v1 API error received'
+2026-08-12 18:26:36,263 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [4.13, 127.0.0.1:59880][0m
+2026-08-12 18:27:34,651 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:27:39,003 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:27:39,003 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:27:39,008 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:30:00,877 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:30:04,066 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:30:04,066 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:30:04,071 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:30:09,470 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 18:30:11,797 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=400
+2026-08-12 18:30:11,797 [INFO] stripe: error_code=None error_message='Prices require an `unit_amount` or `unit_amount_decimal` parameter to be set.' error_param=None error_type=invalid_request_error message='Stripe v1 API error received'
+2026-08-12 18:30:14,410 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [7.70, 127.0.0.1:63006][0m
+2026-08-12 18:31:30,261 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 18:31:34,333 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:31:37,812 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 18:31:41,351 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:31:44,505 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:31:44,505 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:31:44,505 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:31:45,625 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 18:31:49,462 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:31:52,822 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:31:52,822 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:31:52,824 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:31:53,822 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 18:31:57,515 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:32:01,044 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:32:01,044 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:32:01,044 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:32:14,046 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [4.83, 127.0.0.1:52864][0m
+2026-08-12 18:33:15,912 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:33:19,056 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:33:19,056 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:33:19,058 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:33:29,466 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/7/booking/ 500 [4.72, 127.0.0.1:53903][0m
+2026-08-12 18:33:54,643 [WARNING] django.channels.server: [33mHTTP POST /api/v1/payment/initiate/9/booking/ 404 [2.16, 127.0.0.1:53903][0m
+2026-08-12 18:34:47,101 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\admin.py changed, reloading.
+2026-08-12 18:34:51,793 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:34:55,546 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:34:55,546 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:34:55,552 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:34:57,271 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\admin.py changed, reloading.
+2026-08-12 18:35:01,740 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:35:04,914 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:35:04,914 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:35:04,925 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:35:07,872 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.46, 127.0.0.1:51260][0m
+2026-08-12 18:35:12,581 [INFO] django.channels.server: [mHTTP GET /admin/payment/payment/ 200 [2.26, 127.0.0.1:51260][0m
+2026-08-12 18:35:14,919 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.25, 127.0.0.1:51260][0m
+2026-08-12 18:35:24,190 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.39, 127.0.0.1:51260][0m
+2026-08-12 18:35:26,439 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.20, 127.0.0.1:51260][0m
+2026-08-12 18:35:34,244 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.52, 127.0.0.1:51260][0m
+2026-08-12 18:35:36,526 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.17, 127.0.0.1:51260][0m
+2026-08-12 18:35:44,350 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/9/change/ 302 [2.35, 127.0.0.1:51260][0m
+2026-08-12 18:35:46,668 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.30, 127.0.0.1:51260][0m
+2026-08-12 18:35:48,974 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.19, 127.0.0.1:51260][0m
+2026-08-12 18:36:03,036 [WARNING] django.channels.server: [33mHTTP POST /api/v1/payment/initiate/9/booking/ 404 [2.40, 127.0.0.1:61904][0m
+2026-08-12 18:36:44,573 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.39, 127.0.0.1:51260][0m
+2026-08-12 18:36:46,964 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.24, 127.0.0.1:51260][0m
+2026-08-12 18:36:51,418 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.39, 127.0.0.1:51260][0m
+2026-08-12 18:36:57,087 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.40, 127.0.0.1:51260][0m
+2026-08-12 18:36:59,353 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.19, 127.0.0.1:51260][0m
+2026-08-12 18:37:23,640 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/9/change/ 302 [2.25, 127.0.0.1:51260][0m
+2026-08-12 18:37:25,887 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.23, 127.0.0.1:51260][0m
+2026-08-12 18:37:28,151 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.17, 127.0.0.1:51260][0m
+2026-08-12 18:37:35,603 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 18:37:37,649 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 18:37:37,772 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [4.98, 127.0.0.1:58003][0m
+2026-08-12 18:43:08,797 [WARNING] django.channels.server: [33mHTTP POST /api/v1/webhooks/stripe/ 404 [1.31, 127.0.0.1:60576][0m
+2026-08-12 18:43:42,760 [WARNING] django.channels.server: [33mHTTP POST /api/v1/webhooks/stripe/ 404 [0.56, 127.0.0.1:60576][0m
+2026-08-12 18:43:42,877 [WARNING] django.channels.server: [33mHTTP POST /api/v1/webhooks/stripe/ 404 [0.16, 127.0.0.1:54057][0m
+2026-08-12 18:43:42,890 [WARNING] django.channels.server: [33mHTTP POST /api/v1/webhooks/stripe/ 404 [0.16, 127.0.0.1:54059][0m
+2026-08-12 18:43:44,746 [WARNING] django.channels.server: [33mHTTP POST /api/v1/webhooks/stripe/ 404 [0.06, 127.0.0.1:54057][0m
+2026-08-12 18:43:44,937 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.03, 127.0.0.1:60586][0m
+2026-08-12 18:44:45,904 [WARNING] django.channels.server: [33mHTTP GET /api/v1/webhooks/stripe/ 404 [0.05, 127.0.0.1:56722][0m
+2026-08-12 18:48:28,449 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/webhooks/stripe 404 [0.03, 127.0.0.1:53666][0m
+2026-08-12 18:48:45,007 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/webhooks/stripe/ 404 [0.10, 127.0.0.1:53666][0m
+2026-08-12 18:49:24,389 [WARNING] django.channels.server: [33mHTTP GET /api/v1/webhooks/stripe/ 404 [0.04, 127.0.0.1:53666][0m
+2026-08-12 18:50:11,391 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-12 18:50:25,752 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:50:29,062 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-12 18:50:37,064 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:50:39,357 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-12 18:50:43,701 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:50:50,721 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\urls.py changed, reloading.
+2026-08-12 18:50:55,345 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:51:13,425 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\urls.py changed, reloading.
+2026-08-12 18:51:18,574 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:51:21,992 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:51:21,994 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:51:21,996 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:51:26,081 [WARNING] django.channels.server: [33mHTTP GET /api/v1/webhooks/stripe/ 404 [0.40, 127.0.0.1:49672][0m
+2026-08-12 18:51:27,658 [WARNING] django.channels.server: [33mHTTP GET /api/v1/webhooks/stripe/ 404 [0.05, 127.0.0.1:49672][0m
+2026-08-12 18:51:51,718 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\urls.py changed, reloading.
+2026-08-12 18:51:56,753 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:52:00,183 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:52:00,183 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:52:00,186 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:52:00,805 [WARNING] django.channels.server: [31;1mHTTP GET /api/v1/webhooks/stripe/ 405 [0.20, 127.0.0.1:54646][0m
+2026-08-12 18:52:01,339 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/css/bootstrap-tweaks.css 200 [0.45, 127.0.0.1:54739][0m
+2026-08-12 18:52:01,374 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/css/bootstrap.min.css 200 [0.49, 127.0.0.1:54646][0m
+2026-08-12 18:52:01,476 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/js/csrf.js 200 [0.13, 127.0.0.1:54739][0m
+2026-08-12 18:52:01,580 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/js/bootstrap.min.js 200 [0.20, 127.0.0.1:54646][0m
+2026-08-12 18:52:01,665 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/js/prettify-min.js 200 [0.18, 127.0.0.1:54739][0m
+2026-08-12 18:52:01,667 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/js/default.js 200 [0.08, 127.0.0.1:54646][0m
+2026-08-12 18:52:01,726 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/js/load-ajax-form.js 200 [0.05, 127.0.0.1:54646][0m
+2026-08-12 18:52:01,753 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/css/prettify.css 200 [0.56, 127.0.0.1:56192][0m
+2026-08-12 18:52:01,760 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/css/default.css 200 [0.56, 127.0.0.1:60771][0m
+2026-08-12 18:52:01,779 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/img/grid.png 200 [0.01, 127.0.0.1:60771][0m
+2026-08-12 18:52:01,791 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/js/ajax-form.js 200 [0.59, 127.0.0.1:59787][0m
+2026-08-12 18:52:01,931 [INFO] django.channels.server: [mHTTP GET /static/rest_framework/js/jquery-3.7.1.min.js 200 [0.73, 127.0.0.1:55957][0m
+2026-08-12 18:54:42,376 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 18:54:46,624 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:54:51,184 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:54:51,184 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:54:51,192 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:55:54,985 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [3.09, 127.0.0.1:65348][0m
+2026-08-12 18:56:07,043 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.69, 127.0.0.1:65348][0m
+2026-08-12 18:56:09,382 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.22, 127.0.0.1:65348][0m
+2026-08-12 18:56:36,511 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.27, 127.0.0.1:65348][0m
+2026-08-12 18:58:04,008 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:58:08,620 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:58:15,619 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:58:19,738 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:58:27,005 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:58:31,262 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:58:34,731 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:58:34,736 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:58:34,736 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:58:36,135 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-12 18:58:39,880 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:58:43,393 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:58:43,396 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:58:43,399 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:59:19,317 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:59:22,553 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:59:22,553 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:59:22,553 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 18:59:50,414 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\apps.py changed, reloading.
+2026-08-12 18:59:54,966 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 18:59:58,952 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 18:59:58,952 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 18:59:58,952 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 19:00:03,505 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\apps.py changed, reloading.
+2026-08-12 19:00:08,178 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 19:00:11,363 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 19:00:11,366 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 19:00:11,366 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 19:00:33,342 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/9/change/ 302 [2.38, 127.0.0.1:55882][0m
+2026-08-12 19:00:35,751 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.40, 127.0.0.1:55882][0m
+2026-08-12 19:00:38,045 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.20, 127.0.0.1:55882][0m
+2026-08-12 19:00:47,784 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/9/booking/ 500 [5.00, 127.0.0.1:64851][0m
+2026-08-12 19:00:59,355 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.50, 127.0.0.1:55882][0m
+2026-08-12 19:01:01,709 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.24, 127.0.0.1:55882][0m
+2026-08-12 19:01:09,053 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/9/change/ 302 [2.24, 127.0.0.1:55882][0m
+2026-08-12 19:01:11,341 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.27, 127.0.0.1:55882][0m
+2026-08-12 19:01:13,641 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.22, 127.0.0.1:55882][0m
+2026-08-12 19:01:19,261 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 19:01:28,718 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 19:01:28,807 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [12.49, 127.0.0.1:64851][0m
+2026-08-12 19:02:33,187 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.05, 127.0.0.1:61439][0m
+2026-08-12 19:02:35,138 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.64, 127.0.0.1:55957][0m
+2026-08-12 19:02:35,171 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.71, 127.0.0.1:55954][0m
+2026-08-12 19:02:35,195 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.48, 127.0.0.1:56799][0m
+2026-08-12 19:02:35,221 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.39, 127.0.0.1:56802][0m
+2026-08-12 19:02:36,441 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.40, 127.0.0.1:53657][0m
+2026-08-12 19:03:50,383 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\views.py changed, reloading.
+2026-08-12 19:03:56,707 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 19:04:00,356 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 19:04:00,356 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 19:04:00,356 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 19:08:21,269 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 19:08:23,853 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 19:08:23,939 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.67, 127.0.0.1:64733][0m
+2026-08-12 19:09:25,453 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.10, 127.0.0.1:51111][0m
+2026-08-12 19:09:26,472 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.02, 127.0.0.1:50860][0m
+2026-08-12 19:09:26,519 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.05, 127.0.0.1:50864][0m
+2026-08-12 19:09:26,531 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.07, 127.0.0.1:50862][0m
+2026-08-12 19:09:26,552 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.72, 127.0.0.1:50869][0m
+2026-08-12 19:09:28,440 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.59, 127.0.0.1:51585][0m
+2026-08-12 19:15:05,893 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 19:15:12,697 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 19:15:17,266 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 19:15:17,268 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 19:15:17,273 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 19:15:40,127 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-12 19:16:14,719 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 19:16:18,826 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 19:16:18,829 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 19:16:18,832 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 19:16:41,191 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 19:16:43,717 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 19:16:43,780 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.32, 127.0.0.1:58490][0m
+2026-08-12 19:20:10,978 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.04, 127.0.0.1:50552][0m
+2026-08-12 19:20:11,834 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.73, 127.0.0.1:57143][0m
+2026-08-12 19:20:11,940 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.79, 127.0.0.1:57146][0m
+2026-08-12 19:20:11,974 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.81, 127.0.0.1:57148][0m
+2026-08-12 19:20:12,019 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.60, 127.0.0.1:57152][0m
+2026-08-12 19:20:14,219 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.47, 127.0.0.1:57486][0m
+2026-08-12 19:22:34,988 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.34, 127.0.0.1:55012][0m
+2026-08-12 19:28:19,339 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 19:28:22,756 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 19:28:22,765 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 19:28:22,765 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 19:28:26,336 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.44, 127.0.0.1:54737][0m
+2026-08-12 19:28:53,567 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.37, 127.0.0.1:54737][0m
+2026-08-12 19:29:23,178 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.41, 127.0.0.1:54737][0m
+2026-08-12 19:35:50,309 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 19:35:56,260 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 19:36:45,132 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 19:36:48,705 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 19:36:51,802 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 19:36:51,803 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 19:36:51,805 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 19:37:11,225 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/payment/initiate/9/booking/ 401 [0.03, 127.0.0.1:56201][0m
+2026-08-12 19:37:22,588 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 19:37:24,905 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 19:37:25,022 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.20, 127.0.0.1:56201][0m
+2026-08-12 19:38:21,382 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.11, 127.0.0.1:64317][0m
+2026-08-12 19:38:57,745 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 19:39:00,357 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 19:39:00,433 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [4.95, 127.0.0.1:51968][0m
+2026-08-12 19:39:34,057 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.10, 127.0.0.1:55352][0m
+2026-08-12 19:39:34,808 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.58, 127.0.0.1:61593][0m
+2026-08-12 19:39:34,830 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.50, 127.0.0.1:61596][0m
+2026-08-12 19:39:35,215 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.41, 127.0.0.1:61600][0m
+2026-08-12 19:39:35,227 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.41, 127.0.0.1:61601][0m
+2026-08-12 19:39:37,135 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.32, 127.0.0.1:57664][0m
+2026-08-12 20:14:12,815 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [3.27, 127.0.0.1:59086][0m
+2026-08-12 20:14:20,009 [INFO] django.channels.server: [mHTTP GET /admin/payment/payment/ 200 [2.36, 127.0.0.1:59086][0m
+2026-08-12 20:14:22,313 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.23, 127.0.0.1:59086][0m
+2026-08-12 20:14:29,449 [INFO] django.channels.server: [mHTTP GET /admin/payment/payment/1/change/ 200 [2.42, 127.0.0.1:59086][0m
+2026-08-12 20:14:31,723 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.22, 127.0.0.1:59086][0m
+2026-08-12 20:24:03,964 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:24:09,770 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:24:13,307 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:24:13,307 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:24:13,307 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:24:16,384 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:24:21,419 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:24:24,855 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:24:24,855 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:24:24,855 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:24:25,632 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:24:30,596 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:24:33,931 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:24:33,931 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:24:33,931 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:24:34,822 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:24:39,609 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:24:43,044 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:24:43,048 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:24:43,048 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:24:48,101 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:24:48,112 [INFO] stripe: message='Encountered a retryable error Unexpected error communicating with Stripe.  If this problem persists,\nlet us know at support@stripe.com.\n\n(Network error: ConnectionError: HTTPSConnectionPool(host=\'api.stripe.com\', port=443): Max retries exceeded with url: /v1/checkout/sessions (Caused by NameResolutionError("HTTPSConnection(host=\'api.stripe.com\', port=443): Failed to resolve \'api.stripe.com\' ([Errno 11001] getaddrinfo failed)")))'
+2026-08-12 20:24:48,112 [INFO] stripe: message='Initiating retry 1 for request post https://api.stripe.com/v1/checkout/sessions after sleeping 0.50 seconds.'
+2026-08-12 20:24:48,618 [INFO] stripe: message='Encountered a retryable error Unexpected error communicating with Stripe.  If this problem persists,\nlet us know at support@stripe.com.\n\n(Network error: ConnectionError: HTTPSConnectionPool(host=\'api.stripe.com\', port=443): Max retries exceeded with url: /v1/checkout/sessions (Caused by NameResolutionError("HTTPSConnection(host=\'api.stripe.com\', port=443): Failed to resolve \'api.stripe.com\' ([Errno 11001] getaddrinfo failed)")))'
+2026-08-12 20:24:48,621 [INFO] stripe: message='Initiating retry 2 for request post https://api.stripe.com/v1/checkout/sessions after sleeping 0.70 seconds.'
+2026-08-12 20:24:52,973 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/9/booking/ 500 [7.45, 127.0.0.1:54536][0m
+2026-08-12 20:25:22,084 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:25:25,081 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:25:25,185 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.26, 127.0.0.1:54536][0m
+2026-08-12 20:26:20,341 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.06, 127.0.0.1:55399][0m
+2026-08-12 20:26:21,550 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.51, 127.0.0.1:64835][0m
+2026-08-12 20:26:22,852 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.72, 127.0.0.1:64841][0m
+2026-08-12 20:26:22,869 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.74, 127.0.0.1:64838][0m
+2026-08-12 20:26:22,917 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.78, 127.0.0.1:64842][0m
+2026-08-12 20:26:25,252 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.49, 127.0.0.1:64835][0m
+2026-08-12 20:27:01,606 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:27:06,230 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:27:10,057 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:27:10,057 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:27:10,061 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:27:13,401 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:27:17,500 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:27:21,401 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:27:21,403 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:27:21,405 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:27:26,855 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:27:29,196 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:27:29,272 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.01, 127.0.0.1:62512][0m
+2026-08-12 20:28:51,820 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.07, 127.0.0.1:61539][0m
+2026-08-12 20:28:52,733 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.55, 127.0.0.1:60711][0m
+2026-08-12 20:28:52,775 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.67, 127.0.0.1:60708][0m
+2026-08-12 20:28:52,907 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.52, 127.0.0.1:60716][0m
+2026-08-12 20:28:52,920 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.56, 127.0.0.1:60714][0m
+2026-08-12 20:28:55,842 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.24, 127.0.0.1:60708][0m
+2026-08-12 20:29:52,049 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:29:58,552 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:30:02,661 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:30:02,661 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:30:02,664 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:30:09,221 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:30:12,900 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:30:12,982 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [6.24, 127.0.0.1:57249][0m
+2026-08-12 20:31:43,252 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.20, 127.0.0.1:62659][0m
+2026-08-12 20:31:43,547 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.75, 127.0.0.1:50070][0m
+2026-08-12 20:31:43,572 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.87, 127.0.0.1:50065][0m
+2026-08-12 20:31:43,591 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.88, 127.0.0.1:50066][0m
+2026-08-12 20:31:44,245 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.25, 127.0.0.1:50073][0m
+2026-08-12 20:31:45,517 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.46, 127.0.0.1:53175][0m
+2026-08-12 20:44:20,923 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 20:44:26,146 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:44:29,874 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:44:29,876 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:44:29,880 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:44:35,201 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:44:37,971 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:44:38,069 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.37, 127.0.0.1:57880][0m
+2026-08-12 20:45:34,186 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.91, 127.0.0.1:59966][0m
+2026-08-12 20:45:34,216 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.83, 127.0.0.1:59968][0m
+2026-08-12 20:45:34,396 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.63, 127.0.0.1:59975][0m
+2026-08-12 20:45:34,415 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.72, 127.0.0.1:59972][0m
+2026-08-12 20:45:34,452 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.12, 127.0.0.1:53023][0m
+2026-08-12 20:45:36,035 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.33, 127.0.0.1:59983][0m
+2026-08-12 20:49:02,879 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 20:49:07,694 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:49:11,293 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:49:11,293 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:49:11,295 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:49:16,498 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:49:21,576 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:49:25,106 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:49:25,108 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:49:25,111 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:49:29,783 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:49:32,245 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:49:32,308 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.01, 127.0.0.1:64308][0m
+2026-08-12 20:50:19,194 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.16, 127.0.0.1:62858][0m
+2026-08-12 20:50:19,437 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.72, 127.0.0.1:56543][0m
+2026-08-12 20:50:19,526 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.79, 127.0.0.1:56545][0m
+2026-08-12 20:50:19,601 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.60, 127.0.0.1:56549][0m
+2026-08-12 20:50:19,620 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.48, 127.0.0.1:56552][0m
+2026-08-12 20:50:21,435 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.38, 127.0.0.1:56558][0m
+2026-08-12 20:50:52,377 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:50:57,983 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:51:02,339 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:51:02,339 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:51:02,342 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:51:07,223 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:51:09,855 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:51:09,927 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.60, 127.0.0.1:56578][0m
+2026-08-12 20:51:51,892 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.75, 127.0.0.1:54400][0m
+2026-08-12 20:51:51,933 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.68, 127.0.0.1:54405][0m
+2026-08-12 20:51:51,958 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.69, 127.0.0.1:54407][0m
+2026-08-12 20:51:52,103 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.62, 127.0.0.1:54412][0m
+2026-08-12 20:51:52,388 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.04, 127.0.0.1:56508][0m
+2026-08-12 20:51:54,124 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.31, 127.0.0.1:54419][0m
+2026-08-12 20:52:16,607 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 20:52:22,184 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:52:25,284 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:52:25,286 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:52:25,287 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:52:31,794 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:52:36,277 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:52:36,317 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [7.24, 127.0.0.1:58150][0m
+2026-08-12 20:53:34,404 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.13, 127.0.0.1:49672][0m
+2026-08-12 20:53:34,428 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.96, 127.0.0.1:60110][0m
+2026-08-12 20:53:34,518 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.95, 127.0.0.1:60114][0m
+2026-08-12 20:53:34,528 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.92, 127.0.0.1:60117][0m
+2026-08-12 20:53:34,544 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [3.15, 127.0.0.1:60107][0m
+2026-08-12 20:53:36,617 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.59, 127.0.0.1:51489][0m
+2026-08-12 20:54:15,496 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:54:18,486 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:54:18,486 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:54:18,486 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:54:22,749 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 20:54:25,436 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 20:54:25,504 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.28, 127.0.0.1:65090][0m
+2026-08-12 20:55:09,498 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.06, 127.0.0.1:61460][0m
+2026-08-12 20:55:10,239 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.45, 127.0.0.1:58495][0m
+2026-08-12 20:55:10,243 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.45, 127.0.0.1:58496][0m
+2026-08-12 20:55:10,465 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.30, 127.0.0.1:58500][0m
+2026-08-12 20:55:10,872 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.28, 127.0.0.1:58503][0m
+2026-08-12 20:55:12,015 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.24, 127.0.0.1:55318][0m
+2026-08-12 20:59:17,221 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:59:22,159 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:59:25,692 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:59:25,696 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:59:25,699 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:59:31,748 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:59:37,424 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:59:40,935 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:59:40,935 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:59:40,939 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 20:59:46,381 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 20:59:51,146 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 20:59:54,818 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 20:59:54,818 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 20:59:54,821 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:00:01,261 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:00:04,073 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:00:04,146 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.57, 127.0.0.1:59229][0m
+2026-08-12 21:00:41,992 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.54, 127.0.0.1:56129][0m
+2026-08-12 21:00:42,362 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.53, 127.0.0.1:56136][0m
+2026-08-12 21:00:42,410 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.58, 127.0.0.1:56134][0m
+2026-08-12 21:00:42,417 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.59, 127.0.0.1:56132][0m
+2026-08-12 21:00:42,428 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.09, 127.0.0.1:58355][0m
+2026-08-12 21:00:44,731 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.25, 127.0.0.1:56136][0m
+2026-08-12 21:01:13,779 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:01:18,518 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:01:21,843 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:01:21,845 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:01:21,848 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:01:36,828 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:01:40,223 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:01:40,266 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.97, 127.0.0.1:52616][0m
+2026-08-12 21:02:48,282 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.05, 127.0.0.1:56938][0m
+2026-08-12 21:02:49,125 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.88, 127.0.0.1:49995][0m
+2026-08-12 21:02:49,160 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.93, 127.0.0.1:49993][0m
+2026-08-12 21:02:49,180 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.68, 127.0.0.1:50060][0m
+2026-08-12 21:02:49,183 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.95, 127.0.0.1:49994][0m
+2026-08-12 21:02:50,916 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.26, 127.0.0.1:49192][0m
+2026-08-12 21:05:58,077 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:06:03,859 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:06:07,632 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:06:07,632 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:06:07,632 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:07:56,493 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:08:01,504 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:08:07,343 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:08:12,904 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:08:16,285 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:08:16,294 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:08:16,294 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:08:22,863 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:08:25,137 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:08:25,213 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [4.96, 127.0.0.1:49714][0m
+2026-08-12 21:09:20,694 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.36, 127.0.0.1:56490][0m
+2026-08-12 21:09:21,204 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.30, 127.0.0.1:56493][0m
+2026-08-12 21:09:21,362 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.04, 127.0.0.1:55463][0m
+2026-08-12 21:09:21,803 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.40, 127.0.0.1:56498][0m
+2026-08-12 21:09:21,810 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.41, 127.0.0.1:56497][0m
+2026-08-12 21:09:24,233 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.21, 127.0.0.1:56493][0m
+2026-08-12 21:11:13,175 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:11:19,644 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:11:23,400 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:11:23,405 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:11:23,405 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:11:24,823 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:11:30,807 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:11:34,486 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:11:34,486 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:11:34,488 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:11:42,037 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:11:48,188 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:11:52,217 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:11:52,219 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:11:52,220 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:11:53,383 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:11:59,009 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:12:03,199 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:12:03,199 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:12:03,199 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:12:17,700 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:12:19,918 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:12:20,054 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.09, 127.0.0.1:58534][0m
+2026-08-12 21:13:16,462 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.06, 127.0.0.1:49899][0m
+2026-08-12 21:13:16,972 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.51, 127.0.0.1:56425][0m
+2026-08-12 21:13:17,423 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.54, 127.0.0.1:56430][0m
+2026-08-12 21:13:17,522 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.64, 127.0.0.1:56429][0m
+2026-08-12 21:13:18,259 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.29, 127.0.0.1:56434][0m
+2026-08-12 21:13:19,255 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.34, 127.0.0.1:62406][0m
+2026-08-12 21:13:41,539 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:13:46,851 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:13:50,561 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:13:50,561 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:13:50,571 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:13:51,832 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:13:56,681 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:14:00,332 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:14:00,333 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:14:00,333 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:14:01,098 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:14:05,981 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:14:09,200 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:14:09,200 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:14:09,200 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:14:42,611 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:14:45,216 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:14:45,306 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.16, 127.0.0.1:58629][0m
+2026-08-12 21:15:21,807 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.08, 127.0.0.1:54780][0m
+2026-08-12 21:15:23,159 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.93, 127.0.0.1:56406][0m
+2026-08-12 21:15:23,199 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.96, 127.0.0.1:56407][0m
+2026-08-12 21:15:23,219 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.87, 127.0.0.1:56413][0m
+2026-08-12 21:15:23,219 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.89, 127.0.0.1:56411][0m
+2026-08-12 21:15:24,385 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.20, 127.0.0.1:60312][0m
+2026-08-12 21:18:36,529 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:18:42,812 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:18:59,830 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:19:06,972 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:19:10,968 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:19:10,970 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:19:10,973 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:19:16,524 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:19:18,747 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:19:18,824 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.03, 127.0.0.1:54324][0m
+2026-08-12 21:20:06,526 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.14, 127.0.0.1:53496][0m
+2026-08-12 21:20:06,976 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.81, 127.0.0.1:58545][0m
+2026-08-12 21:20:07,003 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.72, 127.0.0.1:58548][0m
+2026-08-12 21:20:07,025 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.57, 127.0.0.1:58551][0m
+2026-08-12 21:20:07,033 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.55, 127.0.0.1:58553][0m
+2026-08-12 21:20:09,000 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.30, 127.0.0.1:58519][0m
+2026-08-12 21:25:41,733 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 21:25:49,198 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:25:52,939 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:25:52,943 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:25:52,943 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:26:00,377 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 21:26:05,965 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:26:09,442 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:26:09,442 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:26:09,448 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:26:20,397 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:26:25,257 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:26:29,110 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:26:29,110 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:26:29,114 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:26:41,562 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:26:43,659 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:26:43,701 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [4.62, 127.0.0.1:58008][0m
+2026-08-12 21:27:26,482 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.06, 127.0.0.1:55240][0m
+2026-08-12 21:27:27,508 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.76, 127.0.0.1:53256][0m
+2026-08-12 21:27:27,692 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.94, 127.0.0.1:53255][0m
+2026-08-12 21:27:27,826 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.80, 127.0.0.1:63365][0m
+2026-08-12 21:27:27,850 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.78, 127.0.0.1:63367][0m
+2026-08-12 21:27:29,628 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.31, 127.0.0.1:62764][0m
+2026-08-12 21:28:09,196 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:28:12,228 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:28:12,282 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [5.31, 127.0.0.1:55793][0m
+2026-08-12 21:29:21,385 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.30, 127.0.0.1:54962][0m
+2026-08-12 21:29:21,431 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.10, 127.0.0.1:59977][0m
+2026-08-12 21:29:21,595 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.47, 127.0.0.1:54965][0m
+2026-08-12 21:29:21,597 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.40, 127.0.0.1:54968][0m
+2026-08-12 21:29:21,881 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.26, 127.0.0.1:54971][0m
+2026-08-12 21:29:23,712 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/webhooks/stripe/ 500 [2.29, 127.0.0.1:54962][0m
+2026-08-12 21:30:30,749 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\gateways\stripes_gateway.py changed, reloading.
+2026-08-12 21:30:35,918 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:30:39,663 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:30:39,663 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:30:39,663 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:30:45,770 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:30:47,879 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:30:47,944 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [4.88, 127.0.0.1:62851][0m
+2026-08-12 21:31:38,506 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.12, 127.0.0.1:57026][0m
+2026-08-12 21:31:39,020 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.41, 127.0.0.1:50799][0m
+2026-08-12 21:31:39,023 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.31, 127.0.0.1:50802][0m
+2026-08-12 21:31:39,088 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.29, 127.0.0.1:50808][0m
+2026-08-12 21:31:39,136 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.40, 127.0.0.1:50804][0m
+2026-08-12 21:31:41,260 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.19, 127.0.0.1:50802][0m
+2026-08-12 21:36:05,176 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 21:36:10,259 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:36:16,935 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\services.py changed, reloading.
+2026-08-12 21:36:22,503 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 21:36:26,013 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 21:36:26,013 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 21:36:26,013 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 21:37:19,405 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.77, 127.0.0.1:55789][0m
+2026-08-12 21:37:30,724 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/9/change/ 200 [2.55, 127.0.0.1:54974][0m
+2026-08-12 21:37:33,088 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.25, 127.0.0.1:54974][0m
+2026-08-12 21:38:02,759 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/payment/initiate/9/booking/ 500 [4.67, 127.0.0.1:49678][0m
+2026-08-12 21:38:10,577 [INFO] django.channels.server: [32mHTTP POST /admin/bookings/booking/9/change/ 302 [2.36, 127.0.0.1:54974][0m
+2026-08-12 21:38:12,986 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.39, 127.0.0.1:54974][0m
+2026-08-12 21:38:15,282 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.20, 127.0.0.1:54974][0m
+2026-08-12 21:38:59,854 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/checkout/sessions
+2026-08-12 21:39:01,148 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/checkout/sessions response_code=200
+2026-08-12 21:39:01,171 [INFO] django.channels.server: [mHTTP POST /api/v1/payment/initiate/9/booking/ 201 [3.52, 127.0.0.1:49678][0m
+2026-08-12 21:39:54,225 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.19, 127.0.0.1:50791][0m
+2026-08-12 21:39:54,699 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.26, 127.0.0.1:50799][0m
+2026-08-12 21:39:54,702 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.26, 127.0.0.1:50798][0m
+2026-08-12 21:39:54,718 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.27, 127.0.0.1:50801][0m
+2026-08-12 21:39:56,351 [WARNING] django.channels.server: [33mHTTP GET /api/v1/payments/success/ 404 [0.02, 127.0.0.1:49381][0m
+2026-08-12 21:39:56,579 [INFO] django.channels.server: [mHTTP POST /api/v1/webhooks/stripe/ 200 [2.15, 127.0.0.1:50791][0m
+2026-08-12 21:40:14,628 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.41, 127.0.0.1:49381][0m
+2026-08-12 21:40:16,880 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.20, 127.0.0.1:49381][0m
