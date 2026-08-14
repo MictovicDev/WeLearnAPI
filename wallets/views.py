@@ -5,9 +5,9 @@ from django.db.models import Sum
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
+from rest_framework.decorators import action
 from wallets.models import Wallet, WalletTransaction
-from wallets.serializers import WalletSummarySerializer
+from wallets.serializers import WalletSummarySerializer, WalletTransactionSerializer
 
 
 class WalletViewSet(viewsets.ViewSet):
@@ -35,4 +35,18 @@ class WalletViewSet(viewsets.ViewSet):
             "currency": wallet.currency,
         }
         serializer = WalletSummarySerializer(data)
+        return Response(serializer.data)
+
+    @action(detail=False, methods=["get"])
+    def transactions(self, request):
+        wallet, _ = Wallet.objects.get_or_create(user=request.user)
+        qs = WalletTransaction.objects.filter(wallet=wallet)
+
+        filter_param = request.query_params.get("filter", "all")
+        if filter_param == "earnings":
+            qs = qs.filter(type=WalletTransaction.Type.CREDIT)
+        elif filter_param == "payouts":
+            qs = qs.filter(type=WalletTransaction.Type.DEBIT)
+
+        serializer = WalletTransactionSerializer(qs, many=True)
         return Response(serializer.data)

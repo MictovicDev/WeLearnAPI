@@ -25,61 +25,68 @@ LOGS_DIR = BASE_DIR / 'logs'
 os.makedirs(LOGS_DIR, exist_ok=True)
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{asctime} [{levelname}] {name}: {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{asctime} [{levelname}] {name}: {message}",
+            "style": "{",
         },
-        'simple': {
-            'format': '[{levelname}] {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG' if DEBUG else 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
-        },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGS_DIR / 'app.log',
-            'maxBytes': 5 * 1024 * 1024,  # 5MB
-            'backupCount': 5,
-            'formatter': 'verbose',
-        },
-        'error_file': {
-            'level': 'ERROR',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGS_DIR / 'errors.log',
-            'maxBytes': 5 * 1024 * 1024,
-            'backupCount': 5,
-            'formatter': 'verbose',
+        "simple": {
+            "format": "[{levelname}] {message}",
+            "style": "{",
         },
     },
-    'root': {
-        'handlers': ['console', 'file'],
-        'level': 'INFO',
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+        "file_general": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGS_DIR / "django.log",
+            "maxBytes": 5 * 1024 * 1024,  # 5MB
+            "backupCount": 5,
+            "formatter": "verbose",
+        },
+        "file_errors": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGS_DIR / "errors.log",
+            "maxBytes": 5 * 1024 * 1024,
+            "backupCount": 5,
+            "level": "ERROR",
+            "formatter": "verbose",
+        },
+        "file_paystack": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGS_DIR / "paystack.log",
+            "maxBytes": 5 * 1024 * 1024,
+            "backupCount": 5,
+            "formatter": "verbose",
+        },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file', 'error_file'],
-            'level': 'INFO',
-            'propagate': False,
+    "root": {
+        "handlers": ["console", "file_general", "file_errors"],
+        "level": "INFO",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file_general", "file_errors"],
+            "level": "INFO",
+            "propagate": False,
         },
-        'django.request': {
-            'handlers': ['error_file'],
-            'level': 'ERROR',
-            'propagate': False,
+        "django.request": {
+            "handlers": ["console", "file_errors"],
+            "level": "ERROR",
+            "propagate": False,
         },
-        # your project's own logger, use this name in your apps
-        'tutor_platform': {
-            'handlers': ['console', 'file', 'error_file'],
-            'level': 'DEBUG' if DEBUG else 'INFO',
-            'propagate': False,
+        # Use this one explicitly in wallet_views.py / services.py:
+        #   import logging
+        #   logger = logging.getLogger("paystack")
+        "paystack": {
+            "handlers": ["console", "file_paystack", "file_errors"],
+            "level": "INFO",
+            "propagate": False,
         },
     },
 }

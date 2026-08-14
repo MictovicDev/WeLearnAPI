@@ -19,7 +19,6 @@ router = DefaultRouter()
 # Auth / Users
 router.register(r'users', UserViewSet, basename='users')
 router.register(r'admin/users', AdminUserViewSet, basename='admin-users')
-
 # Tutors
 router.register(r'subjects', SubjectViewSet, basename='subjects')
 router.register(r'tutors', TutorProfileViewSet, basename='tutors')

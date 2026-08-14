@@ -35,6 +35,7 @@ class WalletTransaction(models.Model):
     reference = models.CharField(max_length=255, blank=True)  # e.g. Payment.provider_reference
     description = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    metadata = models.JSONField(default=dict, blank=True)
 
     class Meta:
         ordering = ["-created_at"]

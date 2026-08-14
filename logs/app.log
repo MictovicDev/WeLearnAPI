@@ -3217,3 +3217,12 @@ ValueError: Cannot query "Emeka Michael (awaemekamichael@gmail.com)": Must be "T
 2026-08-12 22:29:17,992 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 2026-08-12 22:29:17,992 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-12 22:29:17,994 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 23:03:02,957 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 23:03:05,978 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 23:03:05,982 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 23:03:05,982 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-12 23:08:17,446 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\models.py changed, reloading.
+2026-08-12 23:08:22,686 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-12 23:08:26,099 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-12 23:08:26,099 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-12 23:08:26,104 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000

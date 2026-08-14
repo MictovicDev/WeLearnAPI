@@ -565,3 +565,4 @@ Traceback (most recent call last):
     raise RuntimeError(
 RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/bookings/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
 2026-08-12 22:13:31,880 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/bookings 500 [0.20, 127.0.0.1:58351][0m
+2026-08-14 14:45:27,744 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.

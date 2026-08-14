@@ -1,0 +1,8 @@
+2026-08-14 14:45:23,270 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-14 14:45:27,737 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-14 14:45:27,740 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-14 14:45:27,744 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-14 14:48:26,854 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-14 14:48:29,553 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-14 14:48:29,565 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-14 14:48:29,566 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
