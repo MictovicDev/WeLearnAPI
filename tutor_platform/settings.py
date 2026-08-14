@@ -83,7 +83,7 @@ LOGGING = {
         # Use this one explicitly in wallet_views.py / services.py:
         #   import logging
         #   logger = logging.getLogger("paystack")
-        "paystack": {
+        "stripe": {
             "handlers": ["console", "file_paystack", "file_errors"],
             "level": "INFO",
             "propagate": False,

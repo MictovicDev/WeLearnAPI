@@ -2,6 +2,11 @@ import stripe
 from django.conf import settings
 from payment.interfaces import PaymentGatewayInterface, PaymentIntentRequest, PaymentResult
 from django.core.exceptions import ValidationError
+import logging
+
+
+logger = logging.getLogger("stripe")
+
 
 class StripeGateway(PaymentGatewayInterface):
     """Adapts the Stripe SDK to our internal PaymentGatewayInterface."""
@@ -42,22 +47,34 @@ class StripeGateway(PaymentGatewayInterface):
         )
 
     def parse_webhook_event(self, payload: bytes, headers: dict) -> dict:
-        event = stripe.Webhook.construct_event(
-            payload,
-            headers.get("Stripe-Signature"),
-            settings.STRIPE_WEBHOOK_SECRET,
-        )
+        try:
+            event = stripe.Webhook.construct_event(
+                payload,
+                headers.get("Stripe-Signature"),
+                settings.STRIPE_WEBHOOK_SECRET,
+            )
+        except (ValueError, stripe.error.SignatureVerificationError):
+            logger.warning("Stripe webhook signature verification failed.")
+            raise
+
         obj = event["data"]["object"]
 
         try:
             provider_reference = obj["id"]
         except (KeyError, TypeError):
             provider_reference = None
+            logger.warning(
+                "Stripe event object missing 'id'. event_type=%s", event.get("type")
+            )
 
         try:
             reference = obj["metadata"]["reference"]
         except (KeyError, TypeError):
             reference = None
+            logger.warning(
+                "Stripe event object missing metadata.reference. event_type=%s provider_reference=%s",
+                event.get("type"), provider_reference,
+            )
 
         if event["type"] == "checkout.session.completed":
             return {

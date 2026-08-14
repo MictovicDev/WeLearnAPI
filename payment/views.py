@@ -12,7 +12,10 @@ from bookings.models import Booking
 from .services import PaymentService
 from bookings.models import Booking
 from payment.services import PaymentService
+import logging
 
+
+logger = logging.getLogger("stripe")
 
 class PaymentViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
@@ -74,9 +77,22 @@ class StripeWebhookView(APIView):
     permission_classes = []
 
     def post(self, request):
-        print('Entered')
-        PaymentService(gateway_name="stripe").handle_webhook_event(
-            payload=request.body,
-            headers=request.headers,
-        )
+        event_id = request.headers.get("Stripe-Event-Id", "unknown")
+        logger.info("Stripe webhook received. event_id=%s", event_id)
+
+        try:
+            PaymentService(gateway_name="stripe").handle_webhook_event(
+                payload=request.body,
+                headers=request.headers,
+            )
+        except Exception:
+            logger.exception(
+                "Stripe webhook processing failed. event_id=%s", event_id
+            )
+            return Response(
+                {"detail": "Webhook processing failed"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        logger.info("Stripe webhook processed successfully. event_id=%s", event_id)
         return Response(status=status.HTTP_200_OK)

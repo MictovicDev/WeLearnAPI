@@ -6,6 +6,9 @@ from payment.interfaces import PaymentIntentRequest
 from payment.models import Payment
 from payment.signals import payment_succeeded
 from rest_framework.exceptions import ValidationError
+import logging
+
+logger = logging.getLogger("stripe")
 
 class PaymentService:
     def __init__(self, gateway_name: str | None = None):
@@ -47,7 +50,21 @@ class PaymentService:
     @transaction.atomic
     def handle_webhook_event(self, payload: bytes, headers: dict):
         event = self.gateway.parse_webhook_event(payload, headers)
+
+        logger.info(
+            "Webhook event parsed. type=%s reference=%s provider_reference=%s",
+            event["type"], event["reference"], event["provider_reference"],
+        )
+
         if event["type"] != "payment.succeeded":
+            logger.info("Ignoring non-payment-succeeded event. type=%s", event["type"])
+            return
+
+        if not event["reference"]:
+            logger.warning(
+                "payment.succeeded event missing reference/booking_id. provider_reference=%s",
+                event["provider_reference"],
+            )
             return
 
         try:
@@ -55,13 +72,26 @@ class PaymentService:
                 booking_id=event["reference"]
             )
         except Payment.DoesNotExist:
+            logger.warning(
+                "No Payment found for booking_id from webhook. booking_id=%s provider_reference=%s",
+                event["reference"], event["provider_reference"],
+            )
             return
 
         if payment.status == Payment.Status.SUCCEEDED:
-            return  # already processed, do nothing further
+            logger.info(
+                "Payment already marked SUCCEEDED, skipping. payment_id=%s booking_id=%s",
+                payment.id, event["reference"],
+            )
+            return
 
         payment.status = Payment.Status.SUCCEEDED
         payment.provider_reference = event["provider_reference"]
         payment.save(update_fields=["status", "provider_reference", "updated_at"])
+
+        logger.info(
+            "Payment marked SUCCEEDED. payment_id=%s booking_id=%s provider_reference=%s",
+            payment.id, event["reference"], event["provider_reference"],
+        )
 
         payment_succeeded.send(sender=self.__class__, booking=payment.booking)
