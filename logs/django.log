@@ -6,3 +6,7 @@
 2026-08-14 14:48:29,553 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 2026-08-14 14:48:29,565 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-14 14:48:29,566 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-14 15:18:24,564 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-14 15:18:29,616 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-14 15:18:29,617 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-14 15:18:29,623 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
