@@ -57,9 +57,9 @@ LOGGING = {
             "level": "ERROR",
             "formatter": "verbose",
         },
-        "file_paystack": {
+        "file_stripe": {
             "class": "logging.handlers.RotatingFileHandler",
-            "filename": LOGS_DIR / "paystack.log",
+            "filename": LOGS_DIR / "stripe.log",
             "maxBytes": 5 * 1024 * 1024,
             "backupCount": 5,
             "formatter": "verbose",
@@ -84,7 +84,7 @@ LOGGING = {
         #   import logging
         #   logger = logging.getLogger("paystack")
         "stripe": {
-            "handlers": ["console", "file_paystack", "file_errors"],
+            "handlers": ["console", "file_stripe", "file_errors"],
             "level": "INFO",
             "propagate": False,
         },
