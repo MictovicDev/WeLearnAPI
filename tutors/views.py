@@ -245,10 +245,11 @@ class TutorProfileViewSet(
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
-
+    
 
     @action(methods=['GET', 'PATCH'], detail=False, url_path='my-profile')
     def my_profile(self, request):
+        JSON_ENCODED_FIELDS = ['skills', 'subjects', 'experience', 'education', 'availability', 'payment_info']
         try:
             profile = request.user.tutor_profile
         except TutorProfile.DoesNotExist:
@@ -256,23 +257,25 @@ class TutorProfileViewSet(
 
         if request.method == 'GET':
             return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
-        logger.info(request.data)
 
-        data = request.data.copy()
-        availability_data = data.pop('availability', None) if hasattr(request.data, 'pop') else None
+        # Convert QueryDict -> plain mutable dict so single-value fields
+        # aren't wrapped in getlist()-style lists, then decode JSON strings.
+        data = {}
+        for key in request.data:
+            value = request.data.get(key)
+            if key in JSON_ENCODED_FIELDS and isinstance(value, str):
+                try:
+                    value = json.loads(value)
+                except json.JSONDecodeError:
+                    return Response({key: ['Invalid JSON.']}, status=400)
+            data[key] = value
 
-        if isinstance(availability_data, str):
-            try:
-                availability_data = json.loads(availability_data)
-            except json.JSONDecodeError:
-                return Response({'availability': ['Invalid JSON.']}, status=400)
+        # profile_image / banner are file uploads, not JSON — keep as-is
+        for file_key in ['profile_image', 'banner']:
+            if file_key in request.data:
+                data[file_key] = request.data.get(file_key)
 
-        payment_info_raw = data.get('payment_info')
-        if isinstance(payment_info_raw, str):
-            try:
-                data['payment_info'] = json.loads(payment_info_raw)
-            except json.JSONDecodeError:
-                return Response({'payment_info': ['Invalid JSON.']}, status=400)
+        availability_data = data.pop('availability', None)
 
         serializer = TutorProfileWriteSerializer(profile, data=data, partial=True, context={'request': request})
         serializer.is_valid(raise_exception=True)
@@ -282,26 +285,17 @@ class TutorProfileViewSet(
             availability_serializer = AvailabilitySerializer(data=availability_data, many=True)
             availability_serializer.is_valid(raise_exception=True)
 
+        with transaction.atomic():
+            serializer.save()
+            if availability_serializer is not None:
+                profile.availability_slots.all().delete()
+                slots = [
+                    Availability(tutor=profile, **item)
+                    for item in availability_serializer.validated_data
+                ]
+                Availability.objects.bulk_create(slots)
 
-            serializer = TutorProfileWriteSerializer(profile, data=request.data, partial=True, context={'request': request})
-            serializer.is_valid(raise_exception=True)
-
-            availability_serializer = None
-            if availability_data is not None:
-                availability_serializer = AvailabilitySerializer(data=availability_data, many=True)
-                availability_serializer.is_valid(raise_exception=True)
-
-            with transaction.atomic():
-                serializer.save()
-                if availability_serializer is not None:
-                    profile.availability_slots.all().delete()
-                    slots = [
-                        Availability(tutor=profile, **item)
-                        for item in availability_serializer.validated_data
-                    ]
-                    Availability.objects.bulk_create(slots)
-
-            return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
+        return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
 
 
     @action(methods=['GET'], detail=False, url_path='my-profile/dashboard-stats')
