@@ -96,3 +96,36 @@ class StripeWebhookView(APIView):
 
         logger.info("Stripe webhook processed successfully. event_id=%s", event_id)
         return Response(status=status.HTTP_200_OK)
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+WSGI config for config project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/6.0/howto/deployment/wsgi/
+"""
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+environment = os.environ.get('environment', 'dev')
+
+if environment == 'prod':   
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.prod')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.dev')
+
+application = get_wsgi_application()

@@ -48,15 +48,28 @@ class UserSerializer(serializers.ModelSerializer):
     def get_full_name(self, obj):
         return obj.get_full_name()
 
-    @extend_schema_field(serializers.CharField())
+    @extend_schema_field(serializers.CharField(allow_null=True))
     def get_profile_image(self, obj):
-        if not obj.profile_image:
+        profile_image = None
+
+        # Prefer tutor profile image if the user has a tutor profile
+        if hasattr(obj, "tutor_profile") and obj.tutor_profile:
+            profile_image = obj.tutor_profile.profile_image
+
+        # Fall back to user's profile image
+        if not profile_image:
+            profile_image = obj.profile_image
+
+        if not profile_image:
             return None
-        request = self.context.get('request')
+
+        request = self.context.get("request")
+
         if request:
-            return request.build_absolute_uri(obj.profile_image.url)
+            return request.build_absolute_uri(profile_image.url)
+
         from django.conf import settings
-        return f'{settings.SITE_URL}{obj.profile_image.url}'
+        return f"{settings.SITE_URL}{profile_image.url}"
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):

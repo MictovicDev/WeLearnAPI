@@ -10,3 +10,21 @@
 2026-08-14 15:18:29,616 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 2026-08-14 15:18:29,617 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-14 15:18:29,623 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-15 02:40:58,750 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-15 02:41:04,349 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-15 02:41:04,349 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-15 02:41:04,349 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-15 02:42:56,425 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [5.54, 127.0.0.1:53434][0m
+2026-08-15 02:43:27,684 [INFO] django.channels.server: [32mHTTP GET /api/v1/users/me 301 [0.22, 127.0.0.1:53434][0m
+2026-08-15 02:43:29,966 [INFO] django.channels.server: [mHTTP GET /api/v1/users/me/ 200 [2.26, 127.0.0.1:53434][0m
+2026-08-15 02:51:15,352 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\settings.py changed, reloading.
+2026-08-15 02:51:21,650 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-15 02:51:25,443 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-15 02:51:25,445 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-15 02:51:25,449 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-15 03:00:16,619 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\serializers.py changed, reloading.
+2026-08-15 03:00:22,010 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-15 03:00:25,832 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-15 03:00:25,833 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-15 03:00:25,835 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-15 03:00:51,384 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

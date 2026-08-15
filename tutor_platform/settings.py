@@ -273,16 +273,3 @@ DEFAULT_PAYMENT_GATEWAY = "stripe"
 PAYMENT_SUCCESS_URL = os.getenv("PAYMENT_SUCCESS_URL")
 PAYMENT_CANCEL_URL = os.getenv("PAYMENT_CANCEL_URL")
 
-
-print("=== ENVIRONMENT CHECK ===")
-print("DEBUG:", os.getenv("DEBUG"))
-print("ALLOWED_HOSTS:", os.getenv("ALLOWED_HOSTS"))
-print("CSRF_TRUSTED_ORIGINS:", os.getenv("CSRF_TRUSTED_ORIGINS"))
-print(STRIPE_SECRET_KEY)
-print(STRIPE_WEBHOOK_SECRET)
-print(PAYMENT_CANCEL_URL)
-print(PAYMENT_SUCCESS_URL)
-print("DB_PASSWORD exists:", bool(os.getenv("DB_PASSWORD")))
-print("REDIS_URL exists:", bool(os.getenv("REDIS_URL")))
-print("EMAIL_HOST_PASSWORD exists:", bool(os.getenv("EMAIL_HOST_PASSWORD")))
-print("=========================")
