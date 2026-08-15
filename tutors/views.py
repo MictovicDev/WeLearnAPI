@@ -257,8 +257,16 @@ class TutorProfileViewSet(
         if request.method == 'GET':
             return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
         logger.info(request.data)
-        data = request.data.copy()  # Make a mutable copy of the request data
+
+        data = request.data.copy()
         availability_data = data.pop('availability', None) if hasattr(request.data, 'pop') else None
+
+        if isinstance(availability_data, str):
+            try:
+                availability_data = json.loads(availability_data)
+            except json.JSONDecodeError:
+                return Response({'availability': ['Invalid JSON.']}, status=400)
+
         payment_info_raw = data.get('payment_info')
         if isinstance(payment_info_raw, str):
             try:
@@ -266,8 +274,7 @@ class TutorProfileViewSet(
             except json.JSONDecodeError:
                 return Response({'payment_info': ['Invalid JSON.']}, status=400)
 
-
-        serializer = TutorProfileWriteSerializer(profile, data=request.data, partial=True, context={'request': request})
+        serializer = TutorProfileWriteSerializer(profile, data=data, partial=True, context={'request': request})
         serializer.is_valid(raise_exception=True)
 
         availability_serializer = None
@@ -275,17 +282,26 @@ class TutorProfileViewSet(
             availability_serializer = AvailabilitySerializer(data=availability_data, many=True)
             availability_serializer.is_valid(raise_exception=True)
 
-        with transaction.atomic():
-            serializer.save()
-            if availability_serializer is not None:
-                profile.availability_slots.all().delete()
-                slots = [
-                    Availability(tutor=profile, **item)
-                    for item in availability_serializer.validated_data
-                ]
-                Availability.objects.bulk_create(slots)
 
-        return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
+            serializer = TutorProfileWriteSerializer(profile, data=request.data, partial=True, context={'request': request})
+            serializer.is_valid(raise_exception=True)
+
+            availability_serializer = None
+            if availability_data is not None:
+                availability_serializer = AvailabilitySerializer(data=availability_data, many=True)
+                availability_serializer.is_valid(raise_exception=True)
+
+            with transaction.atomic():
+                serializer.save()
+                if availability_serializer is not None:
+                    profile.availability_slots.all().delete()
+                    slots = [
+                        Availability(tutor=profile, **item)
+                        for item in availability_serializer.validated_data
+                    ]
+                    Availability.objects.bulk_create(slots)
+
+            return Response(TutorProfileDetailSerializer(profile, context={'request': request}).data)
 
 
     @action(methods=['GET'], detail=False, url_path='my-profile/dashboard-stats')
