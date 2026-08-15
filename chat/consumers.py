@@ -15,21 +15,21 @@ class ChatConsumer(AsyncWebsocketConsumer):
         self.user = self.scope['user']
         self.thread_id = self.scope['url_route']['kwargs']['thread_id']
         self.group_name = f'chat_{self.thread_id}'
- 
+
         print(f'[DEBUG] connecting user={self.user} authenticated={self.user.is_authenticated} thread_id={self.thread_id}')
- 
+
         if isinstance(self.user, AnonymousUser):
             print('[DEBUG] closing: user is anonymous, token was invalid/expired/missing')
             await self.close(code=4001)
             return
- 
+
         is_participant = await self.user_is_participant()
         print(f'[DEBUG] is_participant={is_participant}')
         if not is_participant:
             print(f'[DEBUG] closing: user {self.user.id} is not student/tutor on thread {self.thread_id}')
             await self.close(code=4003)
             return
- 
+
         await self.channel_layer.group_add(self.group_name, self.channel_name)
         await self.accept()
         print('[DEBUG] connected successfully')
@@ -50,12 +50,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
             return
 
         message = await self.save_message(content)
+        serialized_message = await self.serialize_message(message)
 
         await self.channel_layer.group_send(
             self.group_name,
             {
                 'type': 'chat_message',
-                'message': MessageSerializer(message).data,
+                'message': serialized_message,
             }
         )
 
@@ -86,3 +87,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             receiver=receiver,
             content=content,
         )
+
+    @database_sync_to_async
+    def serialize_message(self, message):
+        return MessageSerializer(message).data

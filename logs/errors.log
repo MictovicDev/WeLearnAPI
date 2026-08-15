@@ -566,3 +566,83 @@ Traceback (most recent call last):
 RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/v1/bookings/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
 2026-08-12 22:13:31,880 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/bookings 500 [0.20, 127.0.0.1:58351][0m
 2026-08-14 14:45:27,744 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-15 10:14:56,551 [ERROR] daphne.server: Exception inside application: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 506, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'tutor_profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\contrib\staticfiles\handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\middleware.py", line 30, in __call__
+    return await super().__call__(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\routing.py", line 118, in __call__
+    return await application(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\consumer.py", line 74, in dispatch
+    await handler(message)
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\channels\generic\websocket.py", line 204, in websocket_receive
+    await self.receive(text_data=message["text"])
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\chat\consumers.py", line 58, in receive
+    'message': MessageSerializer(message).data,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 585, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 552, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\serializers.py", line 552, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\rest_framework\fields.py", line 1929, in to_representation
+    return method(value)
+           ^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\serializers.py", line 56, in get_profile_image
+    if hasattr(obj, "tutor_profile") and obj.tutor_profile:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 514, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\utils\asyncio.py", line 24, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
