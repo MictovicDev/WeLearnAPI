@@ -258,6 +258,13 @@ class TutorProfileViewSet(
         logger.info(request.data)
         data = request.data.copy()  # Make a mutable copy of the request data
         availability_data = data.pop('availability', None) if hasattr(request.data, 'pop') else None
+        payment_info_raw = data.get('payment_info')
+        if isinstance(payment_info_raw, str):
+            try:
+                data['payment_info'] = json.loads(payment_info_raw)
+            except json.JSONDecodeError:
+                return Response({'payment_info': ['Invalid JSON.']}, status=400)
+
 
         serializer = TutorProfileWriteSerializer(profile, data=request.data, partial=True, context={'request': request})
         serializer.is_valid(raise_exception=True)
