@@ -46,7 +46,7 @@ def notify_booking_created(booking):
     """Fires two emails: one to the student, one to the tutor."""
     common = {
         "subject": booking.subject,
-        "session_datetime": booking.session_datetime.strftime("%A, %d %b %Y &middot; %I:%M %p"),
+        "scheduled_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
     }
 
     send_templated_email_task.delay(
@@ -55,7 +55,7 @@ def notify_booking_created(booking):
         context={
             **common,
             "student_first_name": booking.student.first_name,
-            "tutor_name": booking.tutor.get_full_name(),
+            "tutor_name": f"{booking.tutor_profile.user.first_name} + '' +  {booking.tutor_profile.user.last_name}",
             "booking_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
         to_email=booking.student.email,
@@ -66,11 +66,11 @@ def notify_booking_created(booking):
         template_name="booking_created_tutor.html",
         context={
             **common,
-            "tutor_first_name": booking.tutor.first_name,
-            "student_name": booking.student.get_full_name(),
+            "student_first_name": booking.student.first_name,
+            "tutor_name": f"{booking.tutor_profile.user.first_name} + '' +  {booking.tutor_profile.user.last_name}",
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
-        to_email=booking.tutor.email,
+        to_email=booking.tutor_profile.user.email,
     )
 
 

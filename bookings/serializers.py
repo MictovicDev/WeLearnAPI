@@ -8,33 +8,42 @@ from tutors.models import Availability
 
 
 
-
 class BookingCreateSerializer(serializers.ModelSerializer):
     availability_slot = serializers.PrimaryKeyRelatedField(
-        queryset=Availability.objects.all(), write_only=True, required=True, help_text='ID of the availability slot to book')
-    
+        queryset=Availability.objects.all(), write_only=True, required=True,
+        help_text='ID of the availability slot to book'
+    )
 
     class Meta:
         model = Booking
-        fields = ['tutor_profile', 'duration','availability_slot', 'subject', 'session_type', 'scheduled_date', 'notes']
+        fields = ['tutor_profile', 'duration', 'availability_slot', 'subject', 'session_type', 'scheduled_date', 'notes']
 
     def validate(self, attrs):
         tutor_profile = attrs['tutor_profile']
         slot = attrs['availability_slot']
-        print(slot)
 
         if slot.tutor.id != tutor_profile.id:
-            raise serializers.ValidationError('This availability slot does not belong to the selected tutor.')
+            raise serializers.ValidationError({
+                'availability_slot': 'This availability slot does not belong to the selected tutor.'
+            })
 
-        if slot.is_booked:
-            raise serializers.ValidationError('This slot has already been booked.')
+        # Only block if a booking on this slot has actually been accepted.
+        # Pending/declined bookings shouldn't stop a new request from going through.
+        has_accepted_booking = Booking.objects.filter(
+            availability_slot=slot,
+            status='accepted',
+        ).exists()
 
+        if has_accepted_booking:
+            raise serializers.ValidationError({
+                'availability_slot': 'This slot has already been booked.'
+            })
 
         session_type = attrs.get('session_type')
         if session_type and tutor_profile.session_status not in ('online', 'onsite', 'both'):
-            raise serializers.ValidationError(
-                f"Tutor only supports {tutor_profile.session_status} sessions."
-            )
+            raise serializers.ValidationError({
+                'session_type': f"Tutor only supports {tutor_profile.session_status} sessions."
+            })
 
         attrs['start_time'] = slot.start_time
         attrs['end_time'] = slot.end_time
@@ -43,9 +52,14 @@ class BookingCreateSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         slot = validated_data.pop('availability_slot')
-        booking = Booking.objects.create(availability_slot=slot, student=self.context['request'].user, **validated_data)
-        slot.is_booked = True
-        slot.save(update_fields=['is_booked'])
+        booking = Booking.objects.create(
+            availability_slot=slot,
+            student=self.context['request'].user,
+            status='pending',
+            **validated_data,
+        )
+        # Don't flip is_booked here — the slot only becomes truly
+        # unavailable once the tutor accepts. See accept_booking below.
         return booking
 
     def _compute_amount(self, tutor_profile, start_time, end_time):

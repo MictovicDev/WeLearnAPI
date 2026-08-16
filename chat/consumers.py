@@ -78,6 +78,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
     def save_message(self, content):
         thread = ChatThread.objects.select_related('student', 'tutor__user').get(id=self.thread_id)
         receiver = thread.tutor.user if self.user.id == thread.student_id else thread.student
+        notify_new_message(message)
 
         return Message.objects.create(
             thread=thread,
