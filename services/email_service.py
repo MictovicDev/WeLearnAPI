@@ -136,7 +136,7 @@ def notify_payment_success(booking, payment):
             "payment_reference": payment.provider_reference,
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
-        to_email=booking.student.user.email,
+        to_email=booking.student.email,
     )
 
     send_templated_email_task.delay(
@@ -148,7 +148,7 @@ def notify_payment_success(booking, payment):
             "student_name": booking.student.first_name + ' ' + booking.student.last_name,
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
-        to_email=booking.tutor.user.email,
+        to_email=booking.tutor_profile.user.email,
     )
 
 
