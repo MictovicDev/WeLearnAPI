@@ -97,4 +97,10 @@ class PaymentService:
             payment.id, event["reference"], event["provider_reference"],
         )
 
-        payment_succeeded.send(sender=self.__class__, booking=payment.booking)
+        transaction.on_commit(
+            lambda: payment_succeeded.send(
+                sender=self.__class__,
+                payment = payment,
+                booking=payment.booking,
+            )
+        )

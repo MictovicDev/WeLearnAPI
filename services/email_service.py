@@ -132,11 +132,11 @@ def notify_payment_success(booking, payment):
         context={
             **common,
             "student_first_name": booking.student.first_name,
-            "tutor_name": booking.tutor.get_full_name(),
+            "tutor_name": booking.tutor.get_tutor_fullname(),
             "payment_reference": payment.reference,
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
-        to_email=booking.student.email,
+        to_email=booking.student.user.email,
     )
 
     send_templated_email_task.delay(
@@ -144,11 +144,11 @@ def notify_payment_success(booking, payment):
         template_name="payment_success_tutor.html",
         context={
             **common,
-            "tutor_first_name": booking.tutor.first_name,
-            "student_name": booking.student.get_full_name(),
+            "tutor_first_name": booking.tutor.user.first_name,
+            "student_name": booking.student.first_name + ' ' + booking.student.last_name,
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
-        to_email=booking.tutor.email,
+        to_email=booking.tutor.user.email,
     )
 
 
