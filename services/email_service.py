@@ -132,7 +132,7 @@ def notify_payment_success(booking, payment):
         context={
             **common,
             "student_first_name": booking.student.first_name,
-            "tutor_name": booking.tutor_profile.get_tutor_fullname(),
+            "tutor_name": booking.get_tutor_fullname(),
             "payment_reference": payment.reference,
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
