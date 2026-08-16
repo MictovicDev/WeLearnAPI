@@ -54,53 +54,89 @@ class PaymentService:
 
         logger.info(
             "Webhook event parsed. type=%s reference=%s provider_reference=%s",
-            event["type"], event["reference"], event["provider_reference"],
+            event["type"],
+            event["reference"],
+            event["provider_reference"],
         )
 
         if event["type"] != "payment.succeeded":
-            logger.info("Ignoring non-payment-succeeded event. type=%s", event["type"])
+            logger.info(
+                "Ignoring non-payment-succeeded event. type=%s",
+                event["type"],
+            )
             return
 
         if not event["reference"]:
             logger.warning(
-                "payment.succeeded event missing reference/booking_id. provider_reference=%s",
+                "payment.succeeded event missing reference/booking_id. "
+                "provider_reference=%s",
                 event["provider_reference"],
             )
             return
 
         try:
-            payment = Payment.objects.select_for_update().select_related("booking").get(
-                booking_id=event["reference"]
+            payment = (
+                Payment.objects
+                .select_for_update()
+                .select_related("booking")
+                .get(booking_id=event["reference"])
             )
         except Payment.DoesNotExist:
             logger.warning(
-                "No Payment found for booking_id from webhook. booking_id=%s provider_reference=%s",
-                event["reference"], event["provider_reference"],
+                "No Payment found for booking_id from webhook. "
+                "booking_id=%s provider_reference=%s",
+                event["reference"],
+                event["provider_reference"],
             )
             return
 
+        # Idempotency protection
         if payment.status == Payment.Status.SUCCEEDED:
             logger.info(
-                "Payment already marked SUCCEEDED, skipping. payment_id=%s booking_id=%s",
-                payment.id, event["reference"],
+                "Payment already marked SUCCEEDED, skipping. "
+                "payment_id=%s booking_id=%s",
+                payment.id,
+                event["reference"],
             )
             return
+
+        booking = payment.booking
+
+        # Lock wallet to prevent concurrent balance updates
+        wallet = (
+            booking.user.wallet.__class__
+            .objects
+            .select_for_update()
+            .get(pk=booking.user.wallet.pk)
+        )
 
         payment.status = Payment.Status.SUCCEEDED
         payment.provider_reference = event["provider_reference"]
-        payment.save(update_fields=["status", "provider_reference", "updated_at"])
-        # notify_payment_success(booking, payment)
 
-
-        logger.info(
-            "Payment marked SUCCEEDED. payment_id=%s booking_id=%s provider_reference=%s",
-            payment.id, event["reference"], event["provider_reference"],
+        payment.save(
+            update_fields=[
+                "status",
+                "provider_reference",
+                "updated_at",
+            ]
         )
+
+        wallet.balance += payment.amount
+        wallet.save(update_fields=["balance"])
 
         transaction.on_commit(
             lambda: payment_succeeded.send(
                 sender=self.__class__,
-                payment = payment,
-                booking=payment.booking,
+                payment=payment,
+                booking=booking,
             )
+        )
+
+        logger.info(
+            "Payment marked SUCCEEDED and wallet credited. "
+            "payment_id=%s booking_id=%s provider_reference=%s amount=%s",
+            payment.id,
+            booking.id,
+            event["provider_reference"],
+            payment.amount,
         )
