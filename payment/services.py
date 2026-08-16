@@ -104,10 +104,10 @@ class PaymentService:
 
         # Lock wallet to prevent concurrent balance updates
         wallet = (
-            booking.user.wallet.__class__
+            booking.tutor_profile.user.wallet.__class__
             .objects
             .select_for_update()
-            .get(pk=booking.user.wallet.pk)
+            .get(pk=booking.tutor_profile.user.wallet.pk)
         )
 
         payment.status = Payment.Status.SUCCEEDED
