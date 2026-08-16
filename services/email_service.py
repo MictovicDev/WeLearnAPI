@@ -19,7 +19,7 @@ from django.conf import settings
 
 from users.tasks import send_templated_email_task
 
-FRONTEND_URL = getattr(settings, "FRONTEND_URL", "https://app.welearn.com")
+FRONTEND_URL = getattr(settings, "FRONTEND_URL", "https://welearnglobal.vercel.app")
 
 
 # ---------------------------------------------------------------------------
@@ -56,7 +56,7 @@ def notify_booking_created(booking):
             **common,
             "student_first_name": booking.student.first_name,
             "tutor_name": f"{booking.tutor_profile.user.first_name} + '' +  {booking.tutor_profile.user.last_name}",
-            "booking_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+            "booking_url": f"{FRONTEND_URL}/tutors/dashboard/booking",
         },
         to_email=booking.student.email,
     )
@@ -67,7 +67,7 @@ def notify_booking_created(booking):
         context={
             **common,
             "student_first_name": booking.student.first_name,
-            "tutor_name": f"{booking.tutor_profile.user.first_name} + '' +  {booking.tutor_profile.user.last_name}",
+            "tutor_name": f"{booking.tutor_profile.user.first_name}  +  {booking.tutor_profile.user.last_name}",
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
         to_email=booking.tutor_profile.user.email,
@@ -77,7 +77,7 @@ def notify_booking_created(booking):
 # ---------------------------------------------------------------------------
 # 3. Booking accepted / declined
 # ---------------------------------------------------------------------------
-def notify_booking_status(booking, status: str):
+def notify_booking_status(booking, type_status: str):
     """
     status: "accepted" or "declined"
     Always emails the student. Only emails the tutor on acceptance,
@@ -85,16 +85,16 @@ def notify_booking_status(booking, status: str):
     """
     common = {
         "subject": booking.subject,
-        "session_datetime": booking.session_datetime.strftime("%A, %d %b %Y &middot; %I:%M %p"),
-        "tutor_name": booking.tutor.get_full_name(),
+        "scheduled_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
+        "tutor_name": booking.tutor_profile.user.first_name,
     }
 
     send_templated_email_task.delay(
-        subject="Your booking has been accepted" if status == "accepted" else "Update on your booking",
+        subject="Your booking has been accepted" if type_status == "accepted" else "Update on your booking",
         template_name="booking_status_student.html",
         context={
             **common,
-            "status": status,
+            "status": type_status,
             "student_first_name": booking.student.first_name,
             "payment_url": f"{FRONTEND_URL}/bookings/{booking.id}/pay",
             "find_tutor_url": f"{FRONTEND_URL}/tutors",
@@ -102,17 +102,17 @@ def notify_booking_status(booking, status: str):
         to_email=booking.student.email,
     )
 
-    if status == "accepted":
+    if type_status == "accepted":
         send_templated_email_task.delay(
             subject="You've accepted a booking",
             template_name="booking_accepted_tutor.html",
             context={
                 **common,
-                "tutor_first_name": booking.tutor.first_name,
-                "student_name": booking.student.get_full_name(),
+                "tutor_first_name": booking.get_tutor_fullname(),
+                "student_name": booking.student.first_name,
                 "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
             },
-            to_email=booking.tutor.email,
+            to_email=booking.tutor_profile.user.email,
         )
 
 

@@ -92,6 +92,10 @@ class Booking(models.Model):
         self.currency = self.currency or 'USD'
         super().save(*args, **kwargs)
 
+    def get_tutor_fullname(self):
+        name = self.tutor_profile.user.first_name + self.tutor_profile.user.last_name
+        return name
+
     class Meta:
             ordering = ['-created_at']
 

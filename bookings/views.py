@@ -124,10 +124,10 @@ class BookingViewSet(
 
         serializer = BookingStatusUpdateSerializer(booking, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
-        status = serializer.validated_data.get('status')
+        type_status = serializer.validated_data.get('status')
         serializer.save()
-        # send_booking_notification_email.delay(booking.id, status)
-        notify_booking_status(booking, status)
+        # send_booking_notification_email.delay(booking.id, type_status)
+        notify_booking_status(booking, type_status)
         return Response(
                 {
                     "detail": f"Booking {booking.status.lower()} successfully."
