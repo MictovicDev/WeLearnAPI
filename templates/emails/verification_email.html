@@ -1,0 +1,40 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}Verify your email &middot; Welearn{% endblock %}
+{% block preheader %}Confirm your email to activate your Welearn account.{% endblock %}
+{% block header_tag %}ACCOUNT SETUP{% endblock %}
+
+{% block content %}
+  <div style="width:56px; height:56px; border-radius:50%; background-color:#d9fbe8; text-align:center; line-height:56px; font-size:26px; margin-bottom:24px;">
+    &#9993;&#65039;
+  </div>
+
+  <h1 style="margin:0 0 12px 0; font-size:24px; line-height:1.3; color:#0b1f16; font-weight:800;">
+    Verify your email, {{ user_first_name }}
+  </h1>
+
+  <p style="margin:0 0 24px 0; font-size:15px; line-height:1.6; color:#4b5a53;">
+    Welcome to Welearn! You're one step away from booking sessions and connecting with tutors.
+    Confirm this is your email address to activate your account.
+  </p>
+
+  <table role="presentation" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="border-radius:999px; background-color:#123524;">
+        <a href="{{ verification_url }}"
+           style="display:inline-block; padding:14px 32px; font-size:15px; font-weight:700; color:#ffffff; text-decoration:none; border-radius:999px;">
+          Verify Email Address
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <p style="margin:28px 0 0 0; font-size:13px; line-height:1.6; color:#8a9791;">
+    Or paste this link into your browser:<br>
+    <a href="{{ verification_url }}" style="color:#0f766e; word-break:break-all;">{{ verification_url }}</a>
+  </p>
+
+  <p style="margin:20px 0 0 0; font-size:13px; line-height:1.6; color:#8a9791;">
+    This link expires in {{ expiry_hours|default:"24" }} hours. If you didn't create a Welearn account, you can safely ignore this email.
+  </p>
+{% endblock %}

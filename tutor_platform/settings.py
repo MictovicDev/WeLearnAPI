@@ -140,7 +140,7 @@ ROOT_URLCONF = 'tutor_platform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -261,10 +261,9 @@ CELERY_TIMEZONE = 'Africa/Lagos'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail.privateemail.com'
 EMAIL_PORT = 465
-
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'support@welearnglobal.online')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'noreply@welearnglobal.online')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  # set in environment, no hardcoded fallback
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
@@ -272,4 +271,6 @@ STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 DEFAULT_PAYMENT_GATEWAY = "stripe"
 PAYMENT_SUCCESS_URL = os.getenv("PAYMENT_SUCCESS_URL")
 PAYMENT_CANCEL_URL = os.getenv("PAYMENT_CANCEL_URL")
+
+print(EMAIL_HOST_PASSWORD)
 

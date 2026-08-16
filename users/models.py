@@ -1,6 +1,10 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
-
+import uuid
+from django.conf import settings
+from django.db import models
+from django.utils import timezone
+from datetime import timedelta
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -56,3 +60,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def is_student(self):
         return self.role == self.Role.STUDENT
+
+
+
+class EmailVerificationToken(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    key = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def is_valid(self):
+        return timezone.now() < self.created_at + timedelta(hours=24)

@@ -12,7 +12,9 @@ from .serializers import (
     CustomTokenObtainPairSerializer
 )
 from users.permissions import IsAdmin
-
+from services.email_service import notify_verification_email
+from .models import EmailVerificationToken
+from rest_framework.views import APIView
 
 
 User = get_user_model()
@@ -79,7 +81,9 @@ class UserViewSet(viewsets.GenericViewSet):
     def register(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        user = serializer.save()
+        user = serializer.save(is_active=False)
+        token = EmailVerificationToken.objects.create(user=user)
+        notify_verification_email(user, verification_token=token.key)
         out = UserSerializer(user, context={'request': request})
         return Response(out.data, status=status.HTTP_201_CREATED)
 
@@ -132,3 +136,24 @@ class AdminUserViewSet(
     def perform_destroy(self, instance):
         instance.is_active = False
         instance.save(update_fields=['is_active'])
+
+
+# accounts/views.py
+class VerifyEmailView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        token_key = request.data.get("token")
+        try:
+            token = EmailVerificationToken.objects.get(key=token_key)
+        except EmailVerificationToken.DoesNotExist:
+            return Response({"detail": "Invalid token"}, status=400)
+
+        if not token.is_valid():
+            return Response({"detail": "Token expired"}, status=400)
+
+        user = token.user
+        user.is_active = True
+        user.save(update_fields=["is_active"])
+        token.delete()  # one-time use
+        return Response({"detail": "Email verified"}, status=200)

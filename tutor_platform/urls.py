@@ -5,12 +5,13 @@ from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
-from users.views import UserViewSet, AdminUserViewSet, CustomTokenObtainPairView, CustomTokenRefreshView
+from users.views import UserViewSet, AdminUserViewSet, CustomTokenObtainPairView, VerifyEmailView, CustomTokenRefreshView
 from tutors.views import SubjectViewSet, TutorProfileViewSet, AvailabilityViewSet
 from bookings.views import BookingViewSet
 from reviews.views import ReviewViewSet
 from chat.views import ChatThreadViewSet
 from payment.views import PaymentViewSet
+
 
 
 
@@ -42,7 +43,8 @@ urlpatterns = [
     # JWT auth
     path('api/v1/auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/v1/auth/refresh/', CustomTokenRefreshView.as_view(), name='token_refresh'),
-
+    # accounts/urls.py
+    path("verify-email/", VerifyEmailView.as_view()),
     # Stripe webhook, kept outside the router since it's a plain view with
     # its own auth handling, not a DRF viewset action.
     path('api/v1/webhooks/', include('payment.urls')),

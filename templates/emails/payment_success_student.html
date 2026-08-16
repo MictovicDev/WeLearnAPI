@@ -1,0 +1,60 @@
+{% extends "emails/base_email.html" %}
+
+{% block title %}Payment successful &middot; Welearn{% endblock %}
+{% block preheader %}Your payment for the session with {{ tutor_name }} was successful.{% endblock %}
+{% block header_tag %}PAYMENT{% endblock %}
+
+{% block content %}
+  <div style="width:56px; height:56px; border-radius:50%; background-color:#d9fbe8; text-align:center; line-height:56px; font-size:26px; margin-bottom:24px;">
+    &#128176;
+  </div>
+
+  <h1 style="margin:0 0 12px 0; font-size:24px; line-height:1.3; color:#0b1f16; font-weight:800;">
+    You've successfully paid for your booking
+  </h1>
+
+  <p style="margin:0 0 24px 0; font-size:15px; line-height:1.6; color:#4b5a53;">
+    Hi {{ student_first_name }}, your payment has been confirmed. Your session with
+    <strong>{{ tutor_name }}</strong> is locked in, proceed to your dashboard when you're ready to start learning.
+  </p>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f6f8f7; border-radius:14px; margin-bottom:28px;">
+    <tr>
+      <td style="padding:20px 24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="font-size:13px; color:#8a9791; padding-bottom:6px;">Tutor</td>
+            <td align="right" style="font-size:13px; color:#0b1f16; font-weight:600; padding-bottom:6px;">{{ tutor_name }}</td>
+          </tr>
+          <tr>
+            <td style="font-size:13px; color:#8a9791; padding-bottom:6px;">Subject</td>
+            <td align="right" style="font-size:13px; color:#0b1f16; font-weight:600; padding-bottom:6px;">{{ subject }}</td>
+          </tr>
+          <tr>
+            <td style="font-size:13px; color:#8a9791; padding-bottom:6px;">Date &amp; Time</td>
+            <td align="right" style="font-size:13px; color:#0b1f16; font-weight:600; padding-bottom:6px;">{{ session_datetime }}</td>
+          </tr>
+          <tr>
+            <td style="font-size:13px; color:#8a9791; padding-bottom:6px;">Amount Paid</td>
+            <td align="right" style="font-size:13px; color:#0b1f16; font-weight:600; padding-bottom:6px;">{{ amount_paid }}</td>
+          </tr>
+          <tr>
+            <td style="font-size:13px; color:#8a9791;">Reference</td>
+            <td align="right" style="font-size:13px; color:#0b1f16; font-weight:600;">{{ payment_reference }}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <table role="presentation" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="border-radius:999px; background-color:#123524;">
+        <a href="{{ dashboard_url }}"
+           style="display:inline-block; padding:14px 32px; font-size:15px; font-weight:700; color:#ffffff; text-decoration:none; border-radius:999px;">
+          Go to Dashboard
+        </a>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

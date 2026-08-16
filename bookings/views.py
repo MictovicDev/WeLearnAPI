@@ -3,7 +3,6 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema, extend_schema_view
-from .tasks import send_booking_notification_email
 from .models import Booking
 from .serializers import (
     BookingCreateSerializer,
@@ -15,7 +14,7 @@ from .serializers import (
 )
 from users.permissions import IsStudent, IsAdmin, IsBookingParticipant
 from tutors.permissions import IsTutor
-
+from services.email_service import notify_booking_created, notify_booking_status
 import logging
 
 logger = logging.getLogger('tutor_platform')
@@ -112,7 +111,7 @@ class BookingViewSet(
         serializer = BookingCreateSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         booking = serializer.save()
-        send_booking_notification_email.delay(booking.id)
+        notify_booking_created(booking)
         return Response(BookingDetailSerializer(booking, context={'request': request}).data, status=201)
 
     @action(methods=['PATCH'], detail=True, url_path='respond')
@@ -127,7 +126,8 @@ class BookingViewSet(
         serializer.is_valid(raise_exception=True)
         status = serializer.validated_data.get('status')
         serializer.save()
-        send_booking_notification_email.delay(booking.id, status)
+        # send_booking_notification_email.delay(booking.id, status)
+        notify_booking_status(booking, status)
         return Response(
                 {
                     "detail": f"Booking {booking.status.lower()} successfully."
@@ -147,9 +147,10 @@ class BookingViewSet(
         serializer = BookingCancelSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         reason = serializer.validated_data.get('reason', '')
-        booking.status = Booking.Status.CANCELLED
+        booking.status = Booking.Status.DECLINED
         booking.tutor_response_note = reason
         booking.save(update_fields=['status', 'tutor_response_note'])
+        notify_booking_status(booking, status="declined")
         return Response(BookingDetailSerializer(booking, context={'request': request}).data)
 
     @action(methods=['PATCH'], detail=True, url_path='complete')

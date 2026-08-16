@@ -19,7 +19,7 @@ def send_booking_notification_email(self, booking_id, status=None):
         return
 
     user_email = booking.student.email
-    tutor_email = booking.tutor_profile.email
+    tutor_email = booking.tutor_profile.user.email
     if not user_email:
         logger.warning(f'Tutor for booking {booking_id} has no email on file.')
         return

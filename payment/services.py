@@ -7,6 +7,7 @@ from payment.models import Payment
 from payment.signals import payment_succeeded
 from rest_framework.exceptions import ValidationError
 import logging
+from services.email_service import notify_payment_success
 
 logger = logging.getLogger("stripe")
 
@@ -88,6 +89,8 @@ class PaymentService:
         payment.status = Payment.Status.SUCCEEDED
         payment.provider_reference = event["provider_reference"]
         payment.save(update_fields=["status", "provider_reference", "updated_at"])
+        # notify_payment_success(booking, payment)
+
 
         logger.info(
             "Payment marked SUCCEEDED. payment_id=%s booking_id=%s provider_reference=%s",
