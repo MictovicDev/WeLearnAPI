@@ -89,7 +89,7 @@ class PaymentService:
         payment.status = Payment.Status.SUCCEEDED
         payment.provider_reference = event["provider_reference"]
         payment.save(update_fields=["status", "provider_reference", "updated_at"])
-        # notify_payment_success(booking, payment)
+        notify_payment_success(booking, payment)
 
 
         logger.info(

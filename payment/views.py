@@ -85,7 +85,8 @@ class StripeWebhookView(APIView):
                 payload=request.body,
                 headers=request.headers,
             )
-            
+            logger.info(request.body)
+
         except Exception:
             logger.exception(
                 "Stripe webhook processing failed. event_id=%s", event_id

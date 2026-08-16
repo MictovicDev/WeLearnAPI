@@ -76,7 +76,6 @@ class Transaction(models.Model):
 
 
  
- 
 class TutorStripeAccount(models.Model):
     """One row per tutor. Wraps their Stripe Connect Express account."""
     tutor = models.OneToOneField(
@@ -95,6 +94,8 @@ class TutorStripeAccount(models.Model):
  
     def __str__(self):
         return f'{self.tutor} - {self.stripe_account_id}'
+
+
 
 
 
