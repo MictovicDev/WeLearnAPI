@@ -11,6 +11,7 @@ from bookings.views import BookingViewSet
 from reviews.views import ReviewViewSet
 from chat.views import ChatThreadViewSet
 from payment.views import PaymentViewSet
+from wallets.views import WalletViewSet
 
 
 
@@ -33,6 +34,7 @@ router.register(r'bookings', BookingViewSet, basename='bookings')
 router.register(r'reviews', ReviewViewSet, basename='reviews')
 
 router.register('payment', PaymentViewSet, basename='payment')
+router.register('wallets', WalletViewSet, basename='wallets')
 
 # Messaging
 router.register(r'chat', ChatThreadViewSet, basename='chats')
@@ -48,7 +50,6 @@ urlpatterns = [
     # Stripe webhook, kept outside the router since it's a plain view with
     # its own auth handling, not a DRF viewset action.
     path('api/v1/webhooks/', include('payment.urls')),
-
     # All routed viewsets
     path('api/v1/', include(router.urls)),
     # path('api/v1/chat/', include('chat.urls')),
