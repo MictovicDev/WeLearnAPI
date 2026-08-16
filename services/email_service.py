@@ -133,7 +133,7 @@ def notify_payment_success(booking, payment):
             **common,
             "student_first_name": booking.student.first_name,
             "tutor_name": booking.get_tutor_fullname(),
-            "payment_reference": payment.reference,
+            "payment_reference": payment.provider_reference,
             "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
         to_email=booking.student.user.email,
