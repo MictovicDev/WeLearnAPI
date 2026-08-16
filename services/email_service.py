@@ -122,7 +122,7 @@ def notify_booking_status(booking, type_status: str):
 def notify_payment_success(booking, payment):
     common = {
         "subject": booking.subject,
-        "session_datetime": booking.session_datetime.strftime("%A, %d %b %Y &middot; %I:%M %p"),
+        "scheduled_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
         "amount_paid": f"₦{payment.amount:,.2f}",
     }
 
