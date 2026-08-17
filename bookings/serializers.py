@@ -5,7 +5,12 @@ from users.serializers import UserSerializer
 from datetime import date, datetime
 from decimal import Decimal
 from tutors.models import Availability
+from decimal import Decimal, ROUND_HALF_UP
 
+
+from decimal import Decimal, ROUND_HALF_UP
+from datetime import datetime, date
+from rest_framework import serializers
 
 
 class BookingCreateSerializer(serializers.ModelSerializer):
@@ -13,10 +18,14 @@ class BookingCreateSerializer(serializers.ModelSerializer):
         queryset=Availability.objects.all(), write_only=True, required=True,
         help_text='ID of the availability slot to book'
     )
+    total_amount = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
 
     class Meta:
         model = Booking
-        fields = ['tutor_profile', 'duration', 'availability_slot', 'subject', 'session_type', 'scheduled_date', 'notes']
+        fields = [
+            'tutor_profile', 'duration', 'availability_slot', 'subject',
+            'session_type', 'scheduled_date', 'notes', 'total_amount',
+        ]
 
     def validate(self, attrs):
         tutor_profile = attrs['tutor_profile']
@@ -27,8 +36,6 @@ class BookingCreateSerializer(serializers.ModelSerializer):
                 'availability_slot': 'This availability slot does not belong to the selected tutor.'
             })
 
-        # Only block if a booking on this slot has actually been accepted.
-        # Pending/declined bookings shouldn't stop a new request from going through.
         has_accepted_booking = Booking.objects.filter(
             availability_slot=slot,
             status='accepted',
@@ -58,14 +65,26 @@ class BookingCreateSerializer(serializers.ModelSerializer):
             status='pending',
             **validated_data,
         )
-        # Don't flip is_booked here — the slot only becomes truly
-        # unavailable once the tutor accepts. See accept_booking below.
         return booking
 
     def _compute_amount(self, tutor_profile, start_time, end_time):
-        # your existing rate calculation logic goes here
-        pass
+        hourly_rate = tutor_profile.hourly_rate
 
+        if not isinstance(start_time, datetime):
+            start_dt = datetime.combine(date.today(), start_time)
+            end_dt = datetime.combine(date.today(), end_time)
+        else:
+            start_dt = start_time
+            end_dt = end_time
+
+        delta = end_dt - start_dt
+        hours = Decimal(delta.total_seconds()) / Decimal(3600)
+
+        amount = (Decimal(hourly_rate) * hours).quantize(
+            Decimal('0.01'), rounding=ROUND_HALF_UP
+        )
+        return amount
+    
 class MyBookingsSerializer(serializers.ModelSerializer):
     student = UserSerializer(read_only=True)
 

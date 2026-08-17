@@ -957,3 +957,123 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-16 21:14:57,543 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.44, 127.0.0.1:59026][0m
 2026-08-16 21:15:05,010 [INFO] django.channels.server: [mHTTP GET /admin/wallets/wallet/1/change/ 200 [2.32, 127.0.0.1:59026][0m
 2026-08-16 21:15:07,206 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.13, 127.0.0.1:59026][0m
+2026-08-16 22:50:46,123 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-16 22:50:49,733 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-16 22:50:49,734 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-16 22:50:49,736 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-17 16:33:54,600 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 16:40:11,944 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 16:40:16,293 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 16:40:16,293 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 16:40:16,297 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-17 16:41:55,149 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 16:41:58,605 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 16:41:58,606 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 16:41:58,611 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-17 16:46:37,328 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-17 16:46:41,474 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 16:46:44,437 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 16:46:44,437 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 16:46:44,440 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-17 16:48:16,967 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-17 16:48:20,121 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 16:48:23,106 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 16:48:23,106 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 16:48:23,107 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-17 22:12:07,999 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-17 22:12:16,758 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 22:12:38,822 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-17 22:12:44,743 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 22:13:03,109 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-17 22:13:08,083 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 22:14:56,515 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 22:15:00,683 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 22:15:00,685 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 22:15:00,689 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-17 22:15:30,911 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [4.70, 127.0.0.1:62375][0m
+2026-08-17 22:16:12,127 [INFO] django.channels.server: [mHTTP GET /api/v1/bookings/ 200 [2.52, 127.0.0.1:62375][0m
+2026-08-17 22:16:19,347 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/ 400 [2.27, 127.0.0.1:62375][0m
+2026-08-17 22:16:32,498 [WARNING] django.channels.server: [33mHTTP GET /dashboard/ 404 [1.05, 127.0.0.1:57527][0m
+2026-08-17 22:16:35,862 [INFO] django.channels.server: [32mHTTP GET /admin/ 302 [2.53, 127.0.0.1:57527][0m
+2026-08-17 22:16:37,084 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/ 200 [1.19, 127.0.0.1:57527][0m
+2026-08-17 22:16:37,783 [INFO] django.channels.server: [mHTTP GET /static/admin/css/dark_mode.css 200 [0.41, 127.0.0.1:62941][0m
+2026-08-17 22:16:37,851 [INFO] django.channels.server: [mHTTP GET /static/admin/css/base.css 200 [0.50, 127.0.0.1:57527][0m
+2026-08-17 22:16:38,113 [INFO] django.channels.server: [mHTTP GET /static/admin/css/nav_sidebar.css 200 [0.43, 127.0.0.1:62029][0m
+2026-08-17 22:16:38,123 [INFO] django.channels.server: [mHTTP GET /static/admin/css/login.css 200 [0.44, 127.0.0.1:56820][0m
+2026-08-17 22:16:38,158 [INFO] django.channels.server: [mHTTP GET /static/admin/css/responsive.css 200 [0.48, 127.0.0.1:50210][0m
+2026-08-17 22:16:38,314 [INFO] django.channels.server: [mHTTP GET /static/admin/js/nav_sidebar.js 200 [0.19, 127.0.0.1:57527][0m
+2026-08-17 22:16:38,314 [INFO] django.channels.server: [mHTTP GET /static/admin/js/theme.js 200 [0.19, 127.0.0.1:62029][0m
+2026-08-17 22:16:38,511 [WARNING] django.channels.server: [33mHTTP GET /favicon.ico 404 [0.02, 127.0.0.1:62029][0m
+2026-08-17 22:17:44,111 [INFO] django.channels.server: [32mHTTP POST /admin/login/?next=/admin/ 302 [3.43, 127.0.0.1:52414][0m
+2026-08-17 22:17:46,663 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.54, 127.0.0.1:52414][0m
+2026-08-17 22:17:46,876 [INFO] django.channels.server: [mHTTP GET /static/admin/css/dashboard.css 200 [0.01, 127.0.0.1:52414][0m
+2026-08-17 22:17:46,948 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-deletelink.svg 200 [0.06, 127.0.0.1:59175][0m
+2026-08-17 22:17:46,967 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-changelink.svg 200 [0.08, 127.0.0.1:64268][0m
+2026-08-17 22:17:46,969 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-addlink.svg 200 [0.09, 127.0.0.1:52414][0m
+2026-08-17 22:17:59,550 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/ 200 [2.47, 127.0.0.1:52414][0m
+2026-08-17 22:17:59,682 [INFO] django.channels.server: [mHTTP GET /static/admin/css/changelists.css 200 [0.05, 127.0.0.1:52414][0m
+2026-08-17 22:17:59,755 [INFO] django.channels.server: [mHTTP GET /static/admin/js/jquery.init.js 200 [0.07, 127.0.0.1:52414][0m
+2026-08-17 22:17:59,886 [INFO] django.channels.server: [mHTTP GET /static/admin/js/core.js 200 [0.12, 127.0.0.1:52414][0m
+2026-08-17 22:18:00,050 [INFO] django.channels.server: [mHTTP GET /static/admin/js/urlify.js 200 [0.10, 127.0.0.1:61358][0m
+2026-08-17 22:18:00,070 [INFO] django.channels.server: [mHTTP GET /static/admin/js/prepopulate.js 200 [0.12, 127.0.0.1:64519][0m
+2026-08-17 22:18:00,085 [INFO] django.channels.server: [mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.19, 127.0.0.1:52414][0m
+2026-08-17 22:18:00,087 [INFO] django.channels.server: [mHTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.45, 127.0.0.1:59175][0m
+2026-08-17 22:18:00,150 [INFO] django.channels.server: [mHTTP GET /static/admin/js/actions.js 200 [0.20, 127.0.0.1:49673][0m
+2026-08-17 22:18:00,204 [INFO] django.channels.server: [mHTTP GET /static/admin/img/search.svg 200 [0.05, 127.0.0.1:49673][0m
+2026-08-17 22:18:00,206 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-no.svg 200 [0.05, 127.0.0.1:59175][0m
+2026-08-17 22:18:00,254 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-yes.svg 200 [0.04, 127.0.0.1:59175][0m
+2026-08-17 22:18:00,584 [INFO] django.channels.server: [mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.53, 127.0.0.1:61358][0m
+2026-08-17 22:18:00,748 [INFO] django.channels.server: [mHTTP GET /static/admin/js/filters.js 200 [0.12, 127.0.0.1:61358][0m
+2026-08-17 22:18:02,064 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.42, 127.0.0.1:64268][0m
+2026-08-17 22:18:02,331 [INFO] django.channels.server: [mHTTP GET /static/admin/img/tooltag-add.svg 200 [0.06, 127.0.0.1:64268][0m
+2026-08-17 22:18:02,354 [INFO] django.channels.server: [mHTTP GET /static/admin/img/sorting-icons.svg 200 [0.07, 127.0.0.1:61358][0m
+2026-08-17 22:18:02,354 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-viewlink.svg 200 [0.07, 127.0.0.1:59175][0m
+2026-08-17 22:18:08,111 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.88, 127.0.0.1:61358][0m
+2026-08-17 22:18:08,276 [INFO] django.channels.server: [mHTTP GET /static/admin/css/forms.css 200 [0.09, 127.0.0.1:61358][0m
+2026-08-17 22:18:08,302 [INFO] django.channels.server: [mHTTP GET /static/admin/js/prepopulate_init.js 200 [0.10, 127.0.0.1:64519][0m
+2026-08-17 22:18:08,317 [INFO] django.channels.server: [mHTTP GET /static/admin/js/calendar.js 200 [0.12, 127.0.0.1:59175][0m
+2026-08-17 22:18:08,333 [INFO] django.channels.server: [mHTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.14, 127.0.0.1:64268][0m
+2026-08-17 22:18:08,371 [INFO] django.channels.server: [mHTTP GET /static/admin/js/inlines.js 200 [0.17, 127.0.0.1:49673][0m
+2026-08-17 22:18:08,373 [INFO] django.channels.server: [mHTTP GET /static/admin/css/widgets.css 200 [0.08, 127.0.0.1:61358][0m
+2026-08-17 22:18:08,461 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-unknown.svg 200 [0.06, 127.0.0.1:61358][0m
+2026-08-17 22:18:08,619 [INFO] django.channels.server: [mHTTP GET /static/admin/js/change_form.js 200 [0.11, 127.0.0.1:61358][0m
+2026-08-17 22:18:10,462 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.27, 127.0.0.1:52414][0m
+2026-08-17 22:18:11,093 [INFO] django.channels.server: [mHTTP GET /static/admin/img/icon-clock.svg 200 [0.10, 127.0.0.1:52414][0m
+2026-08-17 22:19:02,152 [INFO] django.channels.server: [mHTTP GET /admin/tutors/availability/ 200 [2.35, 127.0.0.1:52414][0m
+2026-08-17 22:19:04,570 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.27, 127.0.0.1:52414][0m
+2026-08-17 22:19:10,563 [INFO] django.channels.server: [mHTTP GET /admin/tutors/availability/34/change/ 200 [2.29, 127.0.0.1:52414][0m
+2026-08-17 22:19:12,964 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.31, 127.0.0.1:52414][0m
+2026-08-17 22:19:25,894 [INFO] django.channels.server: [mHTTP POST /api/v1/bookings/ 201 [2.96, 127.0.0.1:61819][0m
+2026-08-17 22:19:46,848 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.47, 127.0.0.1:52414][0m
+2026-08-17 22:19:49,210 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.22, 127.0.0.1:52414][0m
+2026-08-17 22:20:09,832 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/18/change/ 200 [2.36, 127.0.0.1:52414][0m
+2026-08-17 22:20:12,154 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.24, 127.0.0.1:52414][0m
+2026-08-17 22:25:27,492 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-17 22:25:34,635 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 22:25:39,279 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 22:25:39,283 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 22:25:39,287 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-17 22:25:44,034 [INFO] django.channels.server: [mHTTP POST /api/v1/bookings/ 201 [3.46, 127.0.0.1:59938][0m
+2026-08-17 22:26:03,267 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/19/change/ 200 [2.74, 127.0.0.1:52674][0m
+2026-08-17 22:26:05,751 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.31, 127.0.0.1:52674][0m
+2026-08-17 22:39:28,269 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/19/change/ 200 [2.64, 127.0.0.1:62984][0m
+2026-08-17 22:39:30,747 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.29, 127.0.0.1:62984][0m
+2026-08-17 22:42:53,828 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-17 22:43:01,435 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 22:43:05,777 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 22:43:05,779 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 22:43:05,782 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-17 22:43:20,681 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/ 200 [3.49, 127.0.0.1:49881][0m
+2026-08-17 22:43:23,234 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.37, 127.0.0.1:49881][0m
+2026-08-17 22:43:37,363 [INFO] django.channels.server: [mHTTP GET /admin/tutors/tutorprofile/1/change/ 200 [2.41, 127.0.0.1:49881][0m
+2026-08-17 22:43:39,786 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.35, 127.0.0.1:49881][0m
+2026-08-17 22:44:18,735 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/bookings/ 500 [5.59, 127.0.0.1:58122][0m
+2026-08-17 22:44:51,242 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-17 22:44:54,682 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-17 22:44:54,682 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-17 22:44:54,682 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-17 22:45:41,608 [INFO] django.channels.server: [mHTTP POST /api/v1/bookings/ 201 [3.09, 127.0.0.1:51995][0m
+2026-08-17 22:46:06,187 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.60, 127.0.0.1:59154][0m
+2026-08-17 22:46:08,547 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.24, 127.0.0.1:59154][0m
+2026-08-17 22:46:13,479 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/20/change/ 200 [2.44, 127.0.0.1:59154][0m
+2026-08-17 22:46:15,834 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.23, 127.0.0.1:59154][0m

@@ -55,23 +55,6 @@ class Booking(models.Model):
     class Meta:
         ordering = ['-created_at']
 
-    def calculate_amount(self):
-        """
-        Compute total_amount in USD from duration (minutes) and the tutor's
-        hourly rate. Returns None if the inputs aren't available yet.
-        """
-        if not self.duration or not self.tutor_profile_id:
-            return None
-
-        hourly_rate = self.tutor_profile.hourly_rate
-        if hourly_rate is None:
-            return None
-
-        hours = Decimal(self.duration) / Decimal(60)
-        amount = (Decimal(hourly_rate) * hours).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP
-        )
-        return amount
 
     def clean(self):
         super().clean()
@@ -88,7 +71,6 @@ class Booking(models.Model):
 
     def save(self, *args, **kwargs):
         self.clean()
-        self.total_amount = self.calculate_amount()
         self.currency = self.currency or 'USD'
         super().save(*args, **kwargs)
 
