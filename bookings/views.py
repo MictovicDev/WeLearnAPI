@@ -148,8 +148,13 @@ class BookingViewSet(
         serializer.is_valid(raise_exception=True)
         new_status = serializer.validated_data.get('status')
 
-        if new_status == Booking.Status.ACCEPTED and booking.session_type == Booking.SessionType.ONLINE:
-            self._create_calendar_event(booking)
+        if new_status == Booking.Status.ACCEPTED:
+            if booking.availability_slot:
+                booking.availability_slot.is_booked = True
+                booking.availability_slot.save(update_fields=['is_booked'])
+
+            if booking.session_type == Booking.SessionType.ONLINE:
+                self._create_calendar_event(booking)
 
         serializer.save()
         notify_booking_status(booking, new_status)
