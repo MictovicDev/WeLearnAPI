@@ -33,6 +33,7 @@ from payment.serializers import (
     PerformanceChartPointSerializer,
 )
 import json
+from payment.connect_service import ConnectService
 
 logger = logging.getLogger('tutor_platform')
 
@@ -456,3 +457,8 @@ class AvailabilityViewSet(
 
     def perform_create(self, serializer):
         serializer.save(tutor=self.request.user.tutor_profile)
+
+
+
+
+

@@ -6,8 +6,10 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from wallets.models import Wallet, WalletTransaction
+from wallets.models import Wallet, Withdrawal, WalletTransaction
 from wallets.serializers import WalletSummarySerializer, WalletTransactionSerializer
+
+
 
 
 class WalletViewSet(viewsets.ViewSet):
@@ -39,14 +41,21 @@ class WalletViewSet(viewsets.ViewSet):
 
     @action(detail=False, methods=["get"])
     def transactions(self, request):
+        filter_param = request.query_params.get("filter", "all")
+
+        if filter_param == "payouts":
+            withdrawals = Withdrawal.objects.filter(
+                tutor_profile=request.user.tutor_profile
+            ).order_by("-created_at")
+            serializer = WithdrawalSerializer(withdrawals, many=True)
+            return Response(serializer.data)
+
         wallet, _ = Wallet.objects.get_or_create(user=request.user)
         qs = WalletTransaction.objects.filter(wallet=wallet)
 
-        filter_param = request.query_params.get("filter", "all")
         if filter_param == "earnings":
             qs = qs.filter(type=WalletTransaction.Type.CREDIT)
-        elif filter_param == "payouts":
-            qs = qs.filter(type=WalletTransaction.Type.DEBIT)
+        # "all" still shows raw WalletTransaction rows (credits + any remaining debit rows)
 
         serializer = WalletTransactionSerializer(qs, many=True)
         return Response(serializer.data)

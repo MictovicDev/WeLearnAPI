@@ -54,6 +54,8 @@ class TutorProfile(models.Model):
     )
     bio = models.TextField()
     banner = models.ImageField(upload_to='tutor_banners/', blank=True, null=True)
+    stripe_connect_account_id = models.CharField(max_length=255, blank=True, null=True)
+    payouts_enabled = models.BooleanField(default=False)
     profile_image = models.ImageField(upload_to='tutor_profiles/', blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, help_text='City or area for onsite sessions')
     language = models.CharField(max_length=50, blank=True, help_text='Primary language of instruction')

@@ -1,7 +1,7 @@
 # wallets/serialize
 from rest_framework import serializers
-from wallets.models import WalletTransaction
-
+from wallets.models import WalletTransaction, Withdrawal
+from decimal import Decimal
 
 class WalletTransactionSerializer(serializers.ModelSerializer):
     title = serializers.CharField(source="description")
@@ -33,3 +33,15 @@ class WalletSummarySerializer(serializers.Serializer):
     pending_clearance = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_earned_lifetime = serializers.DecimalField(max_digits=12, decimal_places=2)
     currency = serializers.CharField()
+
+
+# payment/serializers.py
+class WithdrawalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Withdrawal
+        fields = ["id", "amount", "status", "stripe_transfer_id", "created_at"]
+
+
+# payment/serializers.py
+class WithdrawalRequestSerializer(serializers.Serializer):
+    amount = serializers.DecimalField(max_digits=10, decimal_places=2, min_value=Decimal("0.01"))

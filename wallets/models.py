@@ -42,3 +42,17 @@ class WalletTransaction(models.Model):
 
     def __str__(self):
         return f"{self.type} {self.amount} → {self.wallet}"
+
+
+class Withdrawal(models.Model):
+    class Status(models.TextChoices):
+        PROCESSING = "processing", "Processing"
+        PAID = "paid", "Paid"
+        FAILED = "failed", "Failed"
+
+    tutor_profile = models.ForeignKey("tutors.TutorProfile", on_delete=models.CASCADE, related_name="withdrawals")
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    stripe_transfer_id = models.CharField(max_length=255, unique=True)
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.PROCESSING)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

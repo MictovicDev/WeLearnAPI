@@ -8,6 +8,7 @@ from payment.signals import payment_succeeded
 from rest_framework.exceptions import ValidationError
 import logging
 from services.email_service import notify_payment_success
+from tutors.models import TutorProfile
 
 logger = logging.getLogger("stripe")
 
@@ -66,6 +67,8 @@ class PaymentService:
             )
             return
 
+        
+
         if not event["reference"]:
             logger.warning(
                 "payment.succeeded event missing reference/booking_id. "
@@ -112,6 +115,17 @@ class PaymentService:
 
         payment.status = Payment.Status.SUCCEEDED
         payment.provider_reference = event["provider_reference"]
+
+
+        if event["type"] == "account.updated":
+            TutorProfile.objects.filter(
+                stripe_connect_account_id=event["provider_reference"]
+            ).update(payouts_enabled=event["payouts_enabled"])
+            logger.info(
+                "Tutor payouts_enabled updated. account_id=%s payouts_enabled=%s",
+                event["provider_reference"], event["payouts_enabled"],
+            )
+            return
 
         payment.save(
             update_fields=[

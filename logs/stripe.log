@@ -1,0 +1,23 @@
+2026-08-18 16:07:06,778 [INFO] stripe: message='Request to Stripe api' method=post url=https://api.stripe.com/v1/accounts
+2026-08-18 16:07:08,442 [INFO] stripe: message='Stripe API response' path=https://api.stripe.com/v1/accounts response_code=400
+2026-08-18 16:07:08,442 [INFO] stripe: error_code=None error_message='Your platform needs approval for accounts to have requested the `transfers` capability without the `card_payments` capability. If you would like to request transfers without card_payments, please contact us via https://support.stripe.com/contact.' error_param=requested_capabilities error_type=invalid_request_error message='Stripe v1 API error received'
+2026-08-18 16:07:08,442 [ERROR] stripe: Failed to create Stripe connected account. tutor_profile_id=10
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutors\signals.py", line 15, in create_stripe_connect_account
+    ConnectService().create_connected_account(instance)
+  File "C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\connect_service.py", line 14, in create_connected_account
+    account = stripe.Account.create(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\stripe\_account.py", line 1612, in create
+    cls._static_request(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\stripe\_api_resource.py", line 171, in _static_request
+    return _APIRequestor._global_instance().request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\stripe\_api_requestor.py", line 225, in request
+    resp = requestor._interpret_response(rbody, rcode, rheaders, api_mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\stripe\_api_requestor.py", line 920, in _interpret_response
+    self.handle_error_response(
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\stripe\_api_requestor.py", line 367, in handle_error_response
+    raise err
+stripe._error.InvalidRequestError: Request req_RCO0yWJ2agm40a: Your platform needs approval for accounts to have requested the `transfers` capability without the `card_payments` capability. If you would like to request transfers without card_payments, please contact us via https://support.stripe.com/contact.

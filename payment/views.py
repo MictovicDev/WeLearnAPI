@@ -7,12 +7,16 @@ from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
+from tutors.permissions import IsTutor
+from payment.connect_service import ConnectService
+from payment.withdrawal_service import WithdrawalService
 from bookings.models import Booking
 from .services import PaymentService
 from bookings.models import Booking
 from payment.services import PaymentService
 import logging
+from django.conf import settings
+from wallets.serializers import WithdrawalRequestSerializer
 
 
 logger = logging.getLogger("stripe")
@@ -103,6 +107,38 @@ class StripeWebhookView(APIView):
 
 
 
+# payment/views.py
+class ConnectViewSet(viewsets.ViewSet):
+    permission_classes = [IsAuthenticated, IsTutor]
+
+    @action(detail=False, methods=["get"], url_path="onboarding-link")
+    def onboarding_link(self, request):
+        tutor_profile = request.user.tutor_profile
+        url = ConnectService().create_onboarding_link(
+            tutor_profile,
+            refresh_url=settings.STRIPE_CONNECT_REFRESH_URL,
+            return_url=settings.STRIPE_CONNECT_RETURN_URL,
+        )
+        return Response({"onboarding_url": url})
+
+    @action(detail=False, methods=["post"], url_path="withdraw")
+    def withdraw(self, request):
+        serializer = WithdrawalRequestSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        withdrawal = WithdrawalService().request_withdrawal(
+            tutor_profile=request.user.tutor_profile,
+            amount=serializer.validated_data["amount"],
+        )
+        return Response(
+            {
+                "id": withdrawal.id,
+                "amount": withdrawal.amount,
+                "status": withdrawal.status,
+                "stripe_transfer_id": withdrawal.stripe_transfer_id,
+            },
+            status=status.HTTP_201_CREATED,
+        )
 
 
 

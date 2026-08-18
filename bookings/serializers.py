@@ -30,6 +30,7 @@ class BookingCreateSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         tutor_profile = attrs['tutor_profile']
         slot = attrs['availability_slot']
+        duration = attrs['duration']
 
         if slot.tutor.id != tutor_profile.id:
             raise serializers.ValidationError({
@@ -54,7 +55,7 @@ class BookingCreateSerializer(serializers.ModelSerializer):
 
         attrs['start_time'] = slot.start_time
         attrs['end_time'] = slot.end_time
-        attrs['total_amount'] = self._compute_amount(tutor_profile, slot.start_time, slot.end_time)
+        attrs['total_amount'] = self._compute_amount(tutor_profile,duration)
         return attrs
 
     def create(self, validated_data):
@@ -67,20 +68,11 @@ class BookingCreateSerializer(serializers.ModelSerializer):
         )
         return booking
 
-    def _compute_amount(self, tutor_profile, start_time, end_time):
-        hourly_rate = tutor_profile.hourly_rate
+    def _compute_amount(self, tutor_profile, number_of_days):
+        hourly_rate = Decimal(tutor_profile.hourly_rate)
+        number_of_days = Decimal(number_of_days)
 
-        if not isinstance(start_time, datetime):
-            start_dt = datetime.combine(date.today(), start_time)
-            end_dt = datetime.combine(date.today(), end_time)
-        else:
-            start_dt = start_time
-            end_dt = end_time
-
-        delta = end_dt - start_dt
-        hours = Decimal(delta.total_seconds()) / Decimal(3600)
-
-        amount = (Decimal(hourly_rate) * hours).quantize(
+        amount = (hourly_rate * number_of_days).quantize(
             Decimal('0.01'), rounding=ROUND_HALF_UP
         )
         return amount
