@@ -201,6 +201,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
+GOOGLE_REDIRECT_URI = (
+    "http://localhost:8000/google-calendar/callback/"
+)
+
 # DRF
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -274,4 +278,17 @@ PAYMENT_SUCCESS_URL = os.getenv("PAYMENT_SUCCESS_URL")
 PAYMENT_CANCEL_URL = os.getenv("PAYMENT_CANCEL_URL")
 
 print(EMAIL_HOST_PASSWORD)
+
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+# GOOGLE_OAUTH_CLIENT_ID=os.getenv("GOOGLE_OAUTH_CLIENT_IDS")
+
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+
+# settings.py
+SESSION_COOKIE_SAMESITE = 'Lax'  # Or 'None' if frontend and backend are on completely separate domains
+SESSION_COOKIE_SECURE = True     # Required if SameSite='None' (HTTPS only)
+
+print(GOOGLE_CLIENT_ID)
+# print(GOOGLE_OAUTH_CLIENT_ID)
+print(GOOGLE_CLIENT_SECRET)
 

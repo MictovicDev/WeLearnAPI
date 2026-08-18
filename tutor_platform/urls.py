@@ -7,7 +7,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, Sp
 
 from users.views import UserViewSet, AdminUserViewSet, CustomTokenObtainPairView, VerifyEmailView, CustomTokenRefreshView
 from tutors.views import SubjectViewSet, TutorProfileViewSet, AvailabilityViewSet
-from bookings.views import BookingViewSet
+from bookings.views import BookingViewSet, GoogleCalendarCallbackView, GoogleCalendarConnectView
 from reviews.views import ReviewViewSet
 from chat.views import ChatThreadViewSet
 from payment.views import PaymentViewSet
@@ -41,6 +41,13 @@ router.register(r'chat', ChatThreadViewSet, basename='chats')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("google-calendar/connect/",
+            GoogleCalendarConnectView.as_view(),
+        ),
+    path(
+            "google-calendar/callback/",
+            GoogleCalendarCallbackView.as_view(),
+        ),
 
     # JWT auth
     path('api/v1/auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),

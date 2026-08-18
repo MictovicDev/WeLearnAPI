@@ -3,7 +3,8 @@ from django.conf import settings
 from decimal import Decimal, ROUND_HALF_UP
 from datetime import datetime
 from django.core.exceptions import ValidationError
-
+import uuid
+from users.models import User
 
 class Booking(models.Model):
     class SessionType(models.TextChoices):
@@ -43,7 +44,8 @@ class Booking(models.Model):
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
     notes = models.TextField(blank=True, help_text='Student notes or special requests')
     tutor_response_note = models.TextField(blank=True, help_text='Tutor reason for decline/acceptance')
-    session_link = models.URLField(blank=True, help_text='Online session link if applicable')
+    session_link = models.URLField(blank=True, null=True)
+    google_event_id = models.CharField(max_length=255, blank=True, null=True)
     location_address = models.TextField(blank=True, help_text='Onsite session address')
     total_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -86,3 +88,45 @@ class Booking(models.Model):
             f'Booking #{self.pk} | {self.student.get_full_name()} '
             f'-> {self.tutor_profile.user.get_full_name()} | {self.scheduled_date}'
         )
+    
+class GoogleOAuthToken(models.Model):
+    access_token = models.TextField()
+    refresh_token = models.TextField()
+    expires_at = models.DateTimeField()
+
+
+class TimeStampedModel(models.Model):
+    """Abstract base giving every model a UUID pk plus created/updated timestamps."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+        ordering = ["-created_at"]
+
+
+class SocialAccount(TimeStampedModel):
+    """
+    Links a User to a third-party identity provider. One User can hold
+    several of these (e.g. password + Google), which is why this is a
+    separate table rather than a provider field on User itself.
+    """
+
+    class Provider(models.TextChoices):
+        GOOGLE = "google", "Google"
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="social_accounts")
+    provider = models.CharField(max_length=20, choices=Provider.choices)
+    # the provider's stable subject identifier (Google's `sub` claim) -
+    # never the email, since emails can be reassigned by the provider
+    provider_uid = models.CharField(max_length=255)
+
+    class Meta(TimeStampedModel.Meta):
+        constraints = [
+            models.UniqueConstraint(fields=["provider", "provider_uid"], name="unique_provider_account"),
+        ]
+
+    def __str__(self):
+        return f"{self.get_provider_display()} account for {self.user}"

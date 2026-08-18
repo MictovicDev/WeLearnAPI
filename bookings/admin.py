@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Booking
+from .models import Booking, GoogleOAuthToken
+
+
+admin.site.register(GoogleOAuthToken)
 
 
 @admin.register(Booking)

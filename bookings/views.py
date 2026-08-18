@@ -12,10 +12,28 @@ from .serializers import (
     BookingCancelSerializer,
     BookingCompleteSerializer,
 )
+from google_auth_oauthlib.flow import Flow
+from django.conf import settings
 from users.permissions import IsStudent, IsAdmin, IsBookingParticipant
 from tutors.permissions import IsTutor
 from services.email_service import notify_booking_created, notify_booking_status
 import logging
+from rest_framework import generics, permissions, status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import permissions
+from .services import get_or_create_user_from_google, verify_google_id_token
+from bookings.models import GoogleOAuthToken
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
+import uuid
+from datetime import datetime
 
 logger = logging.getLogger('tutor_platform')
 
@@ -116,7 +134,11 @@ class BookingViewSet(
 
     @action(methods=['PATCH'], detail=True, url_path='respond')
     def respond(self, request, pk=None):
-        booking = Booking.objects.get(id=pk)
+        try:
+            booking = Booking.objects.get(id=pk)
+        except Booking.DoesNotExist:
+            return Response({'detail': 'Booking not found.'}, status=404)
+
         if booking.tutor_profile.user != request.user:
             return Response({'detail': 'Not your booking.'}, status=403)
         if booking.status != Booking.Status.PENDING:
@@ -124,16 +146,119 @@ class BookingViewSet(
 
         serializer = BookingStatusUpdateSerializer(booking, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
-        type_status = serializer.validated_data.get('status')
+        new_status = serializer.validated_data.get('status')
+
+        if new_status == Booking.Status.ACCEPTED and booking.session_type == Booking.SessionType.ONLINE:
+            self._create_calendar_event(booking)
+
         serializer.save()
-        # send_booking_notification_email.delay(booking.id, type_status)
-        notify_booking_status(booking, type_status)
+        notify_booking_status(booking, new_status)
         return Response(
-                {
-                    "detail": f"Booking {booking.status.lower()} successfully."
+            {"detail": f"Booking {booking.status.lower()} successfully."},
+            status=status.HTTP_200_OK,
+        )
+
+    def _create_calendar_event(self, booking):
+        try:
+            google_token = GoogleOAuthToken.objects.first()
+        except GoogleOAuthToken.DoesNotExist:
+            return
+
+        if not google_token:
+            return
+
+        credentials = Credentials(
+            token=google_token.access_token,
+            refresh_token=google_token.refresh_token,
+            token_uri="https://oauth2.googleapis.com/token",
+            client_id=settings.GOOGLE_CLIENT_ID,
+            client_secret=settings.GOOGLE_CLIENT_SECRET,
+            scopes=SCOPES,
+        )
+
+        if credentials.expired and credentials.refresh_token:
+            try:
+                credentials.refresh(Request())
+
+                google_token.access_token = credentials.token
+                google_token.expires_at = credentials.expiry
+
+                google_token.save(
+                    update_fields=[
+                        "access_token",
+                        "expires_at",
+                    ]
+                )
+
+            except Exception as exc:
+                logger.exception(
+                    "Failed to refresh Google Calendar token: %s",
+                    exc,
+                )
+                return
+
+        service = build(
+            "calendar",
+            "v3",
+            credentials=credentials,
+        )
+
+        start_date = datetime.combine(
+            booking.scheduled_date,
+            booking.start_time,
+        )
+
+        end_date = datetime.combine(
+            booking.scheduled_date,
+            booking.end_time,
+        )
+        print(start_date)
+        print(end_date)
+
+        body = {
+            "summary": booking.title or f"Tutoring session: {booking.subject}",
+            "description": booking.notes or "",
+            "location": booking.location_address or "",
+
+            "start": {
+                "dateTime": start_date.isoformat(),
+                "timeZone": "Africa/Lagos",
+            },
+
+            "end": {
+                "dateTime": end_date.isoformat(),
+                "timeZone": "Africa/Lagos",
+            },
+
+            "conferenceData": {
+                "createRequest": {
+                    "requestId": str(uuid.uuid4()),
+                    "conferenceSolutionKey": {
+                        "type": "hangoutsMeet",
+                    },
                 },
-                status=status.HTTP_200_OK
+            },
+        }
+
+        google_event = (
+            service.events()
+            .insert(
+                calendarId="primary",
+                body=body,
+                conferenceDataVersion=1,
             )
+            .execute()
+        )
+
+        booking.session_link = google_event.get("hangoutLink", "")
+        booking.google_event_id = google_event["id"]
+
+        booking.save(
+            update_fields=[
+                "session_link",
+                "google_event_id",
+            ]
+        )
 
     @action(methods=['PATCH'], detail=True, url_path='cancel')
     def cancel(self, request, pk=None):
@@ -167,3 +292,115 @@ class BookingViewSet(
         profile.total_sessions += 1
         profile.save(update_fields=['total_sessions'])
         return Response(BookingDetailSerializer(booking, context={'request': request}).data)
+
+
+
+
+
+SCOPES = [
+    "https://www.googleapis.com/auth/calendar.events",
+]
+
+
+
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import permissions
+from google_auth_oauthlib.flow import Flow
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+from django.core.signing import TimestampSigner, BadSignature, SignatureExpired
+from rest_framework.permissions import IsAuthenticated
+
+class GoogleCalendarConnectView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+
+        flow = Flow.from_client_config(
+            {
+                "web": {
+                    "client_id": settings.GOOGLE_CLIENT_ID,
+                    "client_secret": settings.GOOGLE_CLIENT_SECRET,
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                }
+            },
+            scopes=SCOPES,
+        )
+
+        flow.redirect_uri = settings.GOOGLE_REDIRECT_URI
+
+        authorization_url, state = flow.authorization_url(
+            access_type="offline",
+            prompt="consent",
+            include_granted_scopes="true",
+        )
+
+        request.session["google_oauth_state"] = state
+        request.session["google_code_verifier"] = flow.code_verifier
+
+        return HttpResponseRedirect(authorization_url)
+
+
+class GoogleCalendarCallbackView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        state = request.session.get("google_oauth_state")
+        flow = Flow.from_client_config(
+            {
+                "web": {
+                    "client_id": settings.GOOGLE_CLIENT_ID,
+                    "client_secret": settings.GOOGLE_CLIENT_SECRET,
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                }
+            },
+            scopes=SCOPES,
+            state=state,
+        )
+
+        flow.redirect_uri = settings.GOOGLE_REDIRECT_URI
+
+        state = request.session.get("google_oauth_state")
+        code_verifier = request.session.get("google_code_verifier")
+
+        flow = Flow.from_client_config(
+            {
+                "web": {
+                    "client_id": settings.GOOGLE_CLIENT_ID,
+                    "client_secret": settings.GOOGLE_CLIENT_SECRET,
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                }
+            },
+            scopes=SCOPES,
+            state=state,
+        )
+
+        flow.redirect_uri = settings.GOOGLE_REDIRECT_URI
+        flow.code_verifier = code_verifier
+
+        flow.fetch_token(
+            authorization_response=request.build_absolute_uri()
+        )
+        credentials = flow.credentials
+        GoogleOAuthToken.objects.update_or_create(
+            defaults={
+                "access_token": credentials.token,
+                "refresh_token": credentials.refresh_token,
+                "expires_at": credentials.expiry,
+            },
+        )
+
+        return Response(
+            {
+                "access_token": credentials.token,
+                "refresh_token": credentials.refresh_token,
+                "expiry": credentials.expiry,
+            }
+        )

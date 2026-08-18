@@ -135,7 +135,7 @@ class PaymentService:
             ]
         )
 
-        wallet.balance += payment.amount
+        wallet.balance += booking.total_amount
         wallet.save(update_fields=["balance"])
 
         transaction.on_commit(
