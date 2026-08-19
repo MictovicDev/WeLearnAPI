@@ -2630,3 +2630,4 @@ Traceback (most recent call last):
                            ^^^^^^^^^^^^
 NameError: name 'google_event' is not defined. Did you mean: 'google_token'?
 2026-08-18 19:08:45,942 [ERROR] django.channels.server: [35;1mHTTP PATCH /api/v1/bookings/22/respond/ 500 [5.12, 127.0.0.1:49760][0m
+2026-08-19 20:53:16,328 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.

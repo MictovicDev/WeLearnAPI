@@ -32,10 +32,10 @@ class WalletTransaction(models.Model):
     status = models.CharField(max_length=10, choices=Status.choices, default=Status.COMPLETED)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     balance_after = models.DecimalField(max_digits=12, decimal_places=2)
-    reference = models.CharField(max_length=255, blank=True)  # e.g. Payment.provider_reference
-    description = models.CharField(max_length=255, blank=True)
+    reference = models.CharField(max_length=255, blank=True, null=True)  # e.g. Payment.provider_reference
+    description = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    metadata = models.JSONField(default=dict, blank=True)
+    metadata = models.JSONField(default=dict, blank=True, null=True)
 
     class Meta:
         ordering = ["-created_at"]

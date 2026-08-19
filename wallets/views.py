@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from wallets.models import Wallet, Withdrawal, WalletTransaction
-from wallets.serializers import WalletSummarySerializer, WalletTransactionSerializer
+from wallets.serializers import WalletSummarySerializer, WalletTransactionSerializer, WithdrawalSerializer
 
 
 
