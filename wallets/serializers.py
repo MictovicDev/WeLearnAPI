@@ -79,7 +79,24 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         wallet = self.context["request"].user.wallet
-        return Withdrawal.request(wallet=wallet, amount=validated_data["amount"])
+        id = validated_data[""]
+        try:
+            booking = Booking.objects.get(id=int(id))
+        except Booking.DoesNotExist:
+            raise serializers.ValidationError("Booking Not Found", 404)
+        
+        amount = validated_data["amount"]
+        account_number = validated_data["account_number"]
+        account_name = validated_data["account_name"]
+        bank_name = validated_data["bank_name"]
+
+        return Withdrawal.request(
+                booking=booking,
+                account_name=account_name,
+                account_number=account_number,
+                bank_name=bank_name, 
+                wallet=wallet,
+                amount=amount)
 
 
 class WithdrawalAdminSerializer(serializers.ModelSerializer):
