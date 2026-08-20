@@ -51,13 +51,17 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
     """User-facing — they just submit an amount."""
     class Meta:
         model = Withdrawal
-        fields = ["id", "amount", "status", "requested_at"]
+        fields = ["id", "amount", "status","session", "requested_at"]
         read_only_fields = ["id", "status", "requested_at"]
 
     def validate_amount(self, value):
         if value <= 0:
             raise serializers.ValidationError("Amount must be greater than zero.")
         return value
+
+    def validate_session(self, value):
+        pass
+
 
     def create(self, validated_data):
         wallet = self.context["request"].user.wallet

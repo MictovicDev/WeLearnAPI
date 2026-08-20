@@ -3,6 +3,7 @@ from django.db import models, transaction
 from django.core.exceptions import ValidationError
 from decimal import Decimal
 from django.conf import settings
+from bookings.models import Booking
 
 
 class Wallet(models.Model):
@@ -56,7 +57,7 @@ class Withdrawal(models.Model):
     wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, blank=True, null=True,related_name="withdrawals")
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
-
+    session = models.ForeignKey(Booking, on_delete=models.CASCADE, blank=True, null=True)
     # linked to the WalletTransaction created when funds were reserved
     transaction = models.OneToOneField(
         WalletTransaction, on_delete=models.SET_NULL, null=True, blank=True, related_name="withdrawal"

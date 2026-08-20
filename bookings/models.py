@@ -5,6 +5,7 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 import uuid
 from users.models import User
+from django.core.exceptions import ValidationError as DjangoValidationError
 
 class Booking(models.Model):
     class SessionType(models.TextChoices):
@@ -52,6 +53,8 @@ class Booking(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     currency = models.CharField(max_length=3, default='USD')
+    tutor_completed = models.BooleanField(default=False)
+    student_acknowledged = models.BooleanField(default=False)
     duration = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -71,10 +74,50 @@ class Booking(models.Model):
                     {'duration': 'Booking duration exceeds the selected availability slot.'}
                 )
 
-    def save(self, *args, **kwargs):
-        self.clean()
-        self.currency = self.currency or 'USD'
-        super().save(*args, **kwargs)
+    def mark_completed_by(self, user):
+        """
+        The tutor must confirm first. Only after that can the student
+        confirm — and only then does the booking flip to COMPLETED.
+        Returns True if this call caused the booking to fully complete.
+        """
+        if self.status not in (self.Status.ACCEPTED, self.Status.COMPLETED):
+            raise DjangoValidationError(
+                "Only accepted bookings can be marked complete."
+            )
+
+        is_tutor = user == self.tutor_profile.user
+        is_student = user == self.student
+
+        if not is_tutor and not is_student:
+            raise PermissionError("You are not a participant in this booking.")
+
+        if is_student and not self.tutor_completed:
+            raise DjangoValidationError(
+                "Waiting for your tutor to mark the session complete first."
+            )
+
+        update_fields = []
+
+        if is_tutor:
+            if self.tutor_completed:
+                raise DjangoValidationError("You have already marked this session complete.")
+            self.tutor_completed = True
+            update_fields.append("tutor_completed")
+
+        if is_student:
+            if self.student_acknowledged:
+                raise DjangoValidationError("You have already confirmed this session.")
+            self.student_acknowledged = True
+            update_fields.append("student_acknowledged")
+
+        newly_completed = False
+        if self.tutor_completed and self.student_acknowledged and self.status != self.Status.COMPLETED:
+            self.status = self.Status.COMPLETED
+            update_fields.append("status")
+            newly_completed = True
+
+        self.save(update_fields=update_fields)
+        return newly_completed
 
     def get_tutor_fullname(self):
         name = self.tutor_profile.user.first_name + self.tutor_profile.user.last_name

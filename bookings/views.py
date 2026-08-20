@@ -283,20 +283,23 @@ class BookingViewSet(
         notify_booking_status(booking, status="declined")
         return Response(BookingDetailSerializer(booking, context={'request': request}).data)
 
-    @action(methods=['PATCH'], detail=True, url_path='complete')
+    @action(detail=True, methods=["post"])
     def complete(self, request, pk=None):
         booking = self.get_object()
-        if booking.tutor_profile.user != request.user:
-            return Response({'detail': 'Not your booking.'}, status=403)
-        if booking.status != Booking.Status.ACCEPTED:
-            return Response({'detail': 'Only accepted bookings can be marked complete.'}, status=400)
-        booking.status = Booking.Status.COMPLETED
-        booking.save(update_fields=['status'])
-        # Increment tutor session count
-        profile = booking.tutor_profile
-        profile.total_sessions += 1
-        profile.save(update_fields=['total_sessions'])
-        return Response(BookingDetailSerializer(booking, context={'request': request}).data)
+
+        try:
+            newly_completed = booking.mark_completed_by(request.user)
+        except PermissionError as e:
+            return Response({"detail": str(e)}, status=403)
+        except DjangoValidationError as e:
+            return Response({"detail": e.messages[0] if hasattr(e, "messages") else str(e)}, status=400)
+
+        if newly_completed:
+            profile = booking.tutor_profile
+            profile.total_sessions += 1
+            profile.save(update_fields=["total_sessions"])
+
+        return Response(BookingDetailSerializer(booking, context={"request": request}).data)
 
 
 
