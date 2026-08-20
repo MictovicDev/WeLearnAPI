@@ -112,8 +112,8 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
                 })
 
             # Deduct the money
-            wallet.earning_balance -= amount
-            wallet.save(update_fields=["earning_balance"])
+            wallet.balance -= amount
+            wallet.save(update_fields=["balance"])
 
             # Create withdrawal
             withdrawal = Withdrawal.objects.create(
