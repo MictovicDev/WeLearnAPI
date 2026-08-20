@@ -106,7 +106,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
                 })
 
             # Check wallet balance
-            if wallet.earning_balance < amount:
+            if wallet.balance < amount:
                 raise serializers.ValidationError({
                     "amount": "Insufficient wallet balance."
                 })
