@@ -2510,3 +2510,17 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-20 17:04:58,071 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-20 17:04:58,072 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
 2026-08-20 17:05:03,071 [INFO] django.channels.server: [mHTTP POST /api/v1/bookings/21/complete/ 200 [2.22, 127.0.0.1:53221][0m
+2026-08-20 17:12:41,078 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:12:44,247 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:12:44,247 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:12:44,252 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:16:54,574 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [2.98, 127.0.0.1:62159][0m
+2026-08-20 17:17:27,412 [INFO] django.channels.server: [32mHTTP GET /api/v1/bookings 301 [0.05, 127.0.0.1:62159][0m
+2026-08-20 17:17:30,868 [INFO] django.channels.server: [mHTTP GET /api/v1/bookings/ 200 [3.29, 127.0.0.1:62159][0m
+2026-08-20 17:18:08,952 [ERROR] django.channels.server: [35;1mHTTP GET /api/v1/wallets/ 500 [4.73, 127.0.0.1:62159][0m
+2026-08-20 17:21:25,933 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\serializers.py changed, reloading.
+2026-08-20 17:21:33,863 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:21:37,999 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:21:38,063 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:21:38,112 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:21:44,873 [INFO] django.channels.server: [mHTTP GET /api/v1/wallets/ 200 [3.03, 127.0.0.1:65300][0m

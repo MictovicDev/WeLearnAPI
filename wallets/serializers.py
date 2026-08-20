@@ -39,7 +39,11 @@ class WalletSummarySerializer(serializers.Serializer):
     pending_clearance = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_earned_lifetime = serializers.DecimalField(max_digits=12, decimal_places=2)
     currency = serializers.CharField()
-    completed_sessions = CompletedSessionSerializer(many=True)
+    completed_sessions = CompletedSessionSerializer(
+        many=True,
+        required=False,
+        default=[]
+    )
 
 
 # payment/serializers.py
