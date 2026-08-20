@@ -92,7 +92,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
         bank_name = validated_data["bank_name"]
 
         return Withdrawal.request(
-                booking=booking,
+                session=booking,
                 account_name=account_name,
                 account_number=account_number,
                 bank_name=bank_name, 
