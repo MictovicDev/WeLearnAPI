@@ -38,7 +38,7 @@ class CompletedSessionSerializer(serializers.ModelSerializer):
 
 class WalletSummarySerializer(serializers.Serializer):
     available_balance = serializers.DecimalField(max_digits=12, decimal_places=2)
-    pending_clearance = serializers.DecimalField(max_digits=12, decimal_places=2)
+    withdrawable_balance = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_earned_lifetime = serializers.DecimalField(max_digits=12, decimal_places=2)
     currency = serializers.CharField()
     completed_sessions = CompletedSessionSerializer(
