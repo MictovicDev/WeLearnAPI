@@ -76,7 +76,7 @@ class Booking(models.Model):
 
         # models.py — mark_completed_by now accepts a note
     def mark_completed_by(self, user, note=""):
-        if self.status not in (self.Status.ACCEPTED, self.Status.COMPLETED):
+        if self.status not in (self.Status.ACCEPTED, self.Status.COMPLETED, self.Status.PAYMENT_CONFIRMED):
             raise DjangoValidationError(
                 "Only accepted bookings can be marked complete."
             )
