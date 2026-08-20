@@ -1,7 +1,8 @@
-from django.db import models
+# models.py
+from django.db import models, transaction
+from django.core.exceptions import ValidationError
 from decimal import Decimal
 from django.conf import settings
-# Create your models here.
 
 
 class Wallet(models.Model):
@@ -32,7 +33,7 @@ class WalletTransaction(models.Model):
     status = models.CharField(max_length=10, choices=Status.choices, default=Status.COMPLETED)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     balance_after = models.DecimalField(max_digits=12, decimal_places=2)
-    reference = models.CharField(max_length=255, blank=True, null=True)  # e.g. Payment.provider_reference
+    reference = models.CharField(max_length=255, blank=True, null=True)
     description = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     metadata = models.JSONField(default=dict, blank=True, null=True)
@@ -46,13 +47,157 @@ class WalletTransaction(models.Model):
 
 class Withdrawal(models.Model):
     class Status(models.TextChoices):
-        PROCESSING = "processing", "Processing"
-        PAID = "paid", "Paid"
-        FAILED = "failed", "Failed"
+        PENDING = "pending", "Pending"        # awaiting admin review
+        APPROVED = "approved", "Approved"      # approved, payout in progress
+        PAID = "paid", "Paid"                  # payout confirmed
+        REJECTED = "rejected", "Rejected"      # admin declined, funds refunded
+        FAILED = "failed", "Failed"            # approved but payout failed
 
-    tutor_profile = models.ForeignKey("tutors.TutorProfile", on_delete=models.CASCADE, related_name="withdrawals")
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    stripe_transfer_id = models.CharField(max_length=255, unique=True)
-    status = models.CharField(max_length=20, choices=Status.choices, default=Status.PROCESSING)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, blank=True, null=True,related_name="withdrawals")
+    amount = models.DecimalField(max_digits=12, decimal_places=2)
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
+
+    # linked to the WalletTransaction created when funds were reserved
+    transaction = models.OneToOneField(
+        WalletTransaction, on_delete=models.SET_NULL, null=True, blank=True, related_name="withdrawal"
+    )
+
+    # payout destination — adapt to whatever payout method you use
+    payout_reference = models.CharField(max_length=255, blank=True, null=True)  # e.g. Stripe transfer id
+    admin_note = models.CharField(max_length=500, blank=True, null=True)
+
+    requested_at = models.DateTimeField(auto_now_add=True)
+    processed_at = models.DateTimeField(null=True, blank=True)
+    processed_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name="processed_withdrawals"
+    )
+
+    class Meta:
+        ordering = ["-requested_at"]
+
+    def __str__(self):
+        return f"Withdrawal {self.amount} ({self.status}) - {self.wallet.user}"
+
+    # ---- core state transitions ----
+
+    @classmethod
+    def request(cls, wallet: Wallet, amount: Decimal, description="Withdrawal request"):
+        """
+        Create a withdrawal request and immediately reserve the funds
+        (deduct from balance, log a pending debit) so the same balance
+        can't be withdrawn twice while awaiting approval.
+        """
+        if amount <= 0:
+            raise ValidationError("Withdrawal amount must be greater than zero.")
+
+        with transaction.atomic():
+            # lock the wallet row so concurrent requests can't both pass the balance check
+            wallet = Wallet.objects.select_for_update().get(pk=wallet.pk)
+
+            if amount > wallet.balance:
+                raise ValidationError("Insufficient wallet balance.")
+
+            wallet.balance -= amount
+            wallet.save(update_fields=["balance", "updated_at"])
+
+            txn = WalletTransaction.objects.create(
+                wallet=wallet,
+                type=WalletTransaction.Type.DEBIT,
+                status=WalletTransaction.Status.PENDING,
+                amount=amount,
+                balance_after=wallet.balance,
+                description=description,
+            )
+
+            withdrawal = cls.objects.create(
+                wallet=wallet,
+                amount=amount,
+                transaction=txn,
+                status=cls.Status.PENDING,
+            )
+            return withdrawal
+
+    def approve(self, admin_user, payout_reference=None, note=None):
+        """Admin approves — marks approved, ready for payout processing."""
+        if self.status != self.Status.PENDING:
+            raise ValidationError(f"Cannot approve a withdrawal with status '{self.status}'.")
+
+        with transaction.atomic():
+            self.status = self.Status.APPROVED
+            self.processed_by = admin_user
+            self.processed_at = models.functions.Now()
+            if payout_reference:
+                self.payout_reference = payout_reference
+            if note:
+                self.admin_note = note
+            self.save()
+
+    def mark_paid(self, payout_reference=None):
+        """Call this once the actual payout (bank transfer / Stripe payout / etc) succeeds."""
+        if self.status not in (self.Status.APPROVED, self.Status.PENDING):
+            raise ValidationError(f"Cannot mark '{self.status}' withdrawal as paid.")
+
+        with transaction.atomic():
+            self.status = self.Status.PAID
+            if payout_reference:
+                self.payout_reference = payout_reference
+            self.save()
+
+            if self.transaction:
+                self.transaction.status = WalletTransaction.Status.COMPLETED
+                self.transaction.save(update_fields=["status"])
+
+    def reject(self, admin_user, reason):
+        """Admin rejects — refund the reserved amount back to the wallet."""
+        if self.status != self.Status.PENDING:
+            raise ValidationError(f"Cannot reject a withdrawal with status '{self.status}'.")
+
+        with transaction.atomic():
+            wallet = Wallet.objects.select_for_update().get(pk=self.wallet_id)
+            wallet.balance += self.amount
+            wallet.save(update_fields=["balance", "updated_at"])
+
+            WalletTransaction.objects.create(
+                wallet=wallet,
+                type=WalletTransaction.Type.CREDIT,
+                status=WalletTransaction.Status.COMPLETED,
+                amount=self.amount,
+                balance_after=wallet.balance,
+                description=f"Refund for rejected withdrawal #{self.pk}",
+            )
+
+            if self.transaction:
+                self.transaction.status = WalletTransaction.Status.FAILED
+                self.transaction.save(update_fields=["status"])
+
+            self.status = self.Status.REJECTED
+            self.processed_by = admin_user
+            self.admin_note = reason
+            self.save()
+
+    def mark_failed(self, admin_user=None, reason=None):
+        """Approved but payout failed on the processor side — refund too."""
+        if self.status != self.Status.APPROVED:
+            raise ValidationError(f"Cannot fail a withdrawal with status '{self.status}'.")
+
+        with transaction.atomic():
+            wallet = Wallet.objects.select_for_update().get(pk=self.wallet_id)
+            wallet.balance += self.amount
+            wallet.save(update_fields=["balance", "updated_at"])
+
+            WalletTransaction.objects.create(
+                wallet=wallet,
+                type=WalletTransaction.Type.CREDIT,
+                status=WalletTransaction.Status.COMPLETED,
+                amount=self.amount,
+                balance_after=wallet.balance,
+                description=f"Refund for failed withdrawal #{self.pk}",
+            )
+
+            self.status = self.Status.FAILED
+            if admin_user:
+                self.processed_by = admin_user
+            if reason:
+                self.admin_note = reason
+            self.save()

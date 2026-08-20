@@ -42,6 +42,38 @@ class WithdrawalSerializer(serializers.ModelSerializer):
         fields = ["id", "amount", "status", "stripe_transfer_id", "created_at"]
 
 
-# payment/serializers.py
-class WithdrawalRequestSerializer(serializers.Serializer):
-    amount = serializers.DecimalField(max_digits=10, decimal_places=2, min_value=Decimal("0.01"))
+# serializers.py
+from rest_framework import serializers
+from .models import Withdrawal
+
+
+class WithdrawalRequestSerializer(serializers.ModelSerializer):
+    """User-facing — they just submit an amount."""
+    class Meta:
+        model = Withdrawal
+        fields = ["id", "amount", "status", "requested_at"]
+        read_only_fields = ["id", "status", "requested_at"]
+
+    def validate_amount(self, value):
+        if value <= 0:
+            raise serializers.ValidationError("Amount must be greater than zero.")
+        return value
+
+    def create(self, validated_data):
+        wallet = self.context["request"].user.wallet
+        return Withdrawal.request(wallet=wallet, amount=validated_data["amount"])
+
+
+class WithdrawalAdminSerializer(serializers.ModelSerializer):
+    user = serializers.CharField(source="wallet.user.get_username", read_only=True)
+
+    class Meta:
+        model = Withdrawal
+        fields = [
+            "id", "user", "amount", "status", "payout_reference",
+            "admin_note", "requested_at", "processed_at", "processed_by",
+        ]
+        read_only_fields = fields
+
+
+

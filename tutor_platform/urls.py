@@ -11,7 +11,7 @@ from bookings.views import BookingViewSet, GoogleCalendarCallbackView, GoogleCal
 from reviews.views import ReviewViewSet
 from chat.views import ChatThreadViewSet
 from payment.views import PaymentViewSet
-from wallets.views import WalletViewSet
+from wallets.views import WalletViewSet, WithdrawalViewSet, AdminWithdrawalViewSet
 
 
 
@@ -26,6 +26,7 @@ router.register(r'subjects', SubjectViewSet, basename='subjects')
 router.register(r'tutors', TutorProfileViewSet, basename='tutors')
 
 router.register(r'tutors/my/availability', AvailabilityViewSet, basename='availability')
+router.register(r'withdrawals', WithdrawalViewSet, basename='withdrawal-viewset' )
 
 # Bookings
 router.register(r'bookings', BookingViewSet, basename='bookings')
