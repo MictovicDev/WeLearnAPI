@@ -28,6 +28,7 @@ from django.http import HttpResponseRedirect
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
+from django.core.exceptions import ValidationError as DjangoValidationError
 from .services import get_or_create_user_from_google, verify_google_id_token
 from bookings.models import GoogleOAuthToken
 from google.oauth2.credentials import Credentials
@@ -306,8 +307,6 @@ class BookingViewSet(
             profile.save(update_fields=["total_sessions"])
 
         return Response(BookingDetailSerializer(booking, context={"request": request}).data)
-
-
 
 
 

@@ -2328,3 +2328,13 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-20 16:00:34,712 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 2026-08-20 16:00:34,712 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-20 16:00:34,712 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:06:19,827 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:06:23,016 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:06:23,016 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:06:23,027 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:07:10,611 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 16:07:12,745 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:07:15,568 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:07:15,568 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:07:15,568 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:09:23,448 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
