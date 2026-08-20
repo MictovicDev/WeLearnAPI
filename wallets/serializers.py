@@ -61,43 +61,46 @@ from .models import Withdrawal
 
 
 class WithdrawalRequestSerializer(serializers.ModelSerializer):
-    """User-facing — they just submit an amount."""
-    booking_id = serializers.CharField()
+    booking_id = serializers.IntegerField(write_only=True)
+
     class Meta:
         model = Withdrawal
-        fields = ["id","booking_id","amount", "session", "account_name","account_number", "bank_name"]
-        read_only_fields = ["id","status", "requested_at"]
+        fields = [
+            "id",
+            "booking_id",
+            "amount",
+            "session",
+            "account_name",
+            "account_number",
+            "bank_name",
+        ]
+        read_only_fields = ["id", "session"]
 
     def validate_amount(self, value):
         if value <= 0:
-            raise serializers.ValidationError("Amount must be greater than zero.")
+            raise serializers.ValidationError(
+                "Amount must be greater than zero."
+            )
         return value
-    
-
-    def validate_session(self, value):
-        pass
-
 
     def create(self, validated_data):
-        wallet = self.context["request"].user.wallet
-        id = validated_data["booking_id"]
+        user = self.context["request"].user
+        wallet = user.wallet
+
+        booking_id = validated_data.pop("booking_id")
+
         try:
-            booking = Booking.objects.get(id=int(id))
+            booking = Booking.objects.get(id=booking_id)
         except Booking.DoesNotExist:
-            raise serializers.ValidationError("Booking Not Found", 404)
-        
-        amount = validated_data["amount"]
-        account_number = validated_data["account_number"]
-        account_name = validated_data["account_name"]
-        bank_name = validated_data["bank_name"]
+            raise serializers.ValidationError({
+                "booking_id": "Booking not found."
+            })
 
         return Withdrawal.objects.create(
-                session=booking,
-                account_name=account_name,
-                account_number=account_number,
-                bank_name=bank_name, 
-                wallet=wallet,
-                amount=amount)
+            session=booking,
+            wallet=wallet,
+            **validated_data
+        )
 
 
 class WithdrawalAdminSerializer(serializers.ModelSerializer):
