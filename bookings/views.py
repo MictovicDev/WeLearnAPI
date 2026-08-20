@@ -11,6 +11,7 @@ from .serializers import (
     BookingStatusUpdateSerializer,
     BookingCancelSerializer,
     BookingCompleteSerializer,
+    CompleteBookingSerializer
 )
 from google_auth_oauthlib.flow import Flow
 from django.conf import settings
@@ -283,12 +284,17 @@ class BookingViewSet(
         notify_booking_status(booking, status="declined")
         return Response(BookingDetailSerializer(booking, context={'request': request}).data)
 
+    # views.py
     @action(detail=True, methods=["post"])
     def complete(self, request, pk=None):
         booking = self.get_object()
 
+        serializer = CompleteBookingSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        note = serializer.validated_data.get("note", "")
+
         try:
-            newly_completed = booking.mark_completed_by(request.user)
+            newly_completed = booking.mark_completed_by(request.user, note=note)
         except PermissionError as e:
             return Response({"detail": str(e)}, status=403)
         except DjangoValidationError as e:

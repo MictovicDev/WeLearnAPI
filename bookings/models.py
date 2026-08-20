@@ -74,12 +74,8 @@ class Booking(models.Model):
                     {'duration': 'Booking duration exceeds the selected availability slot.'}
                 )
 
-    def mark_completed_by(self, user):
-        """
-        The tutor must confirm first. Only after that can the student
-        confirm — and only then does the booking flip to COMPLETED.
-        Returns True if this call caused the booking to fully complete.
-        """
+        # models.py — mark_completed_by now accepts a note
+    def mark_completed_by(self, user, note=""):
         if self.status not in (self.Status.ACCEPTED, self.Status.COMPLETED):
             raise DjangoValidationError(
                 "Only accepted bookings can be marked complete."
@@ -103,12 +99,18 @@ class Booking(models.Model):
                 raise DjangoValidationError("You have already marked this session complete.")
             self.tutor_completed = True
             update_fields.append("tutor_completed")
+            if note:
+                self.tutor_response_note = note
+                update_fields.append("tutor_response_note")
 
         if is_student:
             if self.student_acknowledged:
                 raise DjangoValidationError("You have already confirmed this session.")
             self.student_acknowledged = True
             update_fields.append("student_acknowledged")
+            if note:
+                self.notes = note
+                update_fields.append("notes")
 
         newly_completed = False
         if self.tutor_completed and self.student_acknowledged and self.status != self.Status.COMPLETED:
@@ -118,6 +120,7 @@ class Booking(models.Model):
 
         self.save(update_fields=update_fields)
         return newly_completed
+    
 
     def get_tutor_fullname(self):
         name = self.tutor_profile.user.first_name + self.tutor_profile.user.last_name
