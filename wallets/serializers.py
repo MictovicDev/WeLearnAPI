@@ -1,6 +1,6 @@
 # wallets/serialize
 from rest_framework import serializers
-from wallets.models import WalletTransaction, Withdrawal
+from wallets.models import WalletTransaction, Withdrawal, Booking
 from decimal import Decimal
 
 class WalletTransactionSerializer(serializers.ModelSerializer):
@@ -29,9 +29,11 @@ class WalletTransactionSerializer(serializers.ModelSerializer):
 
 
 # serializers.py
-class CompletedSessionSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    total_amount = serializers.DecimalField(max_digits=10, decimal_places=2, allow_null=True)
+class CompletedSessionSerializer(serializers.ModelSerializer):
+    class Meta:
+            model = Booking
+            fields = '__all__'
+
 
 
 class WalletSummarySerializer(serializers.Serializer):

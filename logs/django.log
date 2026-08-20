@@ -2524,3 +2524,15 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-20 17:21:38,063 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-20 17:21:38,112 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
 2026-08-20 17:21:44,873 [INFO] django.channels.server: [mHTTP GET /api/v1/wallets/ 200 [3.03, 127.0.0.1:65300][0m
+2026-08-20 17:25:32,393 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:25:35,962 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:25:35,965 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:25:35,967 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:28:23,453 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\serializers.py changed, reloading.
+2026-08-20 17:28:41,082 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:28:54,957 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\serializers.py changed, reloading.
+2026-08-20 17:29:00,938 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:29:06,856 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\serializers.py changed, reloading.
+2026-08-20 17:29:12,114 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:29:20,965 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\serializers.py changed, reloading.
+2026-08-20 17:29:26,764 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
