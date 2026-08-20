@@ -55,9 +55,8 @@ class WithdrawalSerializer(serializers.ModelSerializer):
         fields = ["id", "amount", "status", "stripe_transfer_id", "created_at"]
 
 
-# serializers.py
+from django.db import transaction
 from rest_framework import serializers
-from .models import Withdrawal
 
 
 class WithdrawalRequestSerializer(serializers.ModelSerializer):
@@ -85,22 +84,45 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = self.context["request"].user
-        wallet = user.wallet
 
         booking_id = validated_data.pop("booking_id")
+        amount = validated_data["amount"]
 
-        try:
-            booking = Booking.objects.get(id=booking_id)
-        except Booking.DoesNotExist:
-            raise serializers.ValidationError({
-                "booking_id": "Booking not found."
-            })
+        with transaction.atomic():
+            # Lock the wallet so concurrent withdrawals cannot
+            # deduct from the same balance simultaneously.
+            wallet = (
+                user.wallet.__class__.objects
+                .select_for_update()
+                .get(pk=user.wallet.pk)
+            )
 
-        return Withdrawal.objects.create(
-            session=booking,
-            wallet=wallet,
-            **validated_data
-        )
+            # Check booking
+            try:
+                booking = Booking.objects.get(id=booking_id)
+            except Booking.DoesNotExist:
+                raise serializers.ValidationError({
+                    "booking_id": "Booking not found."
+                })
+
+            # Check wallet balance
+            if wallet.earning_balance < amount:
+                raise serializers.ValidationError({
+                    "amount": "Insufficient wallet balance."
+                })
+
+            # Deduct the money
+            wallet.earning_balance -= amount
+            wallet.save(update_fields=["earning_balance"])
+
+            # Create withdrawal
+            withdrawal = Withdrawal.objects.create(
+                session=booking,
+                wallet=wallet,
+                **validated_data
+            )
+
+        return withdrawal
 
 
 class WithdrawalAdminSerializer(serializers.ModelSerializer):
