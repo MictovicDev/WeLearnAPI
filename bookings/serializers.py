@@ -88,7 +88,8 @@ class MyBookingsSerializer(serializers.ModelSerializer):
 
 # serializers.py
 class CompleteBookingSerializer(serializers.Serializer):
-    note = serializers.CharField(required=False, allow_blank=True, max_length=1000)
+    note = serializers.CharField(required=False, allow_blank=True)
+
 
 class BookingListSerializer(serializers.ModelSerializer):
     student = UserSerializer(read_only=True)

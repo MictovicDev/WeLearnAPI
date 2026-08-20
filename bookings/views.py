@@ -123,8 +123,8 @@ class BookingViewSet(
             return [IsAuthenticated(), IsStudent()]
         if self.action == 'respond':
             return [IsAuthenticated(), IsTutor()]
-        if self.action == 'complete':
-            return [IsAuthenticated(), IsTutor()]
+        # if self.action == 'complete':
+        #     return [IsAuthenticated(), IsTutor(), IsStudent()]
         return [IsAuthenticated()]
 
     def create(self, request, *args, **kwargs):
@@ -289,14 +289,17 @@ class BookingViewSet(
     @action(detail=True, methods=["post"])
     def complete(self, request, pk=None):
         booking = self.get_object()
-
+        print(booking)
         serializer = CompleteBookingSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        note = serializer.validated_data.get("note", "")
+        note =  serializer.validated_data.get("note", "")
+        print(note)
 
         try:
             newly_completed = booking.mark_completed_by(request.user, note=note)
+            print(newly_completed)
         except PermissionError as e:
+            print(e)
             return Response({"detail": str(e)}, status=403)
         except DjangoValidationError as e:
             return Response({"detail": e.messages[0] if hasattr(e, "messages") else str(e)}, status=400)

@@ -55,6 +55,9 @@ class Withdrawal(models.Model):
         FAILED = "failed", "Failed"            # approved but payout failed
 
     wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, blank=True, null=True,related_name="withdrawals")
+    sessions = models.ManyToManyField(
+        "bookings.Booking", related_name="withdrawals", blank=True
+    )
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
     session = models.ForeignKey(Booking, on_delete=models.CASCADE, blank=True, null=True)
@@ -83,17 +86,11 @@ class Withdrawal(models.Model):
     # ---- core state transitions ----
 
     @classmethod
-    def request(cls, wallet: Wallet, amount: Decimal, description="Withdrawal request"):
-        """
-        Create a withdrawal request and immediately reserve the funds
-        (deduct from balance, log a pending debit) so the same balance
-        can't be withdrawn twice while awaiting approval.
-        """
+    def request(cls, wallet, amount, sessions=None, description="Withdrawal request"):
         if amount <= 0:
             raise ValidationError("Withdrawal amount must be greater than zero.")
 
         with transaction.atomic():
-            # lock the wallet row so concurrent requests can't both pass the balance check
             wallet = Wallet.objects.select_for_update().get(pk=wallet.pk)
 
             if amount > wallet.balance:
@@ -112,11 +109,10 @@ class Withdrawal(models.Model):
             )
 
             withdrawal = cls.objects.create(
-                wallet=wallet,
-                amount=amount,
-                transaction=txn,
-                status=cls.Status.PENDING,
+                wallet=wallet, amount=amount, transaction=txn, status=cls.Status.PENDING
             )
+            if sessions:
+                withdrawal.sessions.set(sessions)
             return withdrawal
 
     def approve(self, admin_user, payout_reference=None, note=None):
@@ -150,7 +146,6 @@ class Withdrawal(models.Model):
                 self.transaction.save(update_fields=["status"])
 
     def reject(self, admin_user, reason):
-        """Admin rejects — refund the reserved amount back to the wallet."""
         if self.status != self.Status.PENDING:
             raise ValidationError(f"Cannot reject a withdrawal with status '{self.status}'.")
 
@@ -172,6 +167,7 @@ class Withdrawal(models.Model):
                 self.transaction.status = WalletTransaction.Status.FAILED
                 self.transaction.save(update_fields=["status"])
 
+            self.sessions.clear()  # free these sessions up for another withdrawal request
             self.status = self.Status.REJECTED
             self.processed_by = admin_user
             self.admin_note = reason

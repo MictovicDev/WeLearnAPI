@@ -2390,3 +2390,123 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-20 16:28:52,261 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-20 16:28:52,263 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
 2026-08-20 16:28:57,877 [INFO] django.channels.server: [mHTTP GET /api/v1/wallet/completed-sessions/ 200 [2.32, 127.0.0.1:63721][0m
+2026-08-20 16:33:34,235 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:33:38,228 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\models.py changed, reloading.
+2026-08-20 16:33:41,216 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:33:44,033 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:33:44,033 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:33:44,033 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:48:45,331 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\models.py changed, reloading.
+2026-08-20 16:48:48,913 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:49:06,454 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\models.py changed, reloading.
+2026-08-20 16:49:08,451 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:49:11,448 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\models.py changed, reloading.
+2026-08-20 16:49:13,856 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:49:27,079 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\models.py changed, reloading.
+2026-08-20 16:49:28,785 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:49:31,713 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:49:31,714 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:49:31,714 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:53:33,539 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-20 16:53:36,855 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:53:39,647 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:53:39,648 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:53:39,649 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:55:44,076 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-20 16:55:45,872 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:55:48,573 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:55:48,573 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:55:48,574 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:56:34,097 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-20 16:56:35,777 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:56:38,389 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:56:38,389 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:56:38,390 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:57:26,188 [INFO] django.channels.server: [32mHTTP GET /api/v1/bookings/21/complete 301 [0.07, 127.0.0.1:56503][0m
+2026-08-20 16:57:28,491 [WARNING] django.channels.server: [31;1mHTTP GET /api/v1/bookings/21/complete/ 405 [2.29, 127.0.0.1:56503][0m
+2026-08-20 16:57:33,291 [ERROR] django.channels.server: [35;1mHTTP POST /api/v1/bookings/21/complete 500 [0.08, 127.0.0.1:56503][0m
+2026-08-20 16:57:39,754 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/21/complete/ 403 [2.14, 127.0.0.1:56503][0m
+2026-08-20 16:58:08,743 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 16:58:11,394 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:58:14,101 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:58:14,101 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:58:14,102 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:58:22,210 [WARNING] django.channels.server: [33mHTTP GET /dashboard/ 404 [0.03, 127.0.0.1:54239][0m
+2026-08-20 16:58:27,220 [INFO] django.channels.server: [32mHTTP GET /admin/ 302 [2.24, 127.0.0.1:54239][0m
+2026-08-20 16:58:27,345 [INFO] django.channels.server: [mHTTP GET /admin/login/?next=/admin/ 200 [0.12, 127.0.0.1:54239][0m
+2026-08-20 16:58:27,689 [INFO] django.channels.server: [mHTTP GET /static/admin/css/login.css 200 [0.17, 127.0.0.1:54239][0m
+2026-08-20 16:58:27,909 [WARNING] django.channels.server: [33mHTTP GET /favicon.ico 404 [0.02, 127.0.0.1:54239][0m
+2026-08-20 16:58:32,757 [INFO] django.channels.server: [mHTTP POST /admin/login/?next=/admin/ 200 [3.31, 127.0.0.1:54239][0m
+2026-08-20 16:58:39,944 [INFO] django.channels.server: [mHTTP POST /admin/login/?next=/admin/ 200 [3.24, 127.0.0.1:54239][0m
+2026-08-20 16:58:45,002 [INFO] django.channels.server: [32mHTTP POST /admin/login/?next=/admin/ 302 [3.15, 127.0.0.1:54239][0m
+2026-08-20 16:58:47,336 [INFO] django.channels.server: [mHTTP GET /admin/ 200 [2.33, 127.0.0.1:54239][0m
+2026-08-20 16:59:02,070 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/ 200 [2.28, 127.0.0.1:54239][0m
+2026-08-20 16:59:02,148 [INFO] django.channels.server: [mHTTP GET /static/admin/img/search.svg 200 [0.00, 127.0.0.1:59895][0m
+2026-08-20 16:59:04,304 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.17, 127.0.0.1:54239][0m
+2026-08-20 16:59:08,966 [INFO] django.channels.server: [mHTTP GET /admin/bookings/booking/22/change/ 200 [2.39, 127.0.0.1:54239][0m
+2026-08-20 16:59:11,194 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.18, 127.0.0.1:54239][0m
+2026-08-20 16:59:42,359 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [2.92, 127.0.0.1:53267][0m
+2026-08-20 17:00:03,844 [INFO] django.channels.server: [mHTTP POST /api/v1/bookings/21/complete/ 200 [2.32, 127.0.0.1:53267][0m
+2026-08-20 17:00:18,886 [INFO] django.channels.server: [mHTTP POST /api/v1/auth/login/ 200 [2.84, 127.0.0.1:53267][0m
+2026-08-20 17:00:33,393 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/21/complete/ 403 [2.20, 127.0.0.1:53267][0m
+2026-08-20 17:00:56,782 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:01:00,325 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:01:03,402 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:01:03,402 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:01:03,402 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:01:07,756 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/21/complete/ 403 [2.14, 127.0.0.1:62881][0m
+2026-08-20 17:01:27,002 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-20 17:01:28,849 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:01:31,541 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:01:31,542 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:01:31,542 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:01:36,004 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\serializers.py changed, reloading.
+2026-08-20 17:01:37,885 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:01:40,495 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:01:40,497 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:01:40,498 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:01:43,488 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/21/complete/ 403 [2.13, 127.0.0.1:64980][0m
+2026-08-20 17:02:07,198 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:02:09,558 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:02:12,706 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:02:12,706 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:02:12,708 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:02:12,832 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:02:14,947 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:02:17,603 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:02:17,604 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:02:17,604 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:02:22,537 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:02:24,367 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:02:27,165 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:02:27,165 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:02:27,167 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:03:02,447 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:03:05,801 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:03:08,980 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:03:08,981 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:03:08,983 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:03:17,203 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/21/complete/ 403 [2.17, 127.0.0.1:65384][0m
+2026-08-20 17:03:57,969 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:04:00,083 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:04:02,959 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:04:02,961 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:04:02,961 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:04:06,089 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/21/complete/ 403 [2.14, 127.0.0.1:65023][0m
+2026-08-20 17:04:16,851 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:04:19,529 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:04:22,237 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:04:22,239 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:04:22,240 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:04:23,370 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:04:26,230 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:04:28,940 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:04:28,947 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:04:28,960 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:04:34,514 [WARNING] django.channels.server: [31;1mHTTP POST /api/v1/bookings/21/complete/ 403 [2.16, 127.0.0.1:49697][0m
+2026-08-20 17:04:53,287 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 17:04:55,391 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 17:04:58,070 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 17:04:58,071 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 17:04:58,072 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 17:05:03,071 [INFO] django.channels.server: [mHTTP POST /api/v1/bookings/21/complete/ 200 [2.22, 127.0.0.1:53221][0m
