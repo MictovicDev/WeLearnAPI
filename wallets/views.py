@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from wallets.models import Wallet, Withdrawal, WalletTransaction
-from wallets.serializers import WalletSummarySerializer, WalletTransactionSerializer, WithdrawalSerializer
+from wallets.serializers import WalletSummarySerializer, WalletTransactionSerializer, WithdrawalSerializer, CompletedSessionSerializer
 
 
 
@@ -60,6 +60,37 @@ class WalletViewSet(viewsets.ViewSet):
         serializer = WalletTransactionSerializer(qs, many=True)
         return Response(serializer.data)
 
+
+
+# views.py
+from rest_framework import generics
+from rest_framework.pagination import PageNumberPagination
+from bookings.models import Booking  # adjust import path to your app
+
+
+class CompletedSessionsPagination(PageNumberPagination):
+    page_size = 20
+    page_size_query_param = "page_size"
+    max_page_size = 100
+
+
+class CompletedSessionListView(generics.ListAPIView):
+    """
+    GET /wallet/completed-sessions/
+    Sessions where both tutor (the requesting user) and student have
+    confirmed completion — id + amount, for the tutor's own earnings view.
+    """
+    serializer_class = CompletedSessionSerializer
+    permission_classes = [IsAuthenticated]
+    pagination_class = CompletedSessionsPagination
+
+    def get_queryset(self):
+        return Booking.objects.filter(
+            tutor_profile__user=self.request.user,
+            status=Booking.Status.COMPLETED,
+            tutor_completed=True,
+            student_acknowledged=True,
+        ).values("id", "total_amount").order_by("-id")
 
 
 from rest_framework import viewsets, permissions, status

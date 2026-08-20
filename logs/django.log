@@ -2338,3 +2338,55 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-20 16:07:15,568 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-20 16:07:15,568 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
 2026-08-20 16:09:23,448 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-20 16:19:57,295 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:20:00,442 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:20:00,442 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:20:00,446 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:23:43,110 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\views.py changed, reloading.
+2026-08-20 16:23:46,350 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:23:49,740 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:23:49,741 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:23:49,744 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:24:02,131 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\serializers.py changed, reloading.
+2026-08-20 16:24:04,533 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:24:07,276 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:24:07,276 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:24:07,276 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:24:57,336 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\views.py changed, reloading.
+2026-08-20 16:24:59,641 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:25:02,505 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:25:02,505 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:25:02,506 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:25:02,809 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\views.py changed, reloading.
+2026-08-20 16:25:04,533 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:25:21,920 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\serializers.py changed, reloading.
+2026-08-20 16:25:24,350 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:25:33,178 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\views.py changed, reloading.
+2026-08-20 16:25:35,740 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:25:38,538 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:25:38,538 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:25:38,541 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:26:06,605 [WARNING] django.channels.server: [33mHTTP GET /api/v1/wallet/completed-sessions/ 404 [0.30, 127.0.0.1:51910][0m
+2026-08-20 16:27:01,182 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-20 16:27:03,174 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:27:05,955 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-20 16:27:08,300 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:27:22,815 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:27:25,495 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:27:25,515 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:27:25,521 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:27:26,816 [WARNING] django.channels.server: [33mHTTP GET /api/v1/wallet/completed-sessions/ 404 [0.03, 127.0.0.1:59100][0m
+2026-08-20 16:27:58,690 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-20 16:28:00,583 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:28:03,173 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:28:03,174 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:28:03,175 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:28:05,530 [WARNING] django.channels.server: [33mHTTP GET /api/v1/wallet/completed-sessions/ 404 [0.03, 127.0.0.1:56813][0m
+2026-08-20 16:28:43,374 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-20 16:28:45,037 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:28:47,616 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
+2026-08-20 16:28:49,474 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-20 16:28:52,261 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-20 16:28:52,261 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-20 16:28:52,263 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-20 16:28:57,877 [INFO] django.channels.server: [mHTTP GET /api/v1/wallet/completed-sessions/ 200 [2.32, 127.0.0.1:63721][0m

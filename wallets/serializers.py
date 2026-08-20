@@ -28,11 +28,18 @@ class WalletTransactionSerializer(serializers.ModelSerializer):
         return "Completed"
 
 
+# serializers.py
+class CompletedSessionSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    total_amount = serializers.DecimalField(max_digits=10, decimal_places=2, allow_null=True)
+
+
 class WalletSummarySerializer(serializers.Serializer):
     available_balance = serializers.DecimalField(max_digits=12, decimal_places=2)
     pending_clearance = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_earned_lifetime = serializers.DecimalField(max_digits=12, decimal_places=2)
     currency = serializers.CharField()
+    completed_sessions = CompletedSessionSerializer(many=True)
 
 
 # payment/serializers.py
