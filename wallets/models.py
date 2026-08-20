@@ -69,9 +69,12 @@ class Withdrawal(models.Model):
     # payout destination — adapt to whatever payout method you use
     payout_reference = models.CharField(max_length=255, blank=True, null=True)  # e.g. Stripe transfer id
     admin_note = models.CharField(max_length=500, blank=True, null=True)
-
+    account_name = models.CharField(max_length=250, blank=True, null=True)
+    bank_name = models.CharField(max_length=250, blank=True, null=True)
+    account_number = models.CharField(max_length=250, blank=True, null=True)
     requested_at = models.DateTimeField(auto_now_add=True)
     processed_at = models.DateTimeField(null=True, blank=True)
+
     processed_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True,
         related_name="processed_withdrawals"

@@ -18,11 +18,14 @@ class WalletViewSet(viewsets.ViewSet):
     def list(self, request):
         wallet, _ = Wallet.objects.get_or_create(user=request.user)
 
-        pending_clearance = WalletTransaction.objects.filter(
-            wallet=wallet,
-            type=WalletTransaction.Type.CREDIT,
-            status=WalletTransaction.Status.PENDING,
-        ).aggregate(total=Sum("amount"))["total"] or Decimal("0.00")
+        withdrawable_amount = Booking.objects.filter(
+            tutor_profile__user=request.user,
+            status=Booking.Status.COMPLETED,
+            tutor_completed=True,
+            student_acknowledged=True,
+        ).aggregate(
+            total=Sum("total_amount")
+        )["total"] or Decimal("0.00")
 
         total_earned_lifetime = WalletTransaction.objects.filter(
             wallet=wallet,
@@ -32,7 +35,7 @@ class WalletViewSet(viewsets.ViewSet):
 
         data = {
             "available_balance": wallet.balance,
-            "pending_clearance": pending_clearance,
+            "withdrawable_balance": withdrawable_amount,
             "total_earned_lifetime": total_earned_lifetime,
             "currency": wallet.currency,
         }
@@ -62,7 +65,7 @@ class WalletViewSet(viewsets.ViewSet):
 
 
 
-# views.py
+
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 from bookings.models import Booking  # adjust import path to your app
@@ -123,57 +126,3 @@ class WithdrawalViewSet(viewsets.GenericViewSet, viewsets.mixins.CreateModelMixi
             return Response({"detail": e.message}, status=status.HTTP_400_BAD_REQUEST)
         return Response(self.get_serializer(withdrawal).data, status=status.HTTP_201_CREATED)
 
-
-class AdminWithdrawalViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    Admin dashboard queue.
-    GET  /admin/withdrawals/                 → list all (optionally ?status=pending)
-    GET  /admin/withdrawals/{id}/             → retrieve
-    POST /admin/withdrawals/{id}/approve/     → approve
-    POST /admin/withdrawals/{id}/reject/      → reject (requires "reason")
-    POST /admin/withdrawals/{id}/mark_paid/   → mark as paid out
-    """
-    serializer_class = WithdrawalAdminSerializer
-    permission_classes = [permissions.IsAdminUser]
-    queryset = Withdrawal.objects.select_related("wallet__user").all()
-
-    def get_queryset(self):
-        qs = super().get_queryset()
-        status_filter = self.request.query_params.get("status")
-        if status_filter:
-            qs = qs.filter(status=status_filter)
-        return qs
-
-    @action(detail=True, methods=["post"])
-    def approve(self, request, pk=None):
-        withdrawal = self.get_object()
-        try:
-            withdrawal.approve(
-                admin_user=request.user,
-                payout_reference=request.data.get("payout_reference"),
-                note=request.data.get("note"),
-            )
-        except ValidationError as e:
-            return Response({"detail": e.message}, status=status.HTTP_400_BAD_REQUEST)
-        return Response(self.get_serializer(withdrawal).data)
-
-    @action(detail=True, methods=["post"])
-    def reject(self, request, pk=None):
-        withdrawal = self.get_object()
-        reason = request.data.get("reason", "")
-        if not reason:
-            return Response({"detail": "A rejection reason is required."}, status=status.HTTP_400_BAD_REQUEST)
-        try:
-            withdrawal.reject(admin_user=request.user, reason=reason)
-        except ValidationError as e:
-            return Response({"detail": e.message}, status=status.HTTP_400_BAD_REQUEST)
-        return Response(self.get_serializer(withdrawal).data)
-
-    @action(detail=True, methods=["post"], url_path="mark-paid")
-    def mark_paid(self, request, pk=None):
-        withdrawal = self.get_object()
-        try:
-            withdrawal.mark_paid(payout_reference=request.data.get("payout_reference"))
-        except ValidationError as e:
-            return Response({"detail": e.message}, status=status.HTTP_400_BAD_REQUEST)
-        return Response(self.get_serializer(withdrawal).data)

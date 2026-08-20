@@ -11,7 +11,7 @@ from bookings.views import BookingViewSet, GoogleCalendarCallbackView, GoogleCal
 from reviews.views import ReviewViewSet
 from chat.views import ChatThreadViewSet
 from payment.views import PaymentViewSet
-from wallets.views import WalletViewSet, WithdrawalViewSet, AdminWithdrawalViewSet, CompletedSessionListView
+from wallets.views import WalletViewSet, WithdrawalViewSet, CompletedSessionListView
 
 
 
@@ -61,6 +61,7 @@ urlpatterns = [
     # All routed viewsets
     path('api/v1/', include(router.urls)),
     # path('api/v1/chat/', include('chat.urls')),
+    path('welearn-admin/', include('admin.urls')),
     path('api/v1/wallet/completed-sessions/', CompletedSessionListView.as_view(), name='wallet-completed-sessions'),
     # Schema & docs
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
