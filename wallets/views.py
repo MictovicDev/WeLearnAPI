@@ -77,8 +77,7 @@ class CompletedSessionsPagination(PageNumberPagination):
 class CompletedSessionListView(generics.ListAPIView):
     """
     GET /wallet/completed-sessions/
-    Sessions where both tutor (the requesting user) and student have
-    confirmed completion — id + amount, for the tutor's own earnings view.
+    Sessions where both tutor and student have confirmed completion.
     """
     serializer_class = CompletedSessionSerializer
     permission_classes = [IsAuthenticated]
@@ -90,7 +89,7 @@ class CompletedSessionListView(generics.ListAPIView):
             status=Booking.Status.COMPLETED,
             tutor_completed=True,
             student_acknowledged=True,
-        ).values("id", "total_amount").order_by("-id")
+        ).order_by("-id")
 
 
 from rest_framework import viewsets, permissions, status
