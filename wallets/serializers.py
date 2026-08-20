@@ -62,10 +62,11 @@ from .models import Withdrawal
 
 class WithdrawalRequestSerializer(serializers.ModelSerializer):
     """User-facing — they just submit an amount."""
+    booking_id = serializers.CharField()
     class Meta:
         model = Withdrawal
-        fields = ["id", "amount", "session", "account_name","account_number", "bank_name"]
-        read_only_fields = ["id", "status", "requested_at"]
+        fields = ["id","booking_id","amount", "session", "account_name","account_number", "bank_name"]
+        read_only_fields = ["id","status", "requested_at"]
 
     def validate_amount(self, value):
         if value <= 0:
@@ -79,7 +80,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         wallet = self.context["request"].user.wallet
-        id = validated_data["id"]
+        id = validated_data["booking_id"]
         try:
             booking = Booking.objects.get(id=int(id))
         except Booking.DoesNotExist:
