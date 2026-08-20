@@ -79,7 +79,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         wallet = self.context["request"].user.wallet
-        id = validated_data[""]
+        id = validated_data["id"]
         try:
             booking = Booking.objects.get(id=int(id))
         except Booking.DoesNotExist:
