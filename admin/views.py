@@ -151,3 +151,43 @@ class AdminViewSet(viewsets.GenericViewSet):
             return Response({'detail': e.message}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response(WithdrawalAdminDetailSerializer(withdrawal).data)
+
+
+
+
+from rest_framework import status, generics
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+
+from .serializers import AdminLoginSerializer
+
+
+class AdminLoginView(generics.GenericAPIView):
+    serializer_class = AdminLoginSerializer
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(
+            data=request.data,
+            context={"request": request},
+        )
+        serializer.is_valid(raise_exception=True)
+
+        user = serializer.validated_data["user"]
+
+        return Response(
+            {
+                "detail": "Admin login successful.",
+                "access": serializer.validated_data["access"],
+                "refresh": serializer.validated_data["refresh"],
+                "user": {
+                    "id": user.id,
+                    "email": user.email,
+                    "first_name": user.first_name,
+                    "last_name": user.last_name,
+                    "is_staff": user.is_staff,
+                    "is_superuser": user.is_superuser,
+                },
+            },
+            status=status.HTTP_200_OK,
+        )

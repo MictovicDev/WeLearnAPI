@@ -2999,3 +2999,36 @@ Traceback (most recent call last):
     raise type(exc)(msg)
 KeyError: "Got KeyError when attempting to get a value for field `pending_clearance` on serializer `WalletSummarySerializer`.\nThe serializer field might be named incorrectly and not match any attribute or key on the `dict` instance.\nOriginal exception text was: 'pending_clearance'."
 2026-08-20 22:15:03,957 [ERROR] django.channels.server: [35;1mHTTP GET /api/v1/wallets/ 500 [4.92, 127.0.0.1:61345][0m
+2026-08-21 11:35:18,813 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-21 12:32:35,988 [ERROR] django.request: Internal Server Error: /welearn-admin/login
+Traceback (most recent call last):
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\asgiref\sync.py", line 577, in thread_handler
+    raise exc_info[1]
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\core\handlers\exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\utils\deprecation.py", line 152, in __acall__
+    response = await sync_to_async(
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\asgiref\sync.py", line 526, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\asgiref\current_thread_executor.py", line 35, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\asgiref\sync.py", line 581, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\asgiref\sync.py", line 508, in func
+    return context.run(run_child)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\asgiref\sync.py", line 506, in run_child
+    return child()
+           ^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mictovic\projects\tutor_platform\env\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/welearn-admin/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2026-08-21 12:32:36,015 [ERROR] django.channels.server: [35;1mHTTP POST /welearn-admin/login 500 [1.95, 127.0.0.1:56393][0m

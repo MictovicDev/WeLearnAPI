@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AdminViewSet
+from .views import AdminViewSet, AdminLoginView
 
 app_name = 'admin_panel'
 
@@ -13,7 +13,11 @@ urlpatterns = [
     # Students
     path('students/', AdminViewSet.as_view({'get': 'students_list'}), name='students-list'),
     path('students/<int:pk>/', AdminViewSet.as_view({'get': 'students_detail'}), name='students-detail'),
-
+    path(
+        "login/",
+        AdminLoginView.as_view(),
+        name="admin-login",
+    ),
     # Withdrawals
     path('withdrawals/', AdminViewSet.as_view({'get': 'withdrawals_list'}), name='withdrawals-list'),
     path('withdrawals/<int:pk>/', AdminViewSet.as_view({'get': 'withdrawals_detail'}), name='withdrawals-detail'),
