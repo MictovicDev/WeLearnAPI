@@ -23,4 +23,7 @@ urlpatterns = [
     path('withdrawals/<int:pk>/', AdminViewSet.as_view({'get': 'withdrawals_detail'}), name='withdrawals-detail'),
     path('withdrawals/<int:pk>/approve/', AdminViewSet.as_view({'post': 'withdrawals_approve'}), name='withdrawals-approve'),
     path('withdrawals/<int:pk>/reject/', AdminViewSet.as_view({'post': 'withdrawals_reject'}), name='withdrawals-reject'),
+    path('bookings/', AdminViewSet.as_view({'get': 'bookings_list'})),
+    path('bookings/<int:pk>/', AdminViewSet.as_view({'get': 'bookings_detail'})),
+    path('bookings/<int:pk>/cancel/', AdminViewSet.as_view({'post': 'bookings_cancel'})),
 ]

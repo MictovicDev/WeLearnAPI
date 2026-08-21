@@ -5,7 +5,7 @@ from django.db.models import Q
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAdminUser
-
+from bookings.models import Booking
 from tutors.models import TutorProfile
 from wallets.models import Withdrawal
 from .serializers import (
@@ -15,9 +15,11 @@ from .serializers import (
     WithdrawalAdminListSerializer,
     WithdrawalAdminDetailSerializer,
     AdminActionSerializer,
-     WithdrawalAdminListSerializer,
-        WithdrawalAdminDetailSerializer,
-        WithdrawalActionSerializer,
+    WithdrawalAdminListSerializer,
+    WithdrawalAdminDetailSerializer,
+    WithdrawalActionSerializer,
+    BookingAdminDetailSerializer,
+    BookingAdminListSerializer
 )
 from django.core.exceptions import ValidationError as DjangoValidationError
 
@@ -151,6 +153,58 @@ class AdminViewSet(viewsets.GenericViewSet):
             return Response({'detail': e.message}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response(WithdrawalAdminDetailSerializer(withdrawal).data)
+
+    # --------------------------------------------------------- Bookings ---
+
+    def bookings_list(self, request):
+        qs = Booking.objects.select_related(
+            'student', 'tutor_profile__user', 'availability_slot'
+        )
+
+        status_filter = request.query_params.get('status')
+        if status_filter:
+            qs = qs.filter(status=status_filter)
+
+        search = request.query_params.get('search')
+        if search:
+            qs = qs.filter(
+                Q(student__first_name__icontains=search)
+                | Q(student__last_name__icontains=search)
+                | Q(student__email__icontains=search)
+                | Q(tutor_profile__user__first_name__icontains=search)
+                | Q(tutor_profile__user__last_name__icontains=search)
+                | Q(subject__icontains=search)
+            )
+
+        page = self.paginate_queryset(qs)
+        serializer = BookingAdminListSerializer(page if page is not None else qs, many=True)
+        return self.get_paginated_response(serializer.data) if page is not None else Response(serializer.data)
+
+    def bookings_detail(self, request, pk=None):
+        booking = get_object_or_404(
+            Booking.objects.select_related('student', 'tutor_profile__user', 'availability_slot'),
+            pk=pk,
+        )
+        return Response(BookingAdminDetailSerializer(booking).data)
+
+    def bookings_cancel(self, request, pk=None):
+        booking = get_object_or_404(Booking, pk=pk)
+        serializer = AdminActionSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        if booking.status in (Booking.Status.COMPLETED, Booking.Status.CANCELLED):
+            return Response(
+                {'detail': f'Cannot cancel a booking that is already {booking.status}.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        booking.status = Booking.Status.CANCELLED
+        note = serializer.validated_data.get('note')
+        if note:
+            booking.tutor_response_note = note
+
+        booking.save(update_fields=['status', 'tutor_response_note', 'updated_at'])
+        return Response(BookingAdminDetailSerializer(booking).data)
 
 
 

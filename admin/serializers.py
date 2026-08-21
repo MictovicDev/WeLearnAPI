@@ -5,6 +5,7 @@ from wallets.models import Withdrawal
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
+from bookings.models import Booking
 
 
 User = get_user_model()
@@ -194,3 +195,34 @@ class WithdrawalActionSerializer(serializers.Serializer):
 class AdminActionSerializer(serializers.Serializer):
     """Used for every approve/reject action (tutors + withdrawals)."""
     note = serializers.CharField(required=False, allow_blank=True, default='')
+
+
+
+class BookingAdminListSerializer(serializers.ModelSerializer):
+    student_name = serializers.CharField(source='student.get_full_name', read_only=True)
+    tutor_name = serializers.CharField(source='tutor_profile.user.get_full_name', read_only=True)
+
+    class Meta:
+        model = Booking
+        fields = [
+            'id', 'student_name', 'tutor_name', 'subject',
+            'status', 'scheduled_date', 'start_time', 'end_time',
+            'total_amount', 'currency', 'created_at',
+        ]
+
+
+class BookingAdminDetailSerializer(serializers.ModelSerializer):
+    student_name = serializers.CharField(source='student.get_full_name', read_only=True)
+    tutor_name = serializers.CharField(source='tutor_profile.user.get_full_name', read_only=True)
+
+    class Meta:
+        model = Booking
+        fields = [
+            'id', 'student', 'student_name', 'tutor_profile', 'tutor_name',
+            'subject', 'title', 'session_type', 'scheduled_date',
+            'start_time', 'end_time', 'status', 'notes',
+            'tutor_response_note', 'session_link', 'location_address',
+            'total_amount', 'currency', 'duration',
+            'tutor_completed', 'student_acknowledged',
+            'created_at', 'updated_at',
+        ]
