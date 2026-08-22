@@ -159,16 +159,31 @@ class WithdrawalSessionSerializer(serializers.Serializer):
 
 
 class WithdrawalAdminListSerializer(serializers.ModelSerializer):
-    tutor_name = serializers.CharField(source='wallet.user.get_full_name', read_only=True)
+    tutor_name = serializers.CharField(
+        source="wallet.user.get_full_name",
+        read_only=True
+    )
+
+    session = WithdrawalSessionSerializer(read_only=True)
 
     class Meta:
         model = Withdrawal
-        fields = ['id', 'tutor_name', 'amount', 'status', 'requested_at']
+        fields = [
+            "id",
+            "tutor_name",
+            "amount",
+            "account_number",
+            "account_name",
+            "session",
+            "status",
+            "requested_at",
+        ]
+    
 
 
 class WithdrawalAdminDetailSerializer(serializers.ModelSerializer):
     tutor_name = serializers.CharField(source='wallet.user.get_full_name', read_only=True)
-    sessions = serializers.SerializerMethodField()
+    session = WithdrawalSessionSerializer(read_only=True)
 
     class Meta:
         model = Withdrawal
@@ -177,12 +192,6 @@ class WithdrawalAdminDetailSerializer(serializers.ModelSerializer):
             'account_name', 'bank_name', 'account_number',
             'payout_reference', 'requested_at', 'processed_at', 'sessions',
         ]
-
-    def get_sessions(self, obj):
-        # `sessions` (M2M) is the source of truth; `session` (single FK) looks
-        # like a legacy field — fall back to it only if the M2M is empty.
-        qs = obj.sessions.all() or ([obj.session] if obj.session_id else [])
-        return WithdrawalSessionSerializer(qs, many=True).data
 
 
 class WithdrawalActionSerializer(serializers.Serializer):
