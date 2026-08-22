@@ -125,6 +125,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
                             type="debit",
                             status="pending",
                             amount=amount,
+                            balance_after=wallet.balance,
                             reference = generate_reference("WD"),
                             description=f"Withdrawal from {booking.id}"
             )
