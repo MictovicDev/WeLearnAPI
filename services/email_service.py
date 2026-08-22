@@ -225,7 +225,7 @@ def notify_session_confirmed_tutor(booking):
             "session_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
             "tutor_first_name": booking.tutor_profile.user.first_name,
             "student_name": student_name,
-            "amount": booking.amount,  # adjust to whatever field holds the session fee
+            "amount": booking.total_amount,  # adjust to whatever field holds the session fee
             "withdraw_url": f"{FRONTEND_URL}/tutors/dashboard/wallet",
         },
         to_email=booking.tutor_profile.user.email,
