@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from decimal import Decimal
 from django.conf import settings
 from bookings.models import Booking
+from django.utils import timezone
 
 
 class Wallet(models.Model):
@@ -126,7 +127,7 @@ class Withdrawal(models.Model):
         with transaction.atomic():
             self.status = self.Status.APPROVED
             self.processed_by = admin_user
-            self.processed_at = models.functions.Now()
+            self.processed_at = timezone.now()
             if payout_reference:
                 self.payout_reference = payout_reference
             if note:
