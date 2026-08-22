@@ -132,7 +132,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
             withdrawal = Withdrawal.objects.create(
                 session=booking,
                 wallet=wallet,
-                transaction = new_transaction
+                transaction=new_transaction,
                 **validated_data
             )
             
