@@ -3260,3 +3260,7 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-22 18:02:07,869 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 2026-08-22 18:02:07,869 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-22 18:02:07,880 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 18:52:40,262 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:52:44,058 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 18:52:44,065 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 18:52:44,065 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
