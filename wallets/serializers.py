@@ -113,7 +113,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
             wallet.withdrawable_balance -= amount
             wallet.balance -= amount
             wallet.save(update_fields=["withdrawable_balance","balance"])
-            booking.tutor_has_withdrawn = False
+            booking.tutor_has_withdrawn = True
             booking.save(update_fields=["tutor_has_withdrawn"])
             # Create withdrawal
             withdrawal = Withdrawal.objects.create(

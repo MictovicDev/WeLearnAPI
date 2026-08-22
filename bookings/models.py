@@ -57,7 +57,7 @@ class Booking(models.Model):
     tutor_completed = models.BooleanField(default=False)
     student_acknowledged = models.BooleanField(default=False)
     duration = models.PositiveIntegerField(default=0)
-    tutor_has_withdrawn = models.BooleanField(default=True)
+    tutor_has_withdrawn = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_at']

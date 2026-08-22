@@ -85,6 +85,7 @@ class CompletedSessionListView(generics.ListAPIView):
             status=Booking.Status.COMPLETED,
             tutor_completed=True,
             student_acknowledged=True,
+            tutor_has_withdrawn=True
         ).order_by("-id")
 
 
