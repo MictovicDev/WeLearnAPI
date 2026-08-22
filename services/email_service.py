@@ -189,3 +189,39 @@ def notify_new_message(message):
         },
         to_email=message.recipient.email,
     )
+
+
+
+
+
+
+def notify_session_completed(booking):
+    """Fires two emails: one to the student, one to the tutor."""
+    common = {
+        "subject": booking.subject,
+        "scheduled_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
+    }
+
+    send_templated_email_task.delay(
+        subject="Your session has been completed",
+        template_name="session_completed.html",
+        context={
+            **common,
+            "student_first_name": booking.student.first_name,
+            "tutor_name": f"{booking.tutor_profile.user.first_name} + '' +  {booking.tutor_profile.user.last_name}",
+            "booking_url": f"{FRONTEND_URL}/tutors/dashboard/booking",
+        },
+        to_email=booking.student.email,
+    )
+
+    send_templated_email_task.delay(
+        subject="You have a new booking request",
+        template_name="booking_created_tutor.html",
+        context={
+            **common,
+            "student_first_name": booking.student.first_name,
+            "tutor_name": f"{booking.tutor_profile.user.first_name}  +  {booking.tutor_profile.user.last_name}",
+            "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+        },
+        to_email=booking.tutor_profile.user.email,
+    )

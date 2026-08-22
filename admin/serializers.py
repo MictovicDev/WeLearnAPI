@@ -190,7 +190,7 @@ class WithdrawalAdminDetailSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'tutor_name', 'amount', 'status', 'admin_note',
             'account_name', 'bank_name', 'account_number',
-            'payout_reference', 'requested_at', 'processed_at', 'sessions',
+            'payout_reference', 'requested_at', 'processed_at', 'session',
         ]
 
 
