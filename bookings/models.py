@@ -113,7 +113,7 @@ class Booking(models.Model):
             if note:
                 self.notes = note
                 update_fields.append("notes")
-            wallet = self.tutor_profile.wallet
+            wallet = self.tutor_profile.user.wallet
             wallet.withdrawable_balance += self.total_amount
             wallet.save(update_fields=["withdrawable_balance"])
             notify_session_confirmed_tutor(self)
