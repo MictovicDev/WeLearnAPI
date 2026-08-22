@@ -136,6 +136,9 @@ class AdminViewSet(viewsets.GenericViewSet):
                 payout_reference=serializer.validated_data.get('payout_reference') or None,
                 note=serializer.validated_data.get('note') or None,
             )
+            transaction = withdrawal.transaction
+            transaction.status = "completed"
+            transaction.save(updated_fields=["transaction"])
         except DjangoValidationError as e:
             return Response({'detail': e.message}, status=status.HTTP_400_BAD_REQUEST)
 

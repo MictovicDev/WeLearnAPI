@@ -84,6 +84,10 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = self.context["request"].user
+        import uuid
+        
+        def generate_reference(prefix="REF"):
+            return f"{prefix}_{uuid.uuid4().hex[:12].upper()}"
 
         booking_id = validated_data.pop("booking_id")
         amount = validated_data["amount"]
@@ -115,12 +119,22 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
             wallet.save(update_fields=["withdrawable_balance","balance"])
             booking.tutor_has_withdrawn = True
             booking.save(update_fields=["tutor_has_withdrawn"])
-            # Create withdrawal
+            transaction = WalletTransaction.objects.create(
+                            wallet=wallet,
+                            type="debit",
+                            status="pending",
+                            amount=amount,
+                            reference = generate_reference("WD"),
+                            description=f"Withdrawal from {booking.id}"
+            )
             withdrawal = Withdrawal.objects.create(
                 session=booking,
                 wallet=wallet,
+                transaction = transaction
                 **validated_data
             )
+            
+            
 
         return withdrawal
 

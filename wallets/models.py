@@ -80,7 +80,6 @@ class Withdrawal(models.Model):
     account_number = models.CharField(max_length=250, blank=True, null=True)
     requested_at = models.DateTimeField(auto_now_add=True)
     processed_at = models.DateTimeField(null=True, blank=True)
-
     processed_by = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True,
         related_name="processed_withdrawals"
