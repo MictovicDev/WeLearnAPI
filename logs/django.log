@@ -3264,3 +3264,10 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-22 18:52:44,058 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 2026-08-22 18:52:44,065 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-22 18:52:44,065 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 22:17:05,390 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 22:39:56,683 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\views.py changed, reloading.
+2026-08-22 22:40:04,029 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 22:40:08,410 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 22:40:08,411 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 22:40:08,413 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 22:40:10,705 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\views.py changed, reloading.

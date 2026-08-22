@@ -18,14 +18,7 @@ class WalletViewSet(viewsets.ViewSet):
     def list(self, request):
         wallet, _ = Wallet.objects.get_or_create(user=request.user)
 
-        withdrawable_amount = Booking.objects.filter(
-            tutor_profile__user=request.user,
-            status=Booking.Status.COMPLETED,
-            tutor_completed=True,
-            student_acknowledged=True,
-        ).aggregate(
-            total=Sum("total_amount")
-        )["total"] or Decimal("0.00")
+        
 
         total_earned_lifetime = WalletTransaction.objects.filter(
             wallet=wallet,
@@ -35,7 +28,7 @@ class WalletViewSet(viewsets.ViewSet):
 
         data = {
             "available_balance": wallet.balance,
-            "withdrawable_balance": withdrawable_amount,
+            "withdrawable_balance": wallet.withdrawable_balance,
             "total_earned_lifetime": total_earned_lifetime,
             "currency": wallet.currency,
         }
