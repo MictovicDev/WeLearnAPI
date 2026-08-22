@@ -110,38 +110,38 @@ class WithdrawalViewSet(viewsets.GenericViewSet, viewsets.mixins.CreateModelMixi
     def get_queryset(self):
         return Withdrawal.objects.filter(wallet__user=self.request.user)
 
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+    # def create(self, request, *args, **kwargs):
+    #     serializer = self.get_serializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
 
-        try:
-            with transaction.atomic():
-                wallet = Wallet.objects.select_for_update().get(
-                    user=request.user
-                )
+    #     try:
+    #         with transaction.atomic():
+    #             wallet = Wallet.objects.select_for_update().get(
+    #                 user=request.user
+    #             )
 
-                amount = serializer.validated_data["amount"]
+    #             amount = serializer.validated_data["amount"]
 
-                if amount > wallet.withdrawable_balance:
-                    raise ValidationError(
-                        "Insufficient withdrawable balance."
-                    )
+    #             if amount > wallet.withdrawable_balance:
+    #                 raise ValidationError(
+    #                     "Insufficient withdrawable balance."
+    #                 )
 
-                # Deduct immediately
-                wallet.withdrawable_balance -= amount
-                wallet.save(update_fields=["withdrawable_balance"])
+    #             # Deduct immediately
+    #             wallet.withdrawable_balance -= amount
+    #             wallet.save(update_fields=["withdrawable_balance"])
 
-                # Create withdrawal
-                withdrawal = serializer.save(wallet=wallet)
+    #             # Create withdrawal
+    #             withdrawal = serializer.save(wallet=wallet)
 
-        except ValidationError as e:
-            return Response(
-                {"detail": str(e)},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+    #     except ValidationError as e:
+    #         return Response(
+    #             {"detail": str(e)},
+    #             status=status.HTTP_400_BAD_REQUEST
+    #         )
 
-        return Response(
-            self.get_serializer(withdrawal).data,
-            status=status.HTTP_201_CREATED
-        )
+        # return Response(
+        #     self.get_serializer(withdrawal).data,
+        #     status=status.HTTP_201_CREATED
+        # )
 

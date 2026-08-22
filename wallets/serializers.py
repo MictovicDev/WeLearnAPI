@@ -106,14 +106,15 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
                 })
 
             # Check wallet balance
-            if wallet.balance < amount:
+            if wallet.withdrawable_balance < amount:
                 raise serializers.ValidationError({
                     "amount": "Insufficient wallet balance."
                 })
 
             # Deduct the money
+            wallet.withdrawable_balance -= amount
             wallet.balance -= amount
-            wallet.save(update_fields=["balance"])
+            wallet.save(update_fields=["withdrawable_balance","balance"])
 
             # Create withdrawal
             withdrawal = Withdrawal.objects.create(
