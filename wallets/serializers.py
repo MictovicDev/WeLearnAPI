@@ -89,8 +89,6 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
         amount = validated_data["amount"]
 
         with transaction.atomic():
-            # Lock the wallet so concurrent withdrawals cannot
-            # deduct from the same balance simultaneously.
             wallet = (
                 user.wallet.__class__.objects
                 .select_for_update()
@@ -110,12 +108,13 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     "amount": "Insufficient wallet balance."
                 })
-
+         
             # Deduct the money
             wallet.withdrawable_balance -= amount
             wallet.balance -= amount
             wallet.save(update_fields=["withdrawable_balance","balance"])
-
+            booking.tutor_has_withdrawn = False
+            booking.save(update_fields=["tutor_has_withdrawn"])
             # Create withdrawal
             withdrawal = Withdrawal.objects.create(
                 session=booking,
