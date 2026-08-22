@@ -9,7 +9,7 @@ from rest_framework.exceptions import ValidationError
 import logging
 from services.email_service import notify_payment_success
 from tutors.models import TutorProfile
-
+from decimal import Decimal
 logger = logging.getLogger("stripe")
 
 class PaymentService:
@@ -27,9 +27,9 @@ class PaymentService:
             raise ValidationError("Booking has been declined by Tutor.")
         if booking.status == Booking.Status.PENDING:
             raise ValidationError("Booking is still pending, wait for approval, before payment")
-        
+        new_amount = booking.total_amount / Decimal("100"),
         request = PaymentIntentRequest(
-            amount=int(booking.total_amount),
+            amount=int(new_amount * 100),
             reference=str(booking.id),
             currency='USD',
             customer_email=booking.student.email,
