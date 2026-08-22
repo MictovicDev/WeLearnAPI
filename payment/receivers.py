@@ -13,7 +13,7 @@ def payment_succeeded_handler(sender, payment, booking, **kwargs):
         wallet=wallet,
         type="credit",
         status="completed",
-        amount=payment.amount,
+        amount= payment.amount,
         balance_after = wallet.balance + payment.amount,
         reference=f"Booking-{payment.provider_reference[0:1]}",
         description= f"Payment from {booking.id}"

@@ -29,7 +29,7 @@ class PaymentService:
             raise ValidationError("Booking is still pending, wait for approval, before payment")
         
         request = PaymentIntentRequest(
-            amount=int(booking.total_amount * 100),
+            amount=int(booking.total_amount),
             reference=str(booking.id),
             currency='USD',
             customer_email=booking.student.email,
