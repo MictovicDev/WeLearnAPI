@@ -3157,3 +3157,57 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-22 13:06:33,589 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-22 13:06:33,596 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
 2026-08-22 13:06:49,958 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\admin\serializers.py changed, reloading.
+2026-08-22 13:08:43,511 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:08:47,431 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:08:47,438 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:08:47,441 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:09:08,677 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-22 13:09:13,792 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:09:17,586 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:09:17,586 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:09:17,590 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:09:27,752 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-22 13:09:31,290 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:09:34,100 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-22 13:09:38,773 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:12:20,712 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-22 13:12:25,013 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:12:30,112 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-22 13:12:34,610 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:12:51,815 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 13:12:56,243 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:13:21,942 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 13:13:26,680 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:13:31,033 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:13:31,033 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:13:31,042 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:13:31,711 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 13:13:36,128 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:13:39,752 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:13:39,753 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:13:39,756 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:13:43,747 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 13:13:49,131 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:13:53,260 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:13:53,262 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:13:53,265 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:14:06,684 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 13:14:11,486 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:14:15,648 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:14:15,648 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:14:15,651 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:14:56,404 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 13:15:01,267 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:15:05,048 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:15:05,048 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:15:05,055 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:15:05,685 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 13:15:10,056 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:15:13,651 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:15:13,651 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:15:13,651 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 13:16:10,593 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\admin\serializers.py changed, reloading.
+2026-08-22 13:16:15,646 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 13:16:19,645 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 13:16:19,645 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 13:16:19,653 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000

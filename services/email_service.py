@@ -195,33 +195,38 @@ def notify_new_message(message):
 
 
 
-def notify_session_completed(booking):
-    """Fires two emails: one to the student, one to the tutor."""
-    common = {
-        "subject": booking.subject,
-        "scheduled_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
-    }
+def notify_session_completed_student(booking):
+    """Notifies the student that their tutor marked the session as completed."""
+    tutor_name = f"{booking.tutor_profile.user.first_name} {booking.tutor_profile.user.last_name}"
 
     send_templated_email_task.delay(
         subject="Your session has been completed",
-        template_name="session_completed.html",
+        template_name="session_completed_student.html",
         context={
-            **common,
+            "subject": booking.subject,
+            "session_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
             "student_first_name": booking.student.first_name,
-            "tutor_name": f"{booking.tutor_profile.user.first_name} + '' +  {booking.tutor_profile.user.last_name}",
-            "booking_url": f"{FRONTEND_URL}/tutors/dashboard/booking",
+            "tutor_name": tutor_name,
+            "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
         },
         to_email=booking.student.email,
     )
 
+
+def notify_session_confirmed_tutor(booking):
+    """Notifies the tutor that the student confirmed the session, funds are ready to withdraw."""
+    student_name = f"{booking.student.first_name} {booking.student.last_name}"
+
     send_templated_email_task.delay(
-        subject="You have a new booking request",
-        template_name="booking_created_tutor.html",
+        subject="Payment ready to withdraw",
+        template_name="session_confirmed_tutor.html",
         context={
-            **common,
-            "student_first_name": booking.student.first_name,
-            "tutor_name": f"{booking.tutor_profile.user.first_name}  +  {booking.tutor_profile.user.last_name}",
-            "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+            "subject": booking.subject,
+            "session_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
+            "tutor_first_name": booking.tutor_profile.user.first_name,
+            "student_name": student_name,
+            "amount": booking.amount,  # adjust to whatever field holds the session fee
+            "withdraw_url": f"{FRONTEND_URL}/tutors/dashboard/wallet",
         },
         to_email=booking.tutor_profile.user.email,
     )

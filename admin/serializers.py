@@ -107,7 +107,7 @@ class TutorAdminListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TutorProfile
-        fields = ['id', 'name', 'email', 'verification_status', 'subjects', 'total_sessions', 'average_rating']
+        fields = '__all__'
 
     def get_name(self, obj):
         return obj.user.get_full_name()
@@ -120,11 +120,7 @@ class TutorAdminDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TutorProfile
-        fields = [
-            'id', 'name', 'email', 'phone_number', 'location', 'joined', 'bio',
-            'subjects', 'skills', 'verification_status', 'is_verified',
-            'total_sessions', 'average_rating', 'total_reviews',
-        ]
+        fields = '__all__'
 
     def get_name(self, obj):
         return obj.user.get_full_name()

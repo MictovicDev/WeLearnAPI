@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 import uuid
 from users.models import User
 from django.core.exceptions import ValidationError as DjangoValidationError
-from services.email_service import notify_session_completed
+from services.email_service import notify_session_completed_student, notify_session_confirmed_tutor
 
 class Booking(models.Model):
     class SessionType(models.TextChoices):
@@ -103,7 +103,7 @@ class Booking(models.Model):
             if note:
                 self.tutor_response_note = note
                 update_fields.append("tutor_response_note")
-            noti
+            notify_session_completed_student(booking=self)
 
         if is_student:
             if self.student_acknowledged:
@@ -113,6 +113,7 @@ class Booking(models.Model):
             if note:
                 self.notes = note
                 update_fields.append("notes")
+            notify_session_confirmed_tutor(self)
 
         newly_completed = False
         if self.tutor_completed and self.student_acknowledged and self.status != self.Status.COMPLETED:
