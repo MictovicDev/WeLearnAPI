@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 from bookings.models import Booking
+from drf_spectacular.utils import extend_schema_field
 
 
 User = get_user_model()
@@ -104,13 +105,36 @@ class AdminLoginSerializer(serializers.Serializer):
 class TutorAdminListSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
     email = serializers.EmailField(source='user.email', read_only=True)
-
+    profile_image = serializers.SerializerMethodField()
     class Meta:
         model = TutorProfile
         fields = '__all__'
 
     def get_name(self, obj):
         return obj.user.get_full_name()
+
+    @extend_schema_field(serializers.CharField(allow_null=True))
+    def get_profile_image(self, obj):
+        profile_image = None
+
+        # Prefer tutor profile image if the user has a tutor profile
+        if hasattr(obj, "tutor_profile") and obj.tutor_profile:
+            profile_image = obj.tutor_profile.profile_image
+
+        # Fall back to user's profile image
+        if not profile_image:
+            profile_image = obj.profile_image
+
+        if not profile_image:
+            return None
+
+        request = self.context.get("request")
+
+        if request:
+            return request.build_absolute_uri(profile_image.url)
+
+        from django.conf import settings
+        return f"{settings.SITE_URL}{profile_image.url}"
 
 
 class TutorAdminDetailSerializer(serializers.ModelSerializer):
@@ -170,6 +194,7 @@ class WithdrawalAdminListSerializer(serializers.ModelSerializer):
             "amount",
             "account_number",
             "account_name",
+            "bank_name",
             "session",
             "status",
             "requested_at",
