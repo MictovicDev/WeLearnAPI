@@ -2,6 +2,7 @@
 from rest_framework import serializers
 from wallets.models import WalletTransaction, Withdrawal, Booking
 from decimal import Decimal
+from django.db import transaction
 
 class WalletTransactionSerializer(serializers.ModelSerializer):
     title = serializers.CharField(source="description")
@@ -119,7 +120,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
             wallet.save(update_fields=["withdrawable_balance","balance"])
             booking.tutor_has_withdrawn = True
             booking.save(update_fields=["tutor_has_withdrawn"])
-            transaction = WalletTransaction.objects.create(
+            new_transaction = WalletTransaction.objects.create(
                             wallet=wallet,
                             type="debit",
                             status="pending",
@@ -130,7 +131,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
             withdrawal = Withdrawal.objects.create(
                 session=booking,
                 wallet=wallet,
-                transaction = transaction
+                transaction = new_transaction
                 **validated_data
             )
             
