@@ -120,9 +120,35 @@ class WithdrawalViewSet(viewsets.GenericViewSet, viewsets.mixins.CreateModelMixi
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+
         try:
-            withdrawal = serializer.save()
+            with transaction.atomic():
+                wallet = Wallet.objects.select_for_update().get(
+                    user=request.user
+                )
+
+                amount = serializer.validated_data["amount"]
+
+                if amount > wallet.withdrawable_balance:
+                    raise ValidationError(
+                        "Insufficient withdrawable balance."
+                    )
+
+                # Deduct immediately
+                wallet.withdrawable_balance -= amount
+                wallet.save(update_fields=["withdrawable_balance"])
+
+                # Create withdrawal
+                withdrawal = serializer.save(wallet=wallet)
+
         except ValidationError as e:
-            return Response({"detail": e.message}, status=status.HTTP_400_BAD_REQUEST)
-        return Response(self.get_serializer(withdrawal).data, status=status.HTTP_201_CREATED)
+            return Response(
+                {"detail": str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        return Response(
+            self.get_serializer(withdrawal).data,
+            status=status.HTTP_201_CREATED
+        )
 

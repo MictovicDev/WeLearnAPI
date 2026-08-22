@@ -12,6 +12,11 @@ class Wallet(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="wallet"
     )
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=Decimal("0.00"))
+    withdrawable_balance = models.DecimalField(
+        max_digits=12,
+        decimal_places=2,
+        default=Decimal("0.00")
+    )
     currency = models.CharField(max_length=10, default="usd")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

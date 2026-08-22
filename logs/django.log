@@ -3211,3 +3211,52 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-22 13:16:19,645 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 2026-08-22 13:16:19,645 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-22 13:16:19,653 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 15:00:51,441 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 15:00:57,097 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 15:00:57,214 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 15:00:57,267 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-08-22 17:57:02,374 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 17:57:22,497 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 17:57:22,504 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 17:57:22,512 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 17:58:30,954 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\views.py changed, reloading.
+2026-08-22 17:58:37,027 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 17:58:40,480 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 17:58:40,480 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 17:58:40,480 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 17:59:32,934 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 17:59:37,704 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 17:59:41,029 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 17:59:41,029 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 17:59:41,031 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 17:59:46,775 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 17:59:52,159 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 17:59:58,189 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 18:00:02,335 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:00:06,289 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 18:00:06,289 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 18:00:06,296 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 18:00:08,028 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 18:00:11,938 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:01:02,261 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 18:01:07,264 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:01:21,827 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 18:01:26,371 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:01:30,320 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 18:01:30,320 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 18:01:30,326 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 18:01:34,097 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 18:01:38,358 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:01:41,556 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 18:01:41,564 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 18:01:41,564 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 18:01:51,553 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 18:01:54,990 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:01:58,266 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 18:01:58,270 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 18:01:58,273 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-22 18:01:59,722 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\bookings\models.py changed, reloading.
+2026-08-22 18:02:04,289 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-22 18:02:07,869 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-22 18:02:07,869 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-22 18:02:07,880 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
