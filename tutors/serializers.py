@@ -71,7 +71,6 @@ class TutorProfileDetailSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(source='user.email', read_only=True)
     payment_info = PaymentInfoSerializer(read_only=True)
     availability_slots = AvailabilitySerializer(many=True)
-    bookings = serializers.SerializerMethodField()
     profile_image = serializers.SerializerMethodField()
 
     class Meta:
