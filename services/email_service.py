@@ -55,8 +55,8 @@ def notify_booking_created(booking):
         context={
             **common,
             "student_first_name": booking.student.first_name,
-            "tutor_name": f"{booking.tutor_profile.user.first_name} + '' +  {booking.tutor_profile.user.last_name}",
-            "booking_url": f"{FRONTEND_URL}/tutors/dashboard/booking",
+            "tutor_name": f"{booking.tutor_profile.user.first_name} + ' ' +  {booking.tutor_profile.user.last_name}",
+            "booking_url": f"https://welearnglobal.vercel.app/student/dashboard/bookings",
         },
         to_email=booking.student.email,
     )
@@ -68,7 +68,7 @@ def notify_booking_created(booking):
             **common,
             "student_first_name": booking.student.first_name,
             "tutor_name": f"{booking.tutor_profile.user.first_name}  +  {booking.tutor_profile.user.last_name}",
-            "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+            "dashboard_url": f"https://welearnglobal.vercel.app/tutor/dashboard/bookings",
         },
         to_email=booking.tutor_profile.user.email,
     )
@@ -97,7 +97,7 @@ def notify_booking_status(booking, type_status: str):
             "status": type_status,
             "student_first_name": booking.student.first_name,
             "payment_url": f"{FRONTEND_URL}/bookings/{booking.id}/pay",
-            "find_tutor_url": f"{FRONTEND_URL}/tutors",
+            "find_tutor_url": 'https://welearnglobal.vercel.app/student/dashboard/bookings'
         },
         to_email=booking.student.email,
     )
@@ -110,7 +110,7 @@ def notify_booking_status(booking, type_status: str):
                 **common,
                 "tutor_first_name": booking.get_tutor_fullname(),
                 "student_name": booking.student.first_name,
-                "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+                "dashboard_url": f"https://welearnglobal.vercel.app/tutor/dashboard/bookings",
             },
             to_email=booking.tutor_profile.user.email,
         )
@@ -134,7 +134,7 @@ def notify_payment_success(booking, payment):
             "student_first_name": booking.student.first_name,
             "tutor_name": booking.get_tutor_fullname(),
             "payment_reference": payment.provider_reference,
-            "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+            "dashboard_url": 'https://welearnglobal.vercel.app/student/dashboard/bookings'
         },
         to_email=booking.student.email,
     )
@@ -146,7 +146,7 @@ def notify_payment_success(booking, payment):
             **common,
             "tutor_first_name": booking.tutor_profile.user.first_name,
             "student_name": booking.student.first_name + ' ' + booking.student.last_name,
-            "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+            "dashboard_url": f"https://welearnglobal.vercel.app/tutor/dashboard/bookings",
         },
         to_email=booking.tutor_profile.user.email,
     )
@@ -161,7 +161,7 @@ def notify_tutor_approved(tutor_profile):
         template_name="tutor_approved.html",
         context={
             "tutor_first_name": tutor_profile.user.first_name,
-            "dashboard_url": f"{FRONTEND_URL}/dashboard",
+            "dashboard_url": f"https://welearnglobal.vercel.app/tutor/dashboard/bookings",
         },
         to_email=tutor_profile.user.email,
     )
@@ -207,7 +207,7 @@ def notify_session_completed_student(booking):
             "session_datetime": booking.scheduled_date.strftime("%A, %d %b %Y &middot; %I:%M %p"),
             "student_first_name": booking.student.first_name,
             "tutor_name": tutor_name,
-            "dashboard_url": f"{FRONTEND_URL}/bookings/{booking.id}",
+            "dashboard_url": f"https://welearnglobal.vercel.app/student/dashboard/bookings",
         },
         to_email=booking.student.email,
     )
@@ -226,7 +226,7 @@ def notify_session_confirmed_tutor(booking):
             "tutor_first_name": booking.tutor_profile.user.first_name,
             "student_name": student_name,
             "amount": booking.total_amount,  # adjust to whatever field holds the session fee
-            "withdraw_url": f"{FRONTEND_URL}/tutors/dashboard/wallet",
+            "withdraw_url": f"https://welearnglobal.vercel.app/tutor/dashboard/bookings",
         },
         to_email=booking.tutor_profile.user.email,
     )

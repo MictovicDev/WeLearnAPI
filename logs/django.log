@@ -3271,3 +3271,68 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-22 22:40:08,411 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
 2026-08-22 22:40:08,413 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
 2026-08-22 22:40:10,705 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\wallets\views.py changed, reloading.
+2026-08-24 16:23:30,994 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:23:40,819 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:23:40,823 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:23:40,826 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:38:12,577 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:38:22,639 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:38:31,734 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:38:31,749 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:38:31,793 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:38:36,578 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:38:43,546 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:38:51,164 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:38:51,169 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:38:51,186 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:38:53,818 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:38:58,802 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:39:03,303 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:39:06,711 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:39:10,822 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:39:10,823 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:39:10,823 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:39:41,774 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:39:47,623 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:39:50,927 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:39:50,927 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:39:50,931 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:40:40,873 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:40:56,676 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:41:02,709 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:41:02,727 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:41:02,739 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:41:03,252 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:41:09,143 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:41:15,174 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:41:15,174 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:41:15,175 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:41:36,383 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:41:39,887 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:41:42,831 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:41:42,831 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:41:42,831 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:42:41,925 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:42:44,878 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:42:47,818 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:42:47,820 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:42:47,821 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:43:06,417 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:43:09,333 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:43:12,393 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:43:12,393 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:43:12,394 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:43:24,824 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:43:28,520 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:43:31,378 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:43:33,818 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:43:36,667 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:43:36,669 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:43:36,670 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:43:42,434 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:43:45,438 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 16:43:48,445 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 16:43:48,446 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 16:43:48,446 [CRITICAL] daphne.server: Listen failure: Couldn't listen on 127.0.0.1:8000: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2026-08-24 16:43:55,271 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\services\email_service.py changed, reloading.
+2026-08-24 16:43:58,315 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
