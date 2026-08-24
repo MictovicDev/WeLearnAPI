@@ -27,7 +27,7 @@ class PaymentService:
             raise ValidationError("Booking has been declined by Tutor.")
         if booking.status == Booking.Status.PENDING:
             raise ValidationError("Booking is still pending, wait for approval, before payment")
-        new_amount = booking.total_amount / Decimal("100"),
+        new_amount = booking.total_amount / Decimal("100")
         request = PaymentIntentRequest(
             amount=int(new_amount * 100),
             reference=str(booking.id),
