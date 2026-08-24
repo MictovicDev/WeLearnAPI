@@ -16,7 +16,7 @@ def payment_succeeded_handler(sender, payment, booking, **kwargs):
         amount= payment.amount,
         balance_after = wallet.balance + payment.amount,
         reference=f"Booking-{payment.provider_reference[0:1]}",
-        description= f"Payment from {booking.title}"
+        description= f"Payment for {booking.subject} session"
     )
     notify_payment_success(booking, payment)
     

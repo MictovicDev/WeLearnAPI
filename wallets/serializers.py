@@ -127,7 +127,7 @@ class WithdrawalRequestSerializer(serializers.ModelSerializer):
                             amount=amount,
                             balance_after=wallet.balance,
                             reference = generate_reference("WD"),
-                            description=f"Withdrawal from {booking.title}"
+                            description=f"Withdrawal from {booking.subject} session"
             )
             withdrawal = Withdrawal.objects.create(
                 session=booking,
