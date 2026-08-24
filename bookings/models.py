@@ -104,6 +104,7 @@ class Booking(models.Model):
             if note:
                 self.tutor_response_note = note
                 update_fields.append("tutor_response_note")
+            print("Tutor Telling Student session has been completed")
             notify_session_completed_student(booking=self)
 
         if is_student:
@@ -117,6 +118,7 @@ class Booking(models.Model):
             wallet = self.tutor_profile.user.wallet
             wallet.withdrawable_balance += self.total_amount
             wallet.save(update_fields=["withdrawable_balance"])
+            print("Student Telling Tutor it is confirmed")
             notify_session_confirmed_tutor(self)
             
 
