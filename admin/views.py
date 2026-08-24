@@ -138,7 +138,7 @@ class AdminViewSet(viewsets.GenericViewSet):
             )
             transaction = withdrawal.transaction
             transaction.status = "completed"
-            transaction.save(updated_fields=["status"])
+            transaction.save(update_fields=["status"])
         except DjangoValidationError as e:
             return Response({'detail': e.message}, status=status.HTTP_400_BAD_REQUEST)
 
