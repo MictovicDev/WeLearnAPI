@@ -226,7 +226,7 @@ def notify_session_confirmed_tutor(booking):
             "tutor_first_name": booking.tutor_profile.user.first_name,
             "student_name": student_name,
             "amount": booking.total_amount,  # adjust to whatever field holds the session fee
-            "withdraw_url": f"https://welearnglobal.vercel.app/tutor/dashboard/bookings",
+            "dashboard_url": f"https://welearnglobal.vercel.app/tutor/dashboard/bookings",
         },
         to_email=booking.tutor_profile.user.email,
     )
