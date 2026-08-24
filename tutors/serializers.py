@@ -71,7 +71,8 @@ class TutorProfileDetailSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(source='user.email', read_only=True)
     payment_info = PaymentInfoSerializer(read_only=True)
     availability_slots = AvailabilitySerializer(many=True)
-    bookings = serializers.SerializerMethodField
+    bookings = serializers.SerializerMethodField()
+    profile_image = serializers.SerializerMethodField()
 
     class Meta:
         model = TutorProfile
@@ -100,21 +101,46 @@ class TutorProfileDetailSerializer(serializers.ModelSerializer):
         bookings = obj.bookings.all()
         return BookingListSerializer(bookings, many=True).data
 
+    @extend_schema_field(serializers.CharField(allow_null=True))
+    def get_profile_image(self, obj):
+        if not obj.profile_image:
+            return None
+
+        request = self.context.get("request")
+
+        if request:
+            return request.build_absolute_uri(obj.profile_image.url)
+
+        from django.conf import settings
+        return f"{settings.SITE_URL}{obj.profile_image.url}"
 
 
 class TutorProfileListSerializer(serializers.ModelSerializer):
     """Used for the public discovery list, kept lightweight."""
+
     full_name = serializers.SerializerMethodField()
+    profile_image = serializers.SerializerMethodField()
 
     class Meta:
         model = TutorProfile
-        fields = '__all__'
+        fields = "__all__"
 
     @extend_schema_field(serializers.CharField())
     def get_full_name(self, obj):
         return obj.user.get_full_name()
 
+    @extend_schema_field(serializers.CharField(allow_null=True))
+    def get_profile_image(self, obj):
+        if not obj.profile_image:
+            return None
 
+        request = self.context.get("request")
+
+        if request:
+            return request.build_absolute_uri(obj.profile_image.url)
+
+        from django.conf import settings
+        return f"{settings.SITE_URL}{obj.profile_image.url}"
 
 
 
