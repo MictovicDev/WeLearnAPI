@@ -1,3 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+
+# Environment / secrets
 .env
 .env.*
-!.env.example
+secrets/
+*.json
+
+# Django
+staticfiles/
+media/
+
+# Logs
+logs/
+*.log
+
+# Daphne / sockets
+*.sock
+*.sock.lock
+
+# OS
+.DS_Store

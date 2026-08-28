@@ -3394,3 +3394,7 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-24 18:43:12,203 [INFO] django.channels.server: [mHTTP GET /admin/jsi18n/ 200 [2.31, 127.0.0.1:60641][0m
 2026-08-24 18:43:20,534 [INFO] django.channels.server: [mHTTP POST /api/v1/bookings/22/complete/ 200 [2.69, 127.0.0.1:54250][0m
 2026-08-24 18:44:37,785 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\payment\receivers.py changed, reloading.
+2026-08-24 18:44:57,151 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-08-24 18:45:02,467 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-08-24 18:45:02,469 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-08-24 18:45:02,472 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000

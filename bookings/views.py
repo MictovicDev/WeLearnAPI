@@ -36,6 +36,15 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 import uuid
 from datetime import datetime
+import logging
+import uuid
+from datetime import datetime
+
+from django.conf import settings
+
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 
 logger = logging.getLogger('tutor_platform')
 
@@ -166,106 +175,141 @@ class BookingViewSet(
         )
 
     def _create_calendar_event(self, booking):
+        """
+        Create a Google Calendar event and Google Meet conference
+        for a booking using a Google service account.
+
+        The service account must have access to the configured
+        Google Calendar.
+        """
+
         try:
-            google_token = GoogleOAuthToken.objects.first()
-        except GoogleOAuthToken.DoesNotExist:
-            return
+            # ---------------------------------------------------------
+            # 1. Load service-account credentials
+            # ---------------------------------------------------------
+            credentials = service_account.Credentials.from_service_account_file(
+                settings.GOOGLE_SERVICE_ACCOUNT_FILE,
+                scopes=SCOPES,
+            )
 
-        if not google_token:
-            return
+            # ---------------------------------------------------------
+            # 2. Build Google Calendar service
+            # ---------------------------------------------------------
+            service = build(
+                "calendar",
+                "v3",
+                credentials=credentials,
+            )
 
-        credentials = Credentials(
-            token=google_token.access_token,
-            refresh_token=google_token.refresh_token,
-            token_uri="https://oauth2.googleapis.com/token",
-            client_id=settings.GOOGLE_CLIENT_ID,
-            client_secret=settings.GOOGLE_CLIENT_SECRET,
-            scopes=SCOPES,
-        )
+            # ---------------------------------------------------------
+            # 3. Build start/end datetime
+            # ---------------------------------------------------------
+            start_date = datetime.combine(
+                booking.scheduled_date,
+                booking.start_time,
+            )
 
-        if credentials.expired and credentials.refresh_token:
-            try:
-                credentials.refresh(Request())
+            end_date = datetime.combine(
+                booking.scheduled_date,
+                booking.end_time,
+            )
 
-                google_token.access_token = credentials.token
-                google_token.expires_at = credentials.expiry
+            # ---------------------------------------------------------
+            # 4. Create Calendar event
+            # ---------------------------------------------------------
+            body = {
+                "summary": (
+                    booking.title
+                    or f"Tutoring session: {booking.subject}"
+                ),
 
-                google_token.save(
-                    update_fields=[
-                        "access_token",
-                        "expires_at",
-                    ]
-                )
+                "description": booking.notes or "",
 
-            except Exception as exc:
-                logger.exception(
-                    "Failed to refresh Google Calendar token: %s",
-                    exc,
-                )
-                return
+                "location": booking.location_address or "",
 
-        service = build(
-            "calendar",
-            "v3",
-            credentials=credentials,
-        )
+                "start": {
+                    "dateTime": start_date.isoformat(),
+                    "timeZone": "Africa/Lagos",
+                },
 
-        start_date = datetime.combine(
-            booking.scheduled_date,
-            booking.start_time,
-        )
+                "end": {
+                    "dateTime": end_date.isoformat(),
+                    "timeZone": "Africa/Lagos",
+                },
 
-        end_date = datetime.combine(
-            booking.scheduled_date,
-            booking.end_time,
-        )
-        print(start_date)
-        print(end_date)
+                # -----------------------------------------------------
+                # Create Google Meet conference
+                # -----------------------------------------------------
+                "conferenceData": {
+                    "createRequest": {
+                        "requestId": str(uuid.uuid4()),
 
-        body = {
-            "summary": booking.title or f"Tutoring session: {booking.subject}",
-            "description": booking.notes or "",
-            "location": booking.location_address or "",
-
-            "start": {
-                "dateTime": start_date.isoformat(),
-                "timeZone": "Africa/Lagos",
-            },
-
-            "end": {
-                "dateTime": end_date.isoformat(),
-                "timeZone": "Africa/Lagos",
-            },
-
-            "conferenceData": {
-                "createRequest": {
-                    "requestId": str(uuid.uuid4()),
-                    "conferenceSolutionKey": {
-                        "type": "hangoutsMeet",
+                        "conferenceSolutionKey": {
+                            "type": "hangoutsMeet",
+                        },
                     },
                 },
-            },
-        }
+            }
 
-        google_event = (
-            service.events()
-            .insert(
-                calendarId="primary",
-                body=body,
-                conferenceDataVersion=1,
+            # ---------------------------------------------------------
+            # 5. Send event to Google Calendar
+            # ---------------------------------------------------------
+            google_event = (
+                service.events()
+                .insert(
+                    calendarId=settings.GOOGLE_CALENDAR_ID,
+                    body=body,
+                    conferenceDataVersion=1,
+                )
+                .execute()
             )
-            .execute()
-        )
 
-        booking.session_link = google_event.get("hangoutLink", "")
-        booking.google_event_id = google_event["id"]
+            # ---------------------------------------------------------
+            # 6. Save Google information to booking
+            # ---------------------------------------------------------
+            booking.google_event_id = google_event.get("id")
 
-        booking.save(
-            update_fields=[
-                "session_link",
-                "google_event_id",
-            ]
-        )
+            booking.session_link = google_event.get(
+                "hangoutLink",
+                "",
+            )
+
+            booking.save(
+                update_fields=[
+                    "google_event_id",
+                    "session_link",
+                ]
+            )
+
+            logger.info(
+                "Google Calendar event created successfully. "
+                "Booking ID=%s, Event ID=%s, Meet=%s",
+                booking.id,
+                booking.google_event_id,
+                booking.session_link,
+            )
+
+            return google_event
+
+        except HttpError as exc:
+            logger.exception(
+                "Google Calendar API error while creating event "
+                "for booking %s: %s",
+                booking.id,
+                exc,
+            )
+
+            return None
+
+        except Exception as exc:
+            logger.exception(
+                "Unexpected error creating Google Calendar event "
+                "for booking %s: %s",
+                booking.id,
+                exc,
+            )
+
+            return None
 
     @action(methods=['PATCH'], detail=True, url_path='cancel')
     def cancel(self, request, pk=None):
