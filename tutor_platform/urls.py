@@ -12,7 +12,7 @@ from reviews.views import ReviewViewSet
 from chat.views import ChatThreadViewSet
 from payment.views import PaymentViewSet
 from wallets.views import WalletViewSet, WithdrawalViewSet, CompletedSessionListView
-
+from users.views import PasswordResetConfirmView, PasswordResetRequestView
 
 
 
@@ -58,6 +58,8 @@ urlpatterns = [
     # Stripe webhook, kept outside the router since it's a plain view with
     # its own auth handling, not a DRF viewset action.
     path('api/v1/webhooks/', include('payment.urls')),
+    path('password-reset/', PasswordResetRequestView.as_view(), name='password-reset-request'),
+    path('password-reset/confirm/', PasswordResetConfirmView.as_view(), name='password-reset-confirm'),
     # All routed viewsets
     path('api/v1/', include(router.urls)),
     # path('api/v1/chat/', include('chat.urls')),

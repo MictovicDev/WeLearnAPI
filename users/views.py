@@ -15,6 +15,16 @@ from users.permissions import IsAdmin
 from services.email_service import notify_verification_email
 from .models import EmailVerificationToken
 from rest_framework.views import APIView
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
+from django.contrib.auth import get_user_model
+from django.core.mail import send_mail
+from django.conf import settings
+
+from .models import PasswordResetToken
+from .serializers import PasswordResetRequestSerializer, PasswordResetConfirmSerializer
 
 
 User = get_user_model()
@@ -157,3 +167,67 @@ class VerifyEmailView(APIView):
         user.save(update_fields=["is_active"])
         token.delete()  # one-time use
         return Response({"detail": "Email verified"}, status=200)
+
+
+
+
+
+
+
+
+
+class PasswordResetRequestView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = PasswordResetRequestSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        email = serializer.validated_data['email']
+
+        user = User.objects.filter(email=email, is_active=True).first()
+        if user:
+            token = PasswordResetToken.objects.create(user=user)
+            reset_url = f"{settings.FRONTEND_URL}/reset-password?token={token.key}"
+            send_mail(
+                subject='Reset your password',
+                message=f'Click the link to reset your password: {reset_url}. This link expires in 1 hour.',
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[email],
+                fail_silently=False,
+            )
+
+        # Always return 200, don't reveal whether the email exists
+        return Response(
+            {'detail': 'If an account with that email exists, a reset link has been sent.'},
+            status=status.HTTP_200_OK
+        )
+
+
+class PasswordResetConfirmView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = PasswordResetConfirmSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        token_key = serializer.validated_data['token']
+        new_password = serializer.validated_data['new_password']
+
+        try:
+            token = PasswordResetToken.objects.select_related('user').get(key=token_key)
+        except PasswordResetToken.DoesNotExist:
+            return Response({'detail': 'Invalid or expired token.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if not token.is_valid():
+            return Response({'detail': 'Invalid or expired token.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = token.user
+        user.set_password(new_password)
+        user.save(update_fields=['password'])
+
+        token.used = True
+        token.save(update_fields=['used'])
+
+        # Invalidate any other outstanding tokens for this user
+        PasswordResetToken.objects.filter(user=user, used=False).exclude(pk=token.pk).update(used=True)
+
+        return Response({'detail': 'Password has been reset successfully.'}, status=status.HTTP_200_OK)
