@@ -172,10 +172,6 @@ class VerifyEmailView(APIView):
 
 
 
-
-
-
-
 class PasswordResetRequestView(APIView):
     permission_classes = [AllowAny]
 

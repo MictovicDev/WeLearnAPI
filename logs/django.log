@@ -3444,3 +3444,21 @@ django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an as
 2026-08-31 16:26:52,948 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2026-08-31 16:26:58,030 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\tutor_platform\urls.py changed, reloading.
 2026-08-31 16:27:02,909 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-09-03 14:39:22,545 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-09-03 14:39:27,673 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-09-03 14:39:27,674 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-09-03 14:39:27,677 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-09-03 14:41:20,129 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-09-03 14:41:28,824 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-09-03 14:41:33,752 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-09-03 14:41:33,752 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-09-03 14:41:33,756 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-09-03 15:32:08,065 [INFO] django.utils.autoreload: C:\Users\Mictovic\projects\tutor_platform\tutor_platform\users\views.py changed, reloading.
+2026-09-03 15:32:13,182 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2026-09-03 15:32:16,496 [INFO] daphne.server: HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+2026-09-03 15:32:16,501 [INFO] daphne.server: Configuring endpoint tcp:port=8000:interface=127.0.0.1
+2026-09-03 15:32:16,503 [INFO] daphne.server: Listening on TCP address 127.0.0.1:8000
+2026-09-03 15:42:03,339 [WARNING] django.channels.server: [31;1mHTTP POST /password-reset/ 400 [0.04, 127.0.0.1:51504][0m
+2026-09-03 15:42:18,063 [INFO] django.channels.server: [mHTTP POST /password-reset/ 200 [6.44, 127.0.0.1:51504][0m
+2026-09-03 15:46:34,518 [ERROR] django.channels.server: [35;1mHTTP POST /password-reset/confirm 500 [1.33, 127.0.0.1:50142][0m
+2026-09-03 15:46:50,971 [INFO] django.channels.server: [mHTTP POST /password-reset/confirm/ 200 [3.90, 127.0.0.1:50142][0m
