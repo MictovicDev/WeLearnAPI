@@ -280,15 +280,17 @@ PAYMENT_CANCEL_URL = os.getenv("PAYMENT_CANCEL_URL")
 
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 
-
+print(GOOGLE_CLIENT_ID)
 GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
-GOOGLE_SERVICE_ACCOUNT_FILE = os.environ.get(
+GOOGLE_SERVICE_ACCOUNT_FILE = os.getenv(
     "GOOGLE_SERVICE_ACCOUNT_FILE"
 )
 
-GOOGLE_CALENDAR_ID = os.environ.get(
+GOOGLE_CALENDAR_ID = os.getenv(
     "GOOGLE_CALENDAR_ID"
 )
+
+print(GOOGLE_CALENDAR_ID)
 
 # settings.py
 SESSION_COOKIE_SAMESITE = 'Lax'  # Or 'None' if frontend and backend are on completely separate domains
