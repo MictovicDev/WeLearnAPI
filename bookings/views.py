@@ -386,7 +386,7 @@ class BookingViewSet(
 
 
 SCOPES = [
-    "https://www.googleapis.com/auth/calendar.events",
+    "https://www.googleapis.com/auth/calendar",
 ]
 
 
