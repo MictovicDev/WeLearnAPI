@@ -179,18 +179,20 @@ class BookingViewSet(
         Create a Google Calendar event and Google Meet conference
         for a booking using a Google service account.
 
-        The service account must have access to the configured
-        Google Calendar.
+        The service account must have domain-wide delegation authorized
+        in the Workspace Admin console, and must impersonate a real
+        licensed user via with_subject() for Meet link generation to work.
         """
 
         try:
             # ---------------------------------------------------------
-            # 1. Load service-account credentials
+            # 1. Load service-account credentials and impersonate
+            #    the calendar owner (required for Meet link creation)
             # ---------------------------------------------------------
             credentials = service_account.Credentials.from_service_account_file(
                 settings.GOOGLE_SERVICE_ACCOUNT_FILE,
                 scopes=SCOPES,
-            )
+            ).with_subject(settings.GOOGLE_CALENDAR_ID)
 
             # ---------------------------------------------------------
             # 2. Build Google Calendar service
@@ -265,7 +267,32 @@ class BookingViewSet(
             )
 
             # ---------------------------------------------------------
-            # 6. Save Google information to booking
+            # 6. Check whether the Meet conference was actually created.
+            #    This catches silent failures where the event saves but
+            #    Google couldn't attach a conference (e.g. delegation
+            #    not fully authorized, or licensing issue on the
+            #    impersonated user).
+            # ---------------------------------------------------------
+            conference_data = google_event.get("conferenceData", {})
+
+            conference_status = (
+                conference_data
+                .get("createRequest", {})
+                .get("status", {})
+                .get("statusCode")
+            )
+
+            if conference_status != "success":
+                logger.warning(
+                    "Meet link not created for booking %s. "
+                    "Status=%s, conferenceData=%s",
+                    booking.id,
+                    conference_status,
+                    conference_data,
+                )
+
+            # ---------------------------------------------------------
+            # 7. Save Google information to booking
             # ---------------------------------------------------------
             booking.google_event_id = google_event.get("id")
 
@@ -282,11 +309,12 @@ class BookingViewSet(
             )
 
             logger.info(
-                "Google Calendar event created successfully. "
-                "Booking ID=%s, Event ID=%s, Meet=%s",
+                "Google Calendar event created. "
+                "Booking ID=%s, Event ID=%s, Meet=%s, ConferenceStatus=%s",
                 booking.id,
                 booking.google_event_id,
                 booking.session_link,
+                conference_status,
             )
 
             return google_event
